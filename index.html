@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>うさぎブックス ― 本を書かずにいられない理由から、始まる。</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +74,7 @@
   .blob-2{width:140px;height:140px;background:var(--cream);bottom:0;left:0;}
   .hero-card{
     position:relative; background:var(--white); border-radius:24px; box-shadow:var(--shadow-lg);
-    border:1px solid #000000; padding:30px 28px; width:300px;
+    padding:30px 28px; width:300px;
   }
   .hero-card .mark-badge{width:56px;height:56px;margin-bottom:16px;}
   .hero-card .catch{font-size:16px; font-weight:700; line-height:1.6; margin-bottom:18px;}
@@ -180,7 +181,7 @@
   .sample-band .wrap{max-width:1056px; padding:0;}
   .project{
     display:grid; grid-template-columns:0.9fr 1.1fr; gap:0; border-radius:24px; overflow:hidden;
-    background:var(--white); box-shadow:var(--shadow-md); border-left:6px solid #333333;
+    background:var(--white); box-shadow:var(--shadow-md);
   }
   .project-visual{background:var(--cream); color:var(--ink); padding:28px 26px; display:flex; flex-direction:column; justify-content:space-between;}
   .toi-mark{font-size:52px; font-family:'Shippori Mincho',serif; color:var(--blue); line-height:1; margin-bottom:18px;}
@@ -215,6 +216,14 @@
     .hero h1{font-size:38px;}
     .interview-banner{grid-template-columns:1fr; text-align:left;}
     .picks-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 20px;}
+    .hero h1{font-size:30px;}
+    .hero-sub{font-size:15px;}
+    .sec-head{font-size:24px;}
+    .interview-quote{font-size:15px;}
+    .cta-final h2{font-size:26px;}
   }
 </style>
 </head>
@@ -419,7 +428,7 @@
       <div class="pick-card">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project">
@@ -430,7 +439,7 @@
       <div class="pick-card">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project">
@@ -447,7 +456,7 @@
     <div class="interview-banner">
       <div class="interview-avatar">
         <svg width="100%" height="100%" viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="29" fill="var(--pink)"/>
+          <circle cx="30" cy="30" r="29" fill="var(--blue)"/>
           <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
           <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
           <circle cx="30" cy="35" r="12" fill="var(--white)"/>
