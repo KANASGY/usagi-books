@@ -86,7 +86,7 @@
   .chip{border:1.5px solid var(--line);border-radius:20px;padding:6px 16px;font-size:13px;background:var(--white);cursor:pointer;color:var(--ink-soft);font-weight:700;}
   .chip.active{background:var(--indigo);border-color:var(--indigo);color:var(--white);font-weight:700;}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-  .p-card{border:1px solid var(--line);border-left:5px solid #333333;border-radius:20px;overflow:hidden;background:var(--white);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .15s, box-shadow .15s;}
+  .p-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--white);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .15s, box-shadow .15s;}
   .p-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
   .p-card .thumb{background:var(--card);padding:24px 20px;border-bottom:0.5px solid var(--line);}
   .p-card .mark{margin-bottom:10px;}
@@ -187,7 +187,7 @@
       <span style="color:var(--orange);">うさぎブックス</span>
     </div>
     <div class="nav-links">
-      <a class="nav-btn" href="usagi_books_lp.index.html" style="text-decoration:none;">サイトTOP</a>
+      <a class="nav-btn" href="index.html" style="text-decoration:none;">サイトTOP</a>
       <button class="nav-btn" data-view="browse" onclick="showView('browse')">さがす</button>
       <button class="nav-btn" data-view="events" onclick="showView('events')">読書会</button>
       <button class="nav-btn" data-view="create" onclick="showView('create')">はじめる</button>
@@ -224,7 +224,7 @@
       <div class="pick-card" onclick="openDetail('p1')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;">編集部・佐藤</div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project"><span class="t">まだ見ぬ町の、灯り</span><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -232,7 +232,7 @@
       <div class="pick-card" onclick="openDetail('p4')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;">編集部・中村</div><div class="who">法人連携担当</div></div>
+          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project"><span class="t">数字が語らない現場</span><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
@@ -240,7 +240,7 @@
       <div class="pick-card" onclick="openDetail('p6')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;">編集部・吉田</div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project"><span class="t">一人分の台所仕事</span><span class="g" style="background:#FCF2DC;color:var(--amber);">実用書</span></div>
@@ -543,7 +543,7 @@ async function loadData(){
   renderGrid();
   renderEvents();
   const iv = document.getElementById('interview-avatar');
-  if(iv) iv.innerHTML = rabbitMark();
+  if(iv) iv.innerHTML = rabbitMark('var(--blue)');
 }
 
 function renderAccountBtn(){
@@ -650,9 +650,10 @@ const genreColors = {
   '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)'
 };
 
-function rabbitMark(){
+function rabbitMark(color){
+  const c = color || 'var(--rose)';
   return `<svg width="34" height="34" viewBox="0 0 60 60" aria-hidden="true">
-    <circle cx="30" cy="30" r="29" fill="var(--rose)"/>
+    <circle cx="30" cy="30" r="29" fill="${c}"/>
     <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
     <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
     <circle cx="30" cy="35" r="12" fill="var(--white)"/>
