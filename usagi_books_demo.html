@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>うさぎブックス（体験デモ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --paper:#F2FAF5;
+    --paper-deep:#E3F4EA;
+    --ink:#20261F;
+    --ink-soft:#5B6459;
+    --indigo:#1FA372;
+    --pink:#EC5C8D;
+    --rose:#EC5C8D;
+    --red:#E14B4A;
+    --amber:#EFB013;
+    --orange:#F2762E;
+    --blue:#3E8EDE;
+    --teal:#1E9E86;
+    --maroon:#B4437A;
+    --line:#E4F2E9;
+    --card:#F1F9F4;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--white);}
+  body{margin:0;min-height:100vh;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.7;}
+  .serif{font-family:'Shippori Mincho',serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  button,input,select,textarea{font-family:inherit;}
+
+  /* nav */
+  nav{border-bottom:0.5px solid var(--line);background:var(--white);position:sticky;top:0;z-index:5;}
+  .nav-inner{max-width:960px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Zen Kaku Gothic New';font-weight:700;font-size:17px;cursor:pointer;}
+  .nav-links{display:flex;gap:8px;}
+  .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:20px;padding:8px 18px;font-size:13.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;}
+  .nav-btn.active{background:var(--pink);border-color:var(--pink);color:var(--white);}
+
+  section.view{display:none;padding:44px 0 70px;}
+  section.view.active{display:block;}
+
+  /* browse */
+  .browse-head{margin-bottom:28px;}
+  .browse-head h2{font-size:26px;margin:0 0 6px;font-weight:700;}
+  .browse-head p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .interview-banner{
+    display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center;
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:18px 22px; margin-bottom:24px;
+  }
+  .interview-avatar{
+    width:46px; height:46px; border-radius:50%; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .interview-avatar svg{width:100%;height:100%;}
+  .interview-tag{font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:var(--pink); margin-bottom:4px;}
+  .interview-quote{font-size:14px; font-weight:700; line-height:1.5;}
+  .interview-byline{font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
+  .interview-link{
+    flex-shrink:0; border:1.5px solid var(--ink); border-radius:100px; padding:8px 16px;
+    font-size:12.5px; font-weight:700; color:var(--ink); background:var(--white); cursor:pointer; white-space:nowrap;
+  }
+  @media (max-width:600px){ .interview-banner{grid-template-columns:1fr;} }
+  .picks-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px;}
+  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:16px 16px; cursor:pointer;}
+  .pick-card:hover{border-color:var(--pink);}
+  .pick-staff{display:flex; align-items:center; gap:8px; margin-bottom:10px;}
+  .pick-avatar{
+    width:28px; height:28px; border-radius:50%; background:var(--indigo); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0;
+  }
+  .pick-staff .who{font-size:11px; color:var(--ink-soft);}
+  .pick-comment{font-size:12.5px; line-height:1.6; margin-bottom:12px; color:var(--ink);}
+  .pick-project{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:10px;}
+  .pick-project .t{font-size:12.5px; font-weight:700;}
+  .pick-project .g{font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px;}
+  @media (max-width:700px){ .picks-row{grid-template-columns:1fr;} }
+  .filters{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
+  .chip{border:1.5px solid var(--line);border-radius:20px;padding:6px 16px;font-size:13px;background:var(--white);cursor:pointer;color:var(--ink-soft);font-weight:700;}
+  .chip.active{background:var(--indigo);border-color:var(--indigo);color:var(--white);font-weight:700;}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .p-card{border:0.5px solid var(--line);border-left:5px solid var(--g-color,var(--indigo));border-radius:16px;overflow:hidden;background:var(--white);cursor:pointer;transition:transform .15s;}
+  .p-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(32,38,31,0.12);}
+  .p-card .thumb{background:var(--card);padding:24px 20px;border-bottom:0.5px solid var(--line);}
+  .p-card .mark{margin-bottom:10px;}
+  .p-card .catch{font-size:15px;font-weight:700;line-height:1.6;}
+  .p-card .info{padding:16px 20px;}
+  .p-card .genre{font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--g-color,var(--amber));margin-bottom:6px;}
+  .p-card h3{font-size:16px;margin:0 0 10px;font-weight:700;}
+  .bar-outer{height:7px;background:var(--paper-deep);border:0.5px solid var(--line);margin-bottom:8px;}
+  .bar-inner{height:100%;background:var(--g-color,var(--red));}
+  .p-card .stats{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-soft);}
+  .p-card .stats span:first-child{font-weight:700;color:var(--ink);}
+
+  /* detail */
+  .back{background:none;border:none;color:var(--ink-soft);font-size:13px;cursor:pointer;padding:0;margin-bottom:22px;}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  .d-visual{background:var(--card);border:0.5px solid var(--line);border-radius:20px;padding:36px 28px;}
+  .d-visual .mark{margin-bottom:16px;}
+  .d-visual .mark svg{width:52px;height:52px;}
+  .d-visual .catch{font-size:19px;font-weight:600;line-height:1.7;}
+  .d-visual .author{font-size:13px;color:var(--ink-soft);margin-top:22px;}
+  .d-body h2{font-size:23px;margin:0 0 12px;font-weight:700;}
+  .d-body .lead{font-size:14px;color:var(--ink-soft);margin:0 0 22px;}
+  .stat-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);margin:14px 0 24px;}
+  .stat-row b{display:block;font-size:22px;color:var(--ink);font-family:'Shippori Mincho',serif;font-weight:700;}
+  .tier{border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .tier:hover{border-color:var(--g-color,var(--indigo));}
+  .tier.selected{border-color:var(--g-color,var(--indigo));border-width:2px;background:var(--card);}
+  .tier b{font-family:'Shippori Mincho',serif;font-size:16px;}
+  .tier .badge{font-size:11px;color:var(--white);background:var(--pink);font-weight:700;border-radius:12px;padding:3px 10px;}
+  .btn{border:1.5px solid var(--pink);border-radius:24px;background:var(--pink);color:var(--white);padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;width:100%;margin-top:8px;}
+  .btn:disabled{opacity:0.4;cursor:not-allowed;}
+  .btn-ghost{background:var(--white);color:var(--ink);border-color:var(--line);}
+
+  /* modal */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(23,38,31,0.4);align-items:center;justify-content:center;z-index:20;}
+  .modal-overlay.active{display:flex;}
+  .modal{background:var(--white);border:0.5px solid var(--line);border-radius:20px;padding:32px 30px;width:360px;max-width:90vw;}
+  .modal h3{font-size:17px;margin:0 0 6px;}
+  .modal p{font-size:13px;color:var(--ink-soft);margin:0 0 20px;}
+  .modal .tier-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+  .modal .tier-amount{font-family:'Shippori Mincho',serif;font-size:24px;color:var(--indigo);margin-bottom:20px;}
+  .modal .note{font-size:11.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* create */
+  .form-group{margin-bottom:20px;}
+  .form-group label{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:6px;}
+  .form-group input,.form-group select,.form-group textarea{
+    width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font-size:14px;background:var(--white);color:var(--ink);
+  }
+  .form-group textarea{resize:vertical;min-height:80px;}
+  .tier-input-row{display:grid;grid-template-columns:2fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center;}
+  .tier-input-row input{margin:0;}
+  .remove-tier{border:1.5px solid var(--line);border-radius:12px;background:var(--white);cursor:pointer;padding:10px 12px;font-size:13px;color:var(--ink-soft);}
+  .add-tier{border:1.5px dashed var(--pink);border-radius:12px;background:var(--white);cursor:pointer;padding:10px;font-size:13px;color:var(--pink);width:100%;margin-top:4px;font-weight:700;}
+
+  /* events */
+  .event-card{
+    display:flex; gap:16px; align-items:center; background:var(--white); border:1px solid var(--line);
+    border-radius:16px; padding:16px 18px;
+  }
+  .event-date{
+    flex:0 0 64px; text-align:center; background:var(--paper); border-radius:12px; padding:8px 4px;
+  }
+  .event-date .m{font-size:10.5px; color:var(--ink-soft); font-weight:700;}
+  .event-date .d{font-size:20px; font-weight:900; color:var(--ink);}
+  .event-body{flex:1;}
+  .event-body .tag{font-size:11px; font-weight:700; margin-bottom:4px;}
+  .event-body h4{font-size:15px; margin:0 0 4px; font-weight:700;}
+  .event-body .meta{font-size:12.5px; color:var(--ink-soft);}
+  .event-join{flex:0 0 auto; border:1.5px solid var(--pink); border-radius:100px; background:var(--white); color:var(--pink); font-weight:700; font-size:13px; padding:9px 18px; cursor:pointer;}
+  .event-join.joined{background:var(--pink); color:var(--white);}
+
+  /* mypage */
+  .my-section{margin-bottom:40px;}
+  .my-section h3{font-size:16px;margin:0 0 16px;}
+  .my-project{border:0.5px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px;}
+  .my-project .row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px;}
+  .empty{font-size:13.5px;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:16px;padding:24px;text-align:center;}
+
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--pink);color:var(--white);border-radius:24px;padding:12px 22px;font-size:13.5px;display:none;z-index:30;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showView('browse')" style="display:flex;align-items:center;gap:8px;">
+      <svg width="42" height="42" viewBox="0 0 60 60" aria-hidden="true">
+        <circle cx="30" cy="30" r="29" fill="var(--rose)"/>
+        <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
+        <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
+        <circle cx="30" cy="35" r="12" fill="var(--white)"/>
+        <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
+        <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
+        <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
+      </svg>
+      <span style="color:var(--orange);">うさぎブックス</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-btn" data-view="browse" onclick="showView('browse')">さがす</button>
+      <button class="nav-btn" data-view="events" onclick="showView('events')">読書会</button>
+      <button class="nav-btn" data-view="create" onclick="showView('create')">はじめる</button>
+      <button class="nav-btn" data-view="mypage" onclick="showView('mypage')">マイページ</button>
+      <button class="nav-btn" id="account-btn" onclick="onAccountBtnClick()" style="margin-left:6px;">ログイン</button>
+    </div>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal">
+    <h3>ログイン / 会員登録</h3>
+    <p>このデモでは実際の認証は行われません。入力した名前があなたの表示名になります。</p>
+    <div class="form-group">
+      <label>お名前（ペンネーム可）</label>
+      <input type="text" id="auth-name" placeholder="例：架空太郎">
+    </div>
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <input type="email" id="auth-email" placeholder="例：you@example.com">
+    </div>
+    <button class="btn" onclick="loginUser()">この内容でログイン</button>
+    <button class="btn btn-ghost" onclick="closeAuthModal()">キャンセル</button>
+  </div>
+</div>
+
+<section id="view-browse" class="view active">
+  <div class="wrap">
+    <div class="browse-head">
+      <h2>プロジェクトをさがす</h2>
+      <p>著者が書き始める前から、支援するプラットフォームです。</p>
+    </div>
+    <div class="picks-row">
+      <div class="pick-card" onclick="openDetail('p1')">
+        <div class="pick-staff">
+          <div class="pick-avatar">編</div>
+          <div><div style="font-size:12px;font-weight:700;">編集部・佐藤</div><div class="who">書籍担当</div></div>
+        </div>
+        <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
+        <div class="pick-project"><span class="t">まだ見ぬ町の、灯り</span><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
+      </div>
+      <div class="pick-card" onclick="openDetail('p4')">
+        <div class="pick-staff">
+          <div class="pick-avatar">編</div>
+          <div><div style="font-size:12px;font-weight:700;">編集部・中村</div><div class="who">法人連携担当</div></div>
+        </div>
+        <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
+        <div class="pick-project"><span class="t">数字が語らない現場</span><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
+      </div>
+      <div class="pick-card" onclick="openDetail('p6')">
+        <div class="pick-staff">
+          <div class="pick-avatar">編</div>
+          <div><div style="font-size:12px;font-weight:700;">編集部・吉田</div><div class="who">書籍担当</div></div>
+        </div>
+        <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
+        <div class="pick-project"><span class="t">一人分の台所仕事</span><span class="g" style="background:#FCF2DC;color:var(--amber);">実用書</span></div>
+      </div>
+    </div>
+    <div class="interview-banner">
+      <div class="interview-avatar" id="interview-avatar"></div>
+      <div>
+        <div class="interview-tag">AUTHOR INTERVIEW</div>
+        <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
+        <div class="interview-byline">架空次郎（『まだ見ぬ町の、灯り』著者）に聞く、書く理由のつくりかた</div>
+      </div>
+      <button class="interview-link" onclick="showToast('インタビュー記事は準備中です')">読む</button>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="project-grid"></div>
+  </div>
+</section>
+
+<section id="view-detail" class="view">
+  <div class="wrap">
+    <button class="back" onclick="showView('browse')">← 一覧に戻る</button>
+    <div class="detail-grid">
+      <div class="d-visual">
+        <div class="mark" id="d-mark">「</div>
+        <div class="catch" id="d-catch"></div>
+        <div class="author" id="d-author"></div>
+      </div>
+      <div class="d-body">
+        <h2 id="d-title"></h2>
+        <p class="lead" id="d-lead"></p>
+        <div class="bar-outer"><div class="bar-inner" id="d-bar" style="width:0%"></div></div>
+        <div class="stat-row">
+          <div><b id="d-raised"></b>集まった支援額</div>
+          <div><b id="d-rate"></b>達成率</div>
+          <div><b id="d-backers"></b>支援者</div>
+        </div>
+        <div id="d-tiers"></div>
+        <button class="btn" id="d-support-btn" disabled onclick="openPledgeModal()">支援するティアを選んでください</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="view-create" class="view">
+  <div class="wrap" style="max-width:640px;">
+    <div class="browse-head">
+      <h2>著者としてはじめる</h2>
+      <p>原稿がなくても構いません。書きたい理由や着想を共有してください。</p>
+    </div>
+    <div class="form-group">
+      <label>タイトル</label>
+      <input type="text" id="f-title" placeholder="例：台所に残る、声">
+    </div>
+    <div class="form-group">
+      <label>ペンネーム</label>
+      <input type="text" id="f-author" placeholder="例：架空花子">
+    </div>
+    <div class="form-group">
+      <label>ジャンル</label>
+      <select id="f-genre">
+        <option>小説</option>
+        <option>ビジネス書</option>
+        <option>実用書</option>
+        <option>自己啓発</option>
+        <option>趣味</option>
+        <option>研究書</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>キャッチコピー（1〜2行）</label>
+      <textarea id="f-catch" placeholder="例：誰も真似できなかった、祖母の手の記憶を追う。" style="min-height:60px;"></textarea>
+    </div>
+    <div class="form-group">
+      <label>書きたい理由・着想</label>
+      <textarea id="f-lead" placeholder="なぜこの本を書きたいのか、率直に書いてください。"></textarea>
+    </div>
+    <div class="form-group">
+      <label>目標金額（円）</label>
+      <input type="number" id="f-target" placeholder="例：1500000">
+    </div>
+    <div class="form-group">
+      <label>支援ティア</label>
+      <div id="tier-inputs"></div>
+      <button type="button" class="add-tier" onclick="addTierInput()">+ ティアを追加</button>
+    </div>
+    <button class="btn" onclick="publishProject()">公開する</button>
+  </div>
+</section>
+
+<section id="view-events" class="view">
+  <div class="wrap">
+    <div class="browse-head">
+      <h2>読書会</h2>
+      <p>支援しているプロジェクトの著者や読者と、オンライン・オフラインで語り合う場です。</p>
+    </div>
+    <div id="events-list" style="display:flex;flex-direction:column;gap:14px;margin-top:24px;"></div>
+  </div>
+</section>
+
+<section id="view-mypage" class="view">
+  <div class="wrap">
+    <div class="browse-head"><h2>マイページ</h2></div>
+    <div id="account-info" class="my-project" style="margin-bottom:24px;"></div>
+    <div class="my-section">
+      <h3>あなたが公開したプロジェクト</h3>
+      <div id="my-projects"></div>
+    </div>
+    <div class="my-section">
+      <h3>あなたが支援したプロジェクト</h3>
+      <div id="my-pledges"></div>
+    </div>
+    <div class="my-section">
+      <h3>参加予定の読書会</h3>
+      <div id="my-events"></div>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="pledge-modal">
+  <div class="modal">
+    <h3>支援を確定する</h3>
+    <p id="modal-project-title"></p>
+    <div class="tier-name" id="modal-tier-name"></div>
+    <div class="tier-amount" id="modal-tier-amount"></div>
+    <div class="form-group">
+      <label>カード番号（ダミー）</label>
+      <input type="text" id="pay-card" placeholder="4242 4242 4242 4242" maxlength="19">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="form-group"><label>有効期限</label><input type="text" id="pay-exp" placeholder="MM / YY"></div>
+      <div class="form-group"><label>セキュリティコード</label><input type="text" id="pay-cvc" placeholder="123" maxlength="4"></div>
+    </div>
+    <button class="btn" onclick="confirmPledge()">この内容で支援する</button>
+    <button class="btn btn-ghost" onclick="closePledgeModal()">キャンセル</button>
+    <p class="note">※このデモでは実際の決済は行われません。カード情報は送信・保存されません。</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let projects = [];
+let pledges = [];
+let joinedEvents = [];
+let currentUser = null;
+let currentDetailId = null;
+let selectedTierIndex = null;
+
+const seedEvents = [
+  {id:'e1', projectId:'p1', title:'『まだ見ぬ町の、灯り』読書会', genre:'小説', host:'架空次郎',
+   month:'7月', day:'20', format:'オンライン', place:'Zoom開催', capacity:20},
+  {id:'e2', projectId:'p4', title:'『数字が語らない現場』を読む会', genre:'ビジネス書', host:'架空三郎',
+   month:'7月', day:'27', format:'オフライン', place:'東京・神楽坂 うさぎブックス店', capacity:12},
+  {id:'e3', projectId:'p6', title:'台所の記憶を語る会', genre:'実用書', host:'架空愛子',
+   month:'8月', day:'3', format:'オフライン', place:'大阪・中崎町 カフェ空', capacity:15},
+  {id:'e4', projectId:'p9', title:'目標の立て方、みんなで話す夜', genre:'自己啓発', host:'架空明',
+   month:'8月', day:'9', format:'オンライン', place:'Zoom開催', capacity:30},
+  {id:'e5', projectId:'p12', title:'古道具を持ち寄る読書会', genre:'趣味', host:'架空千夏',
+   month:'8月', day:'17', format:'オフライン', place:'京都・木屋町 古道具喫茶', capacity:10},
+  {id:'e6', projectId:'p14', title:'消えゆく方言をめぐる勉強会', genre:'研究書', host:'架空教授・田村',
+   month:'8月', day:'24', format:'オンライン', place:'Zoom開催', capacity:25}
+];
+
+const seedProjects = [
+  // 小説
+  {id:'p1', title:'まだ見ぬ町の、灯り', author:'架空次郎', genre:'小説',
+   catch:'知らない町にしか、書けない物語がある。',
+   lead:'土地勘のない町を歩き、そこで出会った人々をもとにした連作短編。',
+   target:900000, raised:210000, backers:38,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4000,popular:true},{name:'完成本に名前を掲載',amount:15000,popular:false}]},
+  {id:'p2', title:'潮の引く音を、まだ覚えている', author:'架空ミカ', genre:'小説',
+   catch:'港町を出た者にしか、聞こえない音がある。',
+   lead:'故郷を離れた三姉妹の視点で描く、記憶と海の物語。',
+   target:1100000, raised:640000, backers:97,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'装丁ラフに意見する',amount:18000,popular:false}]},
+  {id:'p3', title:'誰も座らなかった椅子', author:'架空健太', genre:'小説',
+   catch:'空席のまま進んだ会議室から、物語は始まる。',
+   lead:'ある企業の会議室を舞台に、不在の人物をめぐる群像劇。',
+   target:800000, raised:95000, backers:19,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4500,popular:true}]},
+
+  // ビジネス書
+  {id:'p4', title:'数字が語らない現場', author:'架空三郎', genre:'ビジネス書',
+   catch:'現場の勘は、なぜ数字にできないのか。',
+   lead:'定量化できない判断の積み重ねを、現場インタビューをもとに言語化する。',
+   target:2000000, raised:1860000, backers:301,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:6000,popular:true},{name:'講演会に招待',amount:50000,popular:false}]},
+  {id:'p5', title:'会議で消えていく言葉', author:'架空久美子', genre:'ビジネス書',
+   catch:'発言は残らないのに、なぜ議事録は残るのか。',
+   lead:'言った言葉が扱われずに消えていく組織のコミュニケーションを分析する。',
+   target:1500000, raised:420000, backers:64,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'社内勉強会に招待',amount:80000,popular:false}]},
+
+  // 実用書
+  {id:'p6', title:'一人分の台所仕事', author:'架空愛子', genre:'実用書',
+   catch:'誰も真似できなかった、祖母の手の記憶を追う。',
+   lead:'レシピではなく手つきに宿るものを追って、消えていく台所の記憶を一冊にする。',
+   target:1200000, raised:780000, backers:142,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'取材同行に参加',amount:20000,popular:false}]},
+  {id:'p7', title:'続けられる家計簿のつくりかた', author:'架空隆', genre:'実用書',
+   catch:'続かないのは、あなたのせいではない。',
+   lead:'挫折前提で設計する、三日坊主のための家計管理術。',
+   target:700000, raised:340000, backers:88,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'テンプレート先行配布',amount:3000,popular:true}]},
+  {id:'p8', title:'引っ越しを、もう怖がらない', author:'架空さゆり', genre:'実用書',
+   catch:'荷造りより先に、手続きの地図がいる。',
+   lead:'手続き・費用・タイミングを一冊に整理した実践的引っ越しガイド。',
+   target:600000, raised:150000, backers:41,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'チェックリスト先行配布',amount:2500,popular:true},{name:'個別相談30分',amount:12000,popular:false}]},
+
+  // 自己啓発
+  {id:'p9', title:'がんばらない目標の立て方', author:'架空明', genre:'自己啓発',
+   catch:'目標は、気合いで立てるものではない。',
+   lead:'意志力に頼らない目標設定の仕組みを、行動科学の視点から解説する。',
+   target:1000000, raised:530000, backers:112,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true},{name:'ワークシート個別添削',amount:22000,popular:false}]},
+  {id:'p10', title:'断る力を、はじめて使う日', author:'架空真由美', genre:'自己啓発',
+   catch:'断れない人は、優しいのではなく怖いだけ。',
+   lead:'断ることへの罪悪感の正体を、心理学と実体験から解きほぐす。',
+   target:850000, raised:200000, backers:47,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4000,popular:true}]},
+
+  // 趣味
+  {id:'p11', title:'週末だけの家庭菜園記', author:'架空亮', genre:'趣味',
+   catch:'土いじりは、下手なままでも続けられる。',
+   lead:'ベランダから始めた家庭菜園4年間の失敗と収穫の記録。',
+   target:500000, raised:180000, backers:52,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'種のおすそ分け付き',amount:3500,popular:true}]},
+  {id:'p12', title:'古道具と暮らす、という選択', author:'架空千夏', genre:'趣味',
+   catch:'新品より、直せるものを選ぶ暮らし方。',
+   lead:'骨董市で出会った古道具たちと、その直し方・使い方を綴るエッセイ。',
+   target:650000, raised:410000, backers:76,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'古道具ミニ鑑定会招待',amount:25000,popular:false}]},
+  {id:'p13', title:'独学ではじめる万年筆修理', author:'架空大輔', genre:'趣味',
+   catch:'書けなくなったペンを、捨てる前に開けてみる。',
+   lead:'工具の選び方から分解・調整までを写真付きで解説する実践ガイド。',
+   target:550000, raised:60000, backers:14,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true}]},
+
+  // 研究書
+  {id:'p14', title:'方言が消えるとき、何が残るのか', author:'架空教授・田村', genre:'研究書',
+   catch:'言葉が消えても、身振りは残ることがある。',
+   lead:'消滅危機言語の調査から見えてきた、言語と身体性の関係を論じる。',
+   target:1800000, raised:920000, backers:58,
+   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:8000,popular:true},{name:'調査報告会に招待',amount:40000,popular:false}]},
+  {id:'p15', title:'小さな商店街の経済学', author:'架空研究員・佐藤', genre:'ビジネス書',
+   catch:'儲からない店が、なぜ潰れずに残るのか。',
+   lead:'全国の商店街を対象にしたフィールドワークから、非経済合理的な存続要因を分析する。',
+   target:1600000, raised:340000, backers:31,
+   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:7000,popular:true}]}
+];
+
+const DATA_VERSION = 'v3';
+
+async function loadData(){
+  let storedVersion = null;
+  try{
+    const rv = await window.storage.get('zen-data-version');
+    storedVersion = rv ? rv.value : null;
+  }catch(e){ storedVersion = null; }
+
+  if(storedVersion !== DATA_VERSION){
+    projects = seedProjects;
+    pledges = [];
+    await saveProjects();
+    await savePledges();
+    try{ await window.storage.set('zen-data-version', DATA_VERSION); }catch(e){}
+  }else{
+    try{
+      const r = await window.storage.get('zen-projects');
+      projects = r ? JSON.parse(r.value) : null;
+    }catch(e){ projects = null; }
+    if(!projects){
+      projects = seedProjects;
+      await saveProjects();
+    }
+    try{
+      const r2 = await window.storage.get('zen-pledges');
+      pledges = r2 ? JSON.parse(r2.value) : [];
+    }catch(e){ pledges = []; }
+  }
+
+  try{
+    const r3 = await window.storage.get('zen-joined-events');
+    joinedEvents = r3 ? JSON.parse(r3.value) : [];
+  }catch(e){ joinedEvents = []; }
+
+  try{
+    const r4 = await window.storage.get('zen-user');
+    currentUser = r4 ? JSON.parse(r4.value) : null;
+  }catch(e){ currentUser = null; }
+  renderAccountBtn();
+
+  renderFilters();
+  renderGrid();
+  renderEvents();
+  const iv = document.getElementById('interview-avatar');
+  if(iv) iv.innerHTML = rabbitMark();
+}
+
+function renderAccountBtn(){
+  const btn = document.getElementById('account-btn');
+  if(!btn) return;
+  btn.textContent = currentUser ? currentUser.name : 'ログイン';
+}
+
+function onAccountBtnClick(){
+  if(currentUser){
+    if(confirm(`${currentUser.name} としてログイン中です。ログアウトしますか？`)){
+      logoutUser();
+    }
+  }else{
+    openAuthModal();
+  }
+}
+
+function openAuthModal(){
+  document.getElementById('auth-name').value = currentUser ? currentUser.name : '';
+  document.getElementById('auth-email').value = currentUser ? currentUser.email : '';
+  document.getElementById('auth-modal').classList.add('active');
+}
+function closeAuthModal(){
+  document.getElementById('auth-modal').classList.remove('active');
+}
+
+async function loginUser(){
+  const name = document.getElementById('auth-name').value.trim();
+  const email = document.getElementById('auth-email').value.trim();
+  if(!name){ showToast('お名前を入力してください'); return; }
+  currentUser = {name, email};
+  try{ await window.storage.set('zen-user', JSON.stringify(currentUser)); }catch(e){}
+  renderAccountBtn();
+  closeAuthModal();
+  showToast(`${name} としてログインしました`);
+}
+
+async function logoutUser(){
+  currentUser = null;
+  try{ await window.storage.delete('zen-user'); }catch(e){}
+  renderAccountBtn();
+  showToast('ログアウトしました');
+}
+
+async function saveProjects(){
+  try{ await window.storage.set('zen-projects', JSON.stringify(projects)); }catch(e){}
+}
+async function savePledges(){
+  try{ await window.storage.set('zen-pledges', JSON.stringify(pledges)); }catch(e){}
+}
+async function saveJoinedEvents(){
+  try{ await window.storage.set('zen-joined-events', JSON.stringify(joinedEvents)); }catch(e){}
+}
+
+function renderEvents(){
+  const box = document.getElementById('events-list');
+  if(!box) return;
+  box.innerHTML = seedEvents.map(ev=>{
+    const gc = genreColors[ev.genre] || 'var(--indigo)';
+    const isJoined = joinedEvents.includes(ev.id);
+    return `<div class="event-card">
+      <div class="event-date"><div class="m">${ev.month}</div><div class="d">${ev.day}</div></div>
+      <div class="event-body">
+        <div class="tag" style="color:${gc}">${ev.genre} ／ ${ev.format}</div>
+        <h4>${ev.title}</h4>
+        <div class="meta">主催：${ev.host} ／ ${ev.place} ／ 定員${ev.capacity}名</div>
+      </div>
+      <button class="event-join ${isJoined?'joined':''}" onclick="toggleEventJoin('${ev.id}')">${isJoined?'参加予定':'参加する'}</button>
+    </div>`;
+  }).join('');
+}
+
+async function toggleEventJoin(id){
+  const idx = joinedEvents.indexOf(id);
+  if(idx>=0){ joinedEvents.splice(idx,1); }
+  else{ joinedEvents.push(id); }
+  await saveJoinedEvents();
+  renderEvents();
+  if(document.getElementById('view-mypage').classList.contains('active')) renderMyPage();
+  const ev = seedEvents.find(e=>e.id===id);
+  showToast(idx>=0 ? `${ev.title} への参加を取り消しました` : `${ev.title} に参加登録しました`);
+}
+
+function showView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active', b.dataset.view===name));
+  if(name==='mypage') renderMyPage();
+  if(name==='create') resetForm();
+  window.scrollTo(0,0);
+}
+
+let activeGenre = 'すべて';
+function renderFilters(){
+  const genres = ['すべて', ...new Set(projects.map(p=>p.genre))];
+  const box = document.getElementById('filters');
+  box.innerHTML = genres.map(g=>`<button class="chip ${g===activeGenre?'active':''}" onclick="setGenre('${g}')">${g}</button>`).join('');
+}
+function setGenre(g){ activeGenre = g; renderFilters(); renderGrid(); }
+
+const genreColors = {
+  '小説':'var(--blue)', 'ビジネス書':'var(--red)', '実用書':'var(--amber)',
+  '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)'
+};
+
+function rabbitMark(){
+  return `<svg width="34" height="34" viewBox="0 0 60 60" aria-hidden="true">
+    <circle cx="30" cy="30" r="29" fill="var(--rose)"/>
+    <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
+    <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
+    <circle cx="30" cy="35" r="12" fill="var(--white)"/>
+    <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
+    <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
+    <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
+  </svg>`;
+}
+
+function renderGrid(){
+  const box = document.getElementById('project-grid');
+  const list = activeGenre==='すべて' ? projects : projects.filter(p=>p.genre===activeGenre);
+  box.innerHTML = list.map(p=>{
+    const rate = Math.min(100, Math.round(p.raised/p.target*100));
+    const gc = genreColors[p.genre] || 'var(--indigo)';
+    return `<div class="p-card" style="--g-color:${gc}" onclick="openDetail('${p.id}')">
+      <div class="thumb"><div class="mark">${rabbitMark()}</div><div class="catch">${p.catch}</div></div>
+      <div class="info">
+        <div class="genre">${p.genre}</div>
+        <h3>${p.title}</h3>
+        <div class="bar-outer"><div class="bar-inner" style="width:${rate}%"></div></div>
+        <div class="stats"><span>${rate}%達成</span><span>${p.backers}人が支援</span></div>
+      </div>
+    </div>`;
+  }).join('') || '<div class="empty">該当するプロジェクトはありません。</div>';
+}
+
+function openDetail(id){
+  const p = projects.find(x=>x.id===id);
+  if(!p) return;
+  currentDetailId = id;
+  selectedTierIndex = null;
+  const gc = genreColors[p.genre] || 'var(--indigo)';
+  document.getElementById('view-detail').style.setProperty('--g-color', gc);
+  document.getElementById('d-mark').innerHTML = rabbitMark();
+  document.getElementById('d-catch').textContent = p.catch;
+  document.getElementById('d-author').textContent = `著者：${p.author} / ジャンル：${p.genre}`;
+  document.getElementById('d-title').textContent = p.title;
+  document.getElementById('d-lead').textContent = p.lead;
+  const rate = Math.min(100, Math.round(p.raised/p.target*100));
+  document.getElementById('d-bar').style.width = rate+'%';
+  document.getElementById('d-bar').style.background = gc;
+  document.getElementById('d-raised').textContent = '¥'+p.raised.toLocaleString();
+  document.getElementById('d-rate').textContent = rate+'%';
+  document.getElementById('d-backers').textContent = p.backers;
+  const tiersBox = document.getElementById('d-tiers');
+  tiersBox.innerHTML = p.tiers.map((t,i)=>`
+    <div class="tier" onclick="selectTier(${i})" id="tier-${i}">
+      <span>${t.name} ¥${t.amount.toLocaleString()}</span>
+      ${t.popular?'<span class="badge">人気</span>':'<b>―</b>'}
+    </div>`).join('');
+  document.getElementById('d-support-btn').disabled = true;
+  document.getElementById('d-support-btn').textContent = '支援するティアを選んでください';
+  showView('detail');
+}
+
+function selectTier(i){
+  selectedTierIndex = i;
+  document.querySelectorAll('.tier').forEach((el,idx)=>el.classList.toggle('selected', idx===i));
+  const p = projects.find(x=>x.id===currentDetailId);
+  document.getElementById('d-support-btn').disabled = false;
+  document.getElementById('d-support-btn').textContent = `¥${p.tiers[i].amount.toLocaleString()} で支援する`;
+}
+
+function openPledgeModal(){
+  if(selectedTierIndex===null) return;
+  if(!currentUser){
+    showToast('支援するにはログインが必要です');
+    openAuthModal();
+    return;
+  }
+  const p = projects.find(x=>x.id===currentDetailId);
+  const t = p.tiers[selectedTierIndex];
+  document.getElementById('modal-project-title').textContent = p.title;
+  document.getElementById('modal-tier-name').textContent = t.name;
+  document.getElementById('modal-tier-amount').textContent = '¥'+t.amount.toLocaleString();
+  document.getElementById('pay-card').value = '';
+  document.getElementById('pay-exp').value = '';
+  document.getElementById('pay-cvc').value = '';
+  document.getElementById('pledge-modal').classList.add('active');
+}
+function closePledgeModal(){ document.getElementById('pledge-modal').classList.remove('active'); }
+
+async function confirmPledge(){
+  const card = document.getElementById('pay-card').value.replace(/\s/g,'');
+  const exp = document.getElementById('pay-exp').value.trim();
+  const cvc = document.getElementById('pay-cvc').value.trim();
+  if(card.length < 12 || !exp || cvc.length < 3){
+    showToast('カード情報を入力してください（ダミーでも桁数は必要です）');
+    return;
+  }
+  const p = projects.find(x=>x.id===currentDetailId);
+  const t = p.tiers[selectedTierIndex];
+  p.raised += t.amount;
+  p.backers += 1;
+  pledges.push({projectId:p.id, projectTitle:p.title, tierName:t.name, amount:t.amount, date:new Date().toISOString(), backer:currentUser.name});
+  await saveProjects();
+  await savePledges();
+  closePledgeModal();
+  openDetail(p.id);
+  renderGrid();
+  showToast('支援しました（デモのため実際の決済は発生していません）');
+}
+
+function resetForm(){
+  document.getElementById('f-title').value='';
+  document.getElementById('f-author').value = currentUser ? currentUser.name : '';
+  document.getElementById('f-catch').value='';
+  document.getElementById('f-lead').value='';
+  document.getElementById('f-target').value='';
+  document.getElementById('tier-inputs').innerHTML='';
+  addTierInput('応援コメント',1000);
+  addTierInput('先行読者になる',5000);
+}
+function addTierInput(name='',amount=''){
+  const row = document.createElement('div');
+  row.className='tier-input-row';
+  row.innerHTML = `<input type="text" placeholder="ティア名" value="${name}">
+    <input type="number" placeholder="金額" value="${amount}">
+    <button type="button" class="remove-tier" onclick="this.parentElement.remove()">削除</button>`;
+  document.getElementById('tier-inputs').appendChild(row);
+}
+
+async function publishProject(){
+  if(!currentUser){
+    showToast('プロジェクトを公開するにはログインが必要です');
+    openAuthModal();
+    return;
+  }
+  const title = document.getElementById('f-title').value.trim();
+  const author = document.getElementById('f-author').value.trim();
+  const genre = document.getElementById('f-genre').value;
+  const catchv = document.getElementById('f-catch').value.trim();
+  const lead = document.getElementById('f-lead').value.trim();
+  const target = parseInt(document.getElementById('f-target').value) || 100000;
+  if(!title || !author || !catchv){
+    showToast('タイトル・ペンネーム・キャッチコピーを入力してください');
+    return;
+  }
+  const tierRows = document.querySelectorAll('#tier-inputs .tier-input-row');
+  const tiers = Array.from(tierRows).map((row,i)=>{
+    const inputs = row.querySelectorAll('input');
+    return {name: inputs[0].value.trim()||`ティア${i+1}`, amount: parseInt(inputs[1].value)||1000, popular:i===1};
+  }).filter(t=>t.name);
+  const newProject = {
+    id: 'p'+Date.now(), title, author, genre, catch: catchv, lead,
+    target, raised:0, backers:0, tiers: tiers.length?tiers:[{name:'応援コメント',amount:1000,popular:false}]
+  };
+  projects.unshift(newProject);
+  await saveProjects();
+  renderFilters();
+  renderGrid();
+  showToast('プロジェクトを公開しました');
+  showView('mypage');
+}
+
+function renderMyPage(){
+  const accBox = document.getElementById('account-info');
+  accBox.innerHTML = currentUser
+    ? `<div class="row"><b>${currentUser.name}</b><span>${currentUser.email||'メール未登録'}</span></div><div class="row"><span style="color:var(--ink-soft);">ログイン中</span><span></span></div>`
+    : `<div class="row"><span style="color:var(--ink-soft);">ログインしていません</span><button class="event-join" onclick="openAuthModal()" style="padding:6px 14px;font-size:12px;">ログイン</button></div>`;
+
+  const myBox = document.getElementById('my-projects');
+  const created = projects.filter(p=>p.id.startsWith('p') && !seedProjects.find(s=>s.id===p.id));
+  myBox.innerHTML = created.length ? created.map(p=>{
+    const rate = Math.min(100, Math.round(p.raised/p.target*100));
+    return `<div class="my-project">
+      <div class="row"><b>${p.title}</b><span>${p.genre}</span></div>
+      <div class="bar-outer"><div class="bar-inner" style="width:${rate}%"></div></div>
+      <div class="row"><span>¥${p.raised.toLocaleString()} / ¥${p.target.toLocaleString()}</span><span>${p.backers}人が支援</span></div>
+    </div>`;
+  }).join('') : '<div class="empty">まだプロジェクトを公開していません。</div>';
+
+  const pBox = document.getElementById('my-pledges');
+  pBox.innerHTML = pledges.length ? pledges.slice().reverse().map(pl=>`
+    <div class="my-project">
+      <div class="row"><b>${pl.projectTitle}</b><span>¥${pl.amount.toLocaleString()}</span></div>
+      <div class="row"><span>${pl.tierName}</span><span>${new Date(pl.date).toLocaleDateString('ja-JP')}</span></div>
+    </div>`).join('') : '<div class="empty">まだ支援したプロジェクトはありません。</div>';
+
+  const eBox = document.getElementById('my-events');
+  const myEvents = seedEvents.filter(ev=>joinedEvents.includes(ev.id));
+  eBox.innerHTML = myEvents.length ? myEvents.map(ev=>`
+    <div class="my-project">
+      <div class="row"><b>${ev.title}</b><span>${ev.month}${ev.day}日</span></div>
+      <div class="row"><span>${ev.format} ／ ${ev.place}</span><span>主催：${ev.host}</span></div>
+    </div>`).join('') : '<div class="empty">参加予定の読書会はありません。</div>';
+}
+
+let toastTimer=null;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display='block';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ t.style.display='none'; }, 2600);
+}
+
+loadData();
+</script>
+
+</body>
+</html>
