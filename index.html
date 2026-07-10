@@ -96,17 +96,19 @@
   .sec-head{font-size:32px; font-weight:900; margin:0 0 28px; max-width:640px; letter-spacing:-0.01em; line-height:1.4;}
 
   /* differentiator */
-  .compare{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .compare > div{background:var(--white); border:1px solid var(--line); border-radius:20px; padding:24px 22px;}
-  .compare .kikou{box-shadow:var(--shadow-md); border-color:transparent; position:relative;}
-  .compare .kikou::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--pink);border-radius:24px 24px 0 0;}
-  .compare h3{font-size:17px; margin:0 0 14px; font-weight:700;}
-  .compare .kikou h3{color:var(--pink);}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; padding-top:6px;}
+  .compare > div{background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px 22px; opacity:0.72;}
+  .compare .kikou{background:var(--white); box-shadow:var(--shadow-lg); border:2px solid var(--pink); position:relative; opacity:1; transform:scale(1.03);}
+  .compare .kikou::before{content:"私たちの場合";position:absolute;top:-13px;left:20px;background:var(--pink);color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;}
+  .compare h3{font-size:17px; margin:0 0 14px; font-weight:700; color:var(--ink-soft);}
+  .compare .kikou h3{color:var(--pink); font-size:19px; font-weight:900;}
   .compare p{font-size:14px; color:var(--ink-soft); margin:0 0 8px;}
+  .compare .kikou p{color:var(--ink);}
   .compare .flow{font-size:13.5px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line);}
-  .step-row{display:flex; gap:10px; margin-bottom:8px; font-size:13.5px; align-items:flex-start;}
+  .step-row{display:flex; gap:10px; margin-bottom:8px; font-size:13.5px; align-items:flex-start; color:var(--ink-soft);}
   .step-row .n{color:var(--ink-soft); font-weight:700; min-width:14px;}
-  .kikou .step-row .n{color:var(--pink);}
+  .kikou .step-row{color:var(--ink); font-weight:500;}
+  .kikou .step-row .n{color:var(--white); background:var(--pink); border-radius:50%; width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; min-width:18px;}
 
   /* how it works */
   .steps3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
@@ -136,7 +138,7 @@
   .cover-title-block{position:relative;}
   .book-cover .title{font-size:15.5px; font-weight:700; line-height:1.5; color:var(--ink);}
   .book-cover .title-big{font-size:21px; font-weight:900; line-height:1.2; letter-spacing:-0.01em; color:var(--ink);}
-  .cover-author{font-size:11px; color:var(--ink-soft); margin-top:8px; padding-top:8px; border-top:1px solid var(--cream-line);}
+  .cover-author{font-size:11px; color:var(--ink-soft); margin-top:8px; padding-top:8px; border-top:1px solid var(--cream-line); display:block;}
   .book-cover--type{justify-content:flex-end;}
   .num-pattern{
     position:absolute; inset:0; padding:10px; font-size:15px; font-weight:900; line-height:1.9;
@@ -158,6 +160,7 @@
   .pick-comment{font-size:13.5px; line-height:1.7; margin-bottom:16px; color:var(--ink);}
   .pick-project{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:12px;}
   .pick-project .t{font-size:13px; font-weight:700;}
+  .pick-project .a{font-size:11.5px; color:var(--ink-soft); margin-top:3px; display:block;}
   .pick-project .g{font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:100px;}
 
   /* author interview banner */
@@ -170,7 +173,7 @@
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .interview-tag{font-size:11.5px; font-weight:700; letter-spacing:0.1em; color:var(--pink); margin-bottom:6px;}
-  .interview-name{font-size:24px; font-weight:900; letter-spacing:-0.01em; margin-bottom:8px;}
+  .interview-name{font-size:24px; font-weight:900; letter-spacing:-0.01em; margin-bottom:8px; display:block; color:var(--ink);}
   .interview-quote{font-size:17px; font-weight:700; line-height:1.6; margin-bottom:6px;}
   .interview-byline{font-size:12.5px; color:var(--ink-soft);}
   .interview-link{
@@ -275,6 +278,7 @@
           <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
         </svg>
         <div class="catch">誰も真似できなかった、祖母の手の記憶を追う。</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:14px;">著者：架空花子</div>
         <div class="bar-outer"><div class="bar-inner"></div></div>
         <div class="stats"><span><b>¥1,280,000</b> 集まった支援額</span><span>64%</span></div>
       </div>
@@ -348,7 +352,7 @@
           <div class="genre-tag" style="color:var(--blue);">小説</div>
           <div class="cover-title-block">
             <div class="title serif">まだ見ぬ町の、<br>灯り</div>
-            <div class="cover-author">架空次郎</div>
+            <a class="cover-author" href="usagi_books_demo.html?view=profile" style="text-decoration:underline;">宵町灯</a>
           </div>
         </div>
         <div class="cover-meta"><div class="achieved">達成率 132%</div></div>
@@ -416,17 +420,17 @@
     <span class="sec-label">STAFF PICK</span>
     <h2 class="sec-head">スタッフの推し。</h2>
     <div class="picks-row">
-      <a class="pick-card" href="usagi_books_demo.html?project=p1">
+      <div class="pick-card" onclick="location.href='usagi_books_demo.html?project=p1'" style="cursor:pointer;">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
           <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project">
-          <span class="t">まだ見ぬ町の、灯り</span>
+          <div><span class="t">まだ見ぬ町の、灯り</span><a class="a" href="usagi_books_demo.html?view=profile" onclick="event.stopPropagation();" style="text-decoration:underline;">宵町灯</a></div>
           <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
         </div>
-      </a>
+      </div>
       <a class="pick-card" href="usagi_books_demo.html?project=p4">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
@@ -434,7 +438,7 @@
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project">
-          <span class="t">数字が語らない現場</span>
+          <div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div>
           <span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span>
         </div>
       </a>
@@ -445,7 +449,7 @@
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project">
-          <span class="t">台所に残る、声</span>
+          <div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div>
           <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
         </div>
       </a>
@@ -469,7 +473,7 @@
       </div>
       <div>
         <div class="interview-tag">AUTHOR INTERVIEW</div>
-        <div class="interview-name">架空次郎</div>
+        <a class="interview-name" href="usagi_books_demo.html?view=profile" style="text-decoration:underline;">宵町灯</a>
         <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
         <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
       </div>
