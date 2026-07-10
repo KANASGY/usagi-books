@@ -34,6 +34,7 @@
   p{font-size:14.5px;color:var(--ink-soft);}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .card{background:var(--paper);border-radius:18px;padding:24px;}
   .card h3{font-size:15px;margin:0 0 8px;font-weight:700;}
   .card p{font-size:13.5px;margin:0;}
@@ -54,6 +55,7 @@
 
   @media (max-width:640px){
     .grid2{grid-template-columns:1fr;}
+    .grid3{grid-template-columns:1fr;}
     .stats{grid-template-columns:1fr;}
     .cover h1{font-size:28px;}
   }
@@ -131,10 +133,14 @@
   <div class="wrap">
     <div class="s-label">BUSINESS MODEL</div>
     <h2>収益の柱。</h2>
-    <div class="grid2">
+    <div class="grid3">
       <div class="card">
-        <h3>プラットフォーム手数料</h3>
-        <p>プロジェクトが集めた支援額に対する手数料を、既存の購入型クラウドファンディングと同様の水準で想定しています。</p>
+        <h3>プラットフォーム手数料（10%）</h3>
+        <p>プロジェクトが集めた支援額の10%を手数料として受け取ります。既存の購入型クラウドファンディングと同水準の設定です。</p>
+      </div>
+      <div class="card">
+        <h3>印刷製本費</h3>
+        <p>支援が成立した後、実際に本を印刷・製本するリターン提供の工程を担い、その実費・手配手数料を収益として計上します。</p>
       </div>
       <div class="card">
         <h3>読書会・イベント関連収益</h3>
@@ -147,7 +153,7 @@
 <section>
   <div class="wrap">
     <div class="s-label">NEXT STEP</div>
-    <h2>今回のご相談したいこと。</h2>
+    <h2>今回のご相談。</h2>
     <p>現在はクリックで一通り体験できるプロトタイプの段階です。決済・会員登録を備えた本番環境の構築にあたり、資金調達および事業提携についてご相談させてください。</p>
     <div class="note">本資料はプロトタイプ段階の内容を含みます。数値・仕様は今後変更される可能性があります。詳細な資料・お打ち合わせのご相談は、うさぎブックス運営までお問い合わせください。</div>
   </div>

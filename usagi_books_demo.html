@@ -62,6 +62,7 @@
   }
   .interview-avatar svg{width:100%;height:100%;}
   .interview-tag{font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:var(--pink); margin-bottom:4px;}
+  .interview-name{font-size:19px; font-weight:900; letter-spacing:-0.01em; margin-bottom:4px;}
   .interview-quote{font-size:14px; font-weight:700; line-height:1.5;}
   .interview-byline{font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
   .interview-link{
@@ -69,19 +70,20 @@
     font-size:12.5px; font-weight:700; color:var(--ink); background:var(--white); cursor:pointer; white-space:nowrap;
   }
   @media (max-width:600px){ .interview-banner{grid-template-columns:1fr;} }
-  .picks-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px;}
-  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:18px; padding:16px 16px; cursor:pointer; box-shadow:var(--shadow-sm); transition:box-shadow .15s, transform .15s;}
+  .picks-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px;}
+  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:18px; padding:22px 20px; cursor:pointer; box-shadow:var(--shadow-sm); transition:box-shadow .15s, transform .15s;}
   .pick-card:hover{box-shadow:var(--shadow-md); transform:translateY(-2px); border-color:var(--pink);}
-  .pick-staff{display:flex; align-items:center; gap:8px; margin-bottom:10px;}
+  .pick-staff{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
   .pick-avatar{
-    width:28px; height:28px; border-radius:50%; background:var(--indigo); color:var(--white);
-    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0;
+    width:34px; height:34px; border-radius:50%; background:var(--indigo); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-size:12.5px; font-weight:800; flex-shrink:0;
   }
-  .pick-staff .who{font-size:11px; color:var(--ink-soft);}
-  .pick-comment{font-size:12.5px; line-height:1.6; margin-bottom:12px; color:var(--ink);}
-  .pick-project{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:10px;}
-  .pick-project .t{font-size:12.5px; font-weight:700;}
-  .pick-project .g{font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px;}
+  .pick-staff .who{font-size:12px; color:var(--ink-soft);}
+  .pick-comment{font-size:13.5px; line-height:1.7; margin-bottom:16px; color:var(--ink);}
+  .pick-project{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:12px;}
+  .pick-project .t{font-size:13px; font-weight:700;}
+  .pick-project .a{font-size:11.5px; color:var(--ink-soft); margin-top:3px;}
+  .pick-project .g{font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:100px;}
   @media (max-width:700px){ .picks-row{grid-template-columns:1fr;} }
   .filters{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
   .chip{border:1.5px solid var(--line);border-radius:20px;padding:6px 16px;font-size:13px;background:var(--white);cursor:pointer;color:var(--ink-soft);font-weight:700;}
@@ -161,6 +163,17 @@
   .event-join{flex:0 0 auto; border:1.5px solid var(--pink); border-radius:100px; background:var(--white); color:var(--pink); font-weight:700; font-size:13px; padding:9px 18px; cursor:pointer;}
   .event-join.joined{background:var(--pink); color:var(--white);}
 
+  /* interview article */
+  .article-head{display:flex; align-items:center; gap:18px; margin-bottom:8px;}
+  .article-avatar{width:72px; height:72px; border-radius:50%; overflow:hidden; flex-shrink:0;}
+  .article-avatar svg{width:100%; height:100%;}
+  .article-name{font-size:24px; font-weight:900; letter-spacing:-0.01em;}
+  .article-role{font-size:13px; color:var(--ink-soft); margin-top:4px;}
+  .article-lead{font-size:15px; color:var(--ink-soft); line-height:1.9; margin:24px 0 32px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .qa-block{margin-bottom:28px;}
+  .qa-q{font-size:15px; font-weight:800; color:var(--pink); margin-bottom:10px; display:flex; gap:8px;}
+  .qa-a{font-size:14.5px; line-height:1.9; color:var(--ink);}
+
   /* mypage */
   .my-section{margin-bottom:40px;}
   .my-section h3{font-size:16px;margin:0 0 16px;}
@@ -225,36 +238,37 @@
       <div class="pick-card" onclick="openDetail('p1')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
-        <div class="pick-project"><span class="t">まだ見ぬ町の、灯り</span><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
+        <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a">架空次郎</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
       </div>
       <div class="pick-card" onclick="openDetail('p4')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
-        <div class="pick-project"><span class="t">数字が語らない現場</span><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
+        <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
       </div>
       <div class="pick-card" onclick="openDetail('p6')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="15" height="15" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
-        <div class="pick-project"><span class="t">一人分の台所仕事</span><span class="g" style="background:#FCF2DC;color:var(--amber);">実用書</span></div>
+        <div class="pick-project"><div><span class="t">一人分の台所仕事</span><div class="a">架空愛子</div></div><span class="g" style="background:#FCF2DC;color:var(--amber);">実用書</span></div>
       </div>
     </div>
     <div class="interview-banner">
       <div class="interview-avatar" id="interview-avatar"></div>
       <div>
         <div class="interview-tag">AUTHOR INTERVIEW</div>
+        <div class="interview-name">架空次郎</div>
         <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
-        <div class="interview-byline">架空次郎（『まだ見ぬ町の、灯り』著者）に聞く、書く理由のつくりかた</div>
+        <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
       </div>
-      <button class="interview-link" onclick="showToast('インタビュー記事は準備中です')">読む</button>
+      <button class="interview-link" onclick="showView('interview')">読む</button>
     </div>
     <div class="filters" id="filters"></div>
     <div class="grid" id="project-grid"></div>
@@ -339,6 +353,50 @@
       <p>支援しているプロジェクトの著者や読者と、オンライン・オフラインで語り合う場です。</p>
     </div>
     <div id="events-list" style="display:flex;flex-direction:column;gap:14px;margin-top:24px;"></div>
+  </div>
+</section>
+
+<section id="view-interview" class="view">
+  <div class="wrap" style="max-width:680px;">
+    <button class="back" onclick="showView('browse')">← 一覧に戻る</button>
+    <div class="article-head">
+      <div class="article-avatar">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="29" fill="var(--blue)"/>
+          <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
+          <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
+          <circle cx="30" cy="35" r="12" fill="var(--white)"/>
+          <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
+          <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
+          <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
+        </svg>
+      </div>
+      <div>
+        <div class="article-name">架空次郎</div>
+        <div class="article-role">『まだ見ぬ町の、灯り』著者 ／ 小説</div>
+      </div>
+    </div>
+    <p class="article-lead">土地勘のない町を歩き、そこで出会った人々をもとにした連作短編『まだ見ぬ町の、灯り』。原稿がほぼ白紙の状態でうさぎブックスに企画を公開した架空次郎さんに、書き始める前の心境と、支援者とのやり取りについて伺いました。</p>
+
+    <div class="qa-block">
+      <div class="qa-q">Q. 原稿がまだない状態で公開するのは、勇気がいったのでは？</div>
+      <div class="qa-a">正直、怖かったです。目次すらない状態で「知らない町にしか、書けない物語がある」という一文だけを置いて公開しました。でも、完成してから見せるより、迷っている途中から見てもらう方が、自分にとっては誠実な気がしたんです。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">Q. 支援してくれた読者からは、どんな反応がありましたか？</div>
+      <div class="qa-a">「書けない日があってもいい」というコメントをもらったとき、一番救われました。進捗が止まっている週も黙って見てくれている人がいる、という感覚が、机に向かう理由になりました。応援コメントの一つひとつが、想像以上に執筆の支えになっています。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">Q. 執筆はどう進んでいますか？</div>
+      <div class="qa-a">最初の短編は書き上がり、今は二作目の舞台になる町を探しています。支援者の中に、その町の出身の方がいて、取材に協力してくれることになりました。読者と一緒に町を歩いているような感覚で書けているのは、この形だからこそだと思います。</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q">Q. これから書き始める人に伝えたいことは？</div>
+      <div class="qa-a">完成度で勝負しなくていい、ということです。着想と、なぜそれを書きたいのかという理由さえあれば、読み手はちゃんと反応してくれます。むしろ隙がある方が、誰かが関わる余地になる。そう思えたのは、この場を通して読者に育ててもらったからです。</div>
+    </div>
   </div>
 </section>
 
