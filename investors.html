@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うさぎブックス ― 投資家向け資料</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --paper:#F7FBF8; --ink:#171B18; --ink-soft:#5C645D;
+    --mint:#1FA372; --pink:#EC5C8D; --red:#E14B4A; --amber:#EFB013; --orange:#F2762E; --blue:#3E8EDE;
+    --line:#F0F3F0;
+    --shadow-sm:0 1px 2px rgba(23,27,24,0.06), 0 2px 8px rgba(23,27,24,0.04);
+    --shadow-md:0 8px 24px rgba(23,27,24,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 32px;}
+  nav{border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:820px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:16px;text-decoration:none;color:var(--ink);}
+  .back-link{font-size:13px;color:var(--ink-soft);text-decoration:none;}
+
+  .cover{padding:72px 0 48px;}
+  .cover .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.14em;color:var(--pink);background:#FDECF1;border-radius:100px;padding:6px 16px;margin-bottom:20px;}
+  .cover h1{font-size:38px;font-weight:900;letter-spacing:-0.02em;line-height:1.4;margin:0 0 18px;}
+  .cover p{font-size:15px;color:var(--ink-soft);max-width:520px;}
+
+  section{padding:40px 0;border-top:1px solid var(--line);}
+  .s-label{font-size:12px;font-weight:700;letter-spacing:0.14em;color:var(--mint);margin-bottom:12px;}
+  h2{font-size:22px;font-weight:900;letter-spacing:-0.01em;margin:0 0 20px;}
+  p{font-size:14.5px;color:var(--ink-soft);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .card{background:var(--paper);border-radius:18px;padding:24px;}
+  .card h3{font-size:15px;margin:0 0 8px;font-weight:700;}
+  .card p{font-size:13.5px;margin:0;}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .stat{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;box-shadow:var(--shadow-sm);}
+  .stat b{display:block;font-size:26px;font-weight:900;margin-bottom:4px;}
+  .stat span{font-size:12px;color:var(--ink-soft);}
+
+  .step-list{list-style:none;padding:0;margin:0;}
+  .step-list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .step-list li:last-child{border-bottom:none;}
+  .step-list .n{font-weight:900;color:var(--pink);flex-shrink:0;}
+
+  .note{background:var(--paper);border-radius:16px;padding:20px 24px;font-size:13px;color:var(--ink-soft);}
+
+  footer{padding:32px 0;text-align:center;font-size:12px;color:var(--ink-soft);}
+
+  @media (max-width:640px){
+    .grid2{grid-template-columns:1fr;}
+    .stats{grid-template-columns:1fr;}
+    .cover h1{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 60 60" aria-hidden="true">
+        <circle cx="30" cy="30" r="29" fill="var(--pink)"/>
+        <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
+        <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
+        <circle cx="30" cy="35" r="12" fill="var(--white)"/>
+        <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
+        <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
+        <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
+      </svg>
+      うさぎブックス
+    </a>
+    <a class="back-link" href="index.html">← サイトTOPへ戻る</a>
+  </div>
+</nav>
+
+<div class="wrap cover">
+  <span class="tag">INVESTOR OVERVIEW</span>
+  <h1>本という結果ではなく、<br>本を書く理由に、先に賭ける。</h1>
+  <p>うさぎブックスは、原稿が完成する前の著者を読者が支援する、書籍特化型クラウドファンディングです。本資料では、事業の課題設定・仕組み・現在の実績・今後の展望を簡潔にまとめています。</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="s-label">PROBLEM</div>
+    <h2>「完成品を見せてから」では、遅い著者がいる。</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>既存のクラウドファンディングの限界</h3>
+        <p>書籍分野の支援は、ほぼ原稿が固まった段階で公開されるのが一般的です。着想段階の著者は、支援を募る手段を持っていません。</p>
+      </div>
+      <div class="card">
+        <h3>出版前の伴走者が不在</h3>
+        <p>取材協力・進捗への反応・執筆中の励ましなど、本が育つ過程に読者が関われる仕組みがなく、著者は一人で書き切るしかありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="s-label">SOLUTION</div>
+    <h2>着想だけで公開できる、3ステップ。</h2>
+    <ul class="step-list">
+      <li><span class="n">01</span>著者は目次や完成原稿がなくても、書きたい理由や着想を最初に共有する</li>
+      <li><span class="n">02</span>読者は資金だけでなく、コメントや取材協力といった形でも参加できる</li>
+      <li><span class="n">03</span>執筆の進捗が可視化され、支援者は本が育つ過程そのものを体験する</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="s-label">TRACTION（デモ環境の実績値）</div>
+    <h2>現在地点。</h2>
+    <div class="stats">
+      <div class="stat"><b style="color:var(--pink);">15</b><span>公開中のプロジェクト</span></div>
+      <div class="stat"><b style="color:var(--blue);">6</b><span>対応ジャンル</span></div>
+      <div class="stat"><b style="color:var(--orange);">6</b><span>連動する読書会イベント</span></div>
+    </div>
+    <p style="margin-top:16px;">※現時点はプロトタイプ・体験デモ環境における数値です。今後の正式版公開に向けて、決済・会員基盤の実装を進めています。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="s-label">BUSINESS MODEL</div>
+    <h2>収益の柱。</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>プラットフォーム手数料</h3>
+        <p>プロジェクトが集めた支援額に対する手数料を、既存の購入型クラウドファンディングと同様の水準で想定しています。</p>
+      </div>
+      <div class="card">
+        <h3>読書会・イベント関連収益</h3>
+        <p>プロジェクトに紐づく読書会・著者インタビューなど、支援後の関係を継続させるコンテンツ展開を収益源として育てます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="s-label">NEXT STEP</div>
+    <h2>今回のご相談したいこと。</h2>
+    <p>現在はクリックで一通り体験できるプロトタイプの段階です。決済・会員登録を備えた本番環境の構築にあたり、資金調達および事業提携についてご相談させてください。</p>
+    <div class="note">本資料はプロトタイプ段階の内容を含みます。数値・仕様は今後変更される可能性があります。詳細な資料・お打ち合わせのご相談は、うさぎブックス運営までお問い合わせください。</div>
+  </div>
+</section>
+
+<footer>うさぎブックス（投資家向け資料・モックアップ）</footer>
+
+</body>
+</html>

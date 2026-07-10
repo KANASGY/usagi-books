@@ -147,7 +147,8 @@
 
   /* staff pick */
   .picks-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:18px; padding:22px 20px;}
+  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:18px; padding:22px 20px; display:block; text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s;}
+  .pick-card:hover{box-shadow:var(--shadow-md); transform:translateY(-2px);}
   .pick-staff{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
   .pick-avatar{
     width:34px; height:34px; border-radius:50%; background:var(--indigo); color:var(--white);
@@ -169,6 +170,7 @@
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .interview-tag{font-size:11.5px; font-weight:700; letter-spacing:0.1em; color:var(--pink); margin-bottom:6px;}
+  .interview-name{font-size:24px; font-weight:900; letter-spacing:-0.01em; margin-bottom:8px;}
   .interview-quote{font-size:17px; font-weight:700; line-height:1.6; margin-bottom:6px;}
   .interview-byline{font-size:12.5px; color:var(--ink-soft);}
   .interview-link{
@@ -414,7 +416,7 @@
     <span class="sec-label">STAFF PICK</span>
     <h2 class="sec-head">スタッフの推し。</h2>
     <div class="picks-row">
-      <div class="pick-card">
+      <a class="pick-card" href="usagi_books_demo.html?project=p1">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
           <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
@@ -424,8 +426,8 @@
           <span class="t">まだ見ぬ町の、灯り</span>
           <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
         </div>
-      </div>
-      <div class="pick-card">
+      </a>
+      <a class="pick-card" href="usagi_books_demo.html?project=p4">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
           <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
@@ -435,8 +437,8 @@
           <span class="t">数字が語らない現場</span>
           <span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span>
         </div>
-      </div>
-      <div class="pick-card">
+      </a>
+      <a class="pick-card" href="usagi_books_demo.html?project=p6">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
           <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
@@ -446,7 +448,7 @@
           <span class="t">台所に残る、声</span>
           <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -467,10 +469,11 @@
       </div>
       <div>
         <div class="interview-tag">AUTHOR INTERVIEW</div>
+        <div class="interview-name">架空次郎</div>
         <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
-        <div class="interview-byline">架空次郎（『まだ見ぬ町の、灯り』著者）に聞く、書く理由のつくりかた</div>
+        <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
       </div>
-      <button class="interview-link">インタビューを読む</button>
+      <a class="interview-link" href="usagi_books_demo.html?view=interview" style="text-decoration:none;">インタビューを読む</a>
     </div>
   </div>
 </section>
@@ -513,7 +516,7 @@
   <div class="wrap">
     <h2>まだ書かれていない本に、<br>先に賭ける。</h2>
     <p>うさぎブックスは、本という結果ではなく、本を書く理由そのものに投資するプラットフォームです。</p>
-    <button class="btn btn-primary">投資家向け資料を見る</button>
+    <a class="btn btn-primary" href="investors.html" style="text-decoration:none;display:inline-block;">投資家向け資料を見る</a>
   </div>
 </section>
 
