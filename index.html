@@ -91,10 +91,14 @@
   }
 
   /* ---------- SECTIONS ---------- */
-  section{padding:56px 0;}
+  section{padding:56px 0; border-top:1px solid var(--line);}
   .sec-label{
-    display:inline-block; font-size:12.5px; letter-spacing:0.14em; color:var(--mint);
-    background:#EAF7F1; border-radius:100px; padding:6px 14px; margin:0 0 16px; font-weight:700;
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:0.14em; color:var(--mint);
+    background:#EAF7F1; border-radius:100px; padding:6px 14px 6px 6px; margin:0 0 16px; font-weight:700;
+  }
+  .sec-num{
+    display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;
+    background:var(--mint); color:var(--white); border-radius:50%; font-size:11px; font-weight:900;
   }
   .sec-head{font-size:32px; font-weight:900; margin:0 0 28px; max-width:640px; letter-spacing:-0.01em; line-height:1.4;}
 
@@ -235,9 +239,37 @@
     .interview-quote{font-size:15px;}
     .cta-final h2{font-size:26px;}
   }
+
+  /* progress rail */
+  .rail{
+    position:fixed; right:24px; top:50%; transform:translateY(-50%); z-index:8;
+    display:flex; flex-direction:column; gap:14px; align-items:flex-end;
+  }
+  .rail-item{display:flex; align-items:center; gap:10px; cursor:pointer; text-decoration:none;}
+  .rail-item .dot{width:8px; height:8px; border-radius:50%; background:var(--line); border:1.5px solid var(--line); transition:all .2s; flex-shrink:0;}
+  .rail-item .label{
+    font-size:11.5px; font-weight:700; color:var(--ink-soft); white-space:nowrap; opacity:0;
+    transform:translateX(6px); transition:all .2s; background:var(--white); padding:3px 10px;
+    border-radius:100px; box-shadow:var(--shadow-sm);
+  }
+  .rail-item:hover .label{opacity:1; transform:translateX(0);}
+  .rail-item.active .dot{background:var(--pink); border-color:var(--pink); width:10px; height:10px;}
+  .rail-item.active .label{opacity:1; transform:translateX(0); color:var(--pink);}
+  @media (max-width:960px){ .rail{display:none;} }
 </style>
 </head>
 <body>
+
+<div class="rail" id="rail">
+  <a class="rail-item" href="#sec-hero" data-target="sec-hero"><span class="label">TOP</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-differentiator" data-target="sec-differentiator"><span class="label">違い</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-how" data-target="sec-how"><span class="label">仕組み</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-track" data-target="sec-track"><span class="label">実績</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-staff" data-target="sec-staff"><span class="label">スタッフの推し</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-interview" data-target="sec-interview"><span class="label">インタビュー</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-sample" data-target="sec-sample"><span class="label">プロジェクト例</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-cta" data-target="sec-cta"><span class="label">はじめる</span><span class="dot"></span></a>
+</div>
 
 <nav>
   <div class="nav-inner">
@@ -264,7 +296,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero" id="sec-hero">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span>CROWD FUNDING BOOK STORE</span>
@@ -298,9 +330,9 @@
   </div>
 </div>
 
-<section>
+<section id="sec-differentiator">
   <div class="wrap">
-    <span class="sec-label">DIFFERENTIATOR</span>
+    <span class="sec-label"><span class="sec-num">01</span>DIFFERENTIATOR</span>
     <h2 class="sec-head">既存のクラウドファンディングと何が違うのか。<br>「完成品を売る」ではなく「書く前から支える」。</h2>
     <div class="compare">
       <div>
@@ -325,9 +357,9 @@
   </div>
 </section>
 
-<section style="padding-top:56px;padding-bottom:56px;background:var(--cream);">
+<section id="sec-how" style="padding-top:56px;padding-bottom:56px;background:var(--cream);">
   <div class="wrap">
-    <span class="sec-label">HOW IT WORKS</span>
+    <span class="sec-label"><span class="sec-num">02</span>HOW IT WORKS</span>
     <h2 class="sec-head">3つのステップ</h2>
     <div class="steps3">
       <div class="step-card">
@@ -349,9 +381,9 @@
   </div>
 </section>
 
-<section>
+<section id="sec-track">
   <div class="wrap">
-    <span class="sec-label">TRACK RECORD</span>
+    <span class="sec-label"><span class="sec-num">03</span>TRACK RECORD</span>
     <h2 class="sec-head">支援を達成した本たち。</h2>
     <div class="covers-row">
       <div class="cover-item">
@@ -427,9 +459,9 @@
   </div>
 </section>
 
-<section style="padding-top:56px;padding-bottom:56px;background:#EAF7F1;">
+<section id="sec-staff" style="padding-top:56px;padding-bottom:56px;background:#EAF7F1;">
   <div class="wrap">
-    <span class="sec-label">STAFF PICK</span>
+    <span class="sec-label"><span class="sec-num">04</span>STAFF PICK</span>
     <h2 class="sec-head">スタッフの推し。</h2>
     <div class="picks-row">
       <div class="pick-card" onclick="location.href='usagi_books_demo.html?project=p1'" style="cursor:pointer;">
@@ -469,7 +501,7 @@
   </div>
 </section>
 
-<section>
+<section id="sec-interview">
   <div class="wrap">
     <div class="interview-banner">
       <div class="interview-avatar">
@@ -494,10 +526,10 @@
   </div>
 </section>
 
-<section style="padding:0 0 88px;">
+<section id="sec-sample" style="padding:0 0 88px;">
   <div class="sample-band">
     <div class="wrap">
-      <span class="sec-label">SAMPLE PROJECT</span>
+      <span class="sec-label"><span class="sec-num">05</span>SAMPLE PROJECT</span>
       <h2 class="sec-head">プロジェクトページ（イメージ）</h2>
       <div class="project">
         <div class="project-visual">
@@ -528,7 +560,7 @@
   </div>
 </section>
 
-<section class="cta-final">
+<section id="sec-cta" class="cta-final">
   <div class="wrap">
     <h2>まだ書かれていない本に、<br>先に賭ける。</h2>
     <p>うさぎブックスは、本という結果ではなく、本を書く理由そのものに投資するプラットフォームです。</p>
@@ -537,6 +569,19 @@
 </section>
 
 <footer>うさぎブックス（モックアップ）</footer>
+
+<script>
+  const railItems = document.querySelectorAll('.rail-item');
+  const sections = Array.from(railItems).map(item => document.getElementById(item.dataset.target)).filter(Boolean);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        railItems.forEach(item => item.classList.toggle('active', item.dataset.target === entry.target.id));
+      }
+    });
+  }, {rootMargin: '-45% 0px -45% 0px'});
+  sections.forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
