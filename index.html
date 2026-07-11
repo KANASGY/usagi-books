@@ -237,6 +237,8 @@
     #sec-how, #sec-staff{padding-top:36px !important; padding-bottom:36px !important;}
     #sec-sample{padding:0 0 40px !important;}
     #sec-goods{padding:36px 0;}
+    #sec-staff .wrap > div:first-child{grid-template-columns:1fr; justify-items:start;}
+    #sec-staff .wrap > div:first-child img{width:80px;margin-top:12px;}
   }
   @media (max-width:480px){
     .wrap{padding:0 20px;}
@@ -282,8 +284,7 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-logo">
-      <img src="logo.png" alt="うさぎブックス" style="width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);box-shadow:var(--shadow-sm);">
-      <span style="font-weight:900;">うさぎブックス</span>
+      <img src="logo.png" alt="うさぎブックス" style="height:44px;width:auto;">
     </div>
     <div class="nav-links">
       <a class="nav-btn active" href="index.html">サイトTOP</a>
@@ -298,7 +299,7 @@
 
 <div class="hero" id="sec-hero">
   <div class="wrap" style="text-align:center;padding-bottom:8px;">
-    <img src="logo.png" alt="うさぎブックス" style="width:200px;height:200px;">
+    <img src="logo.png" alt="うさぎブックス" style="width:220px;height:auto;">
   </div>
   <div class="wrap hero-grid">
     <div>
@@ -348,6 +349,10 @@
       </div>
     </div>
   </div>
+</section>
+
+<section style="padding:0;">
+  <img src="mood_forest.png" alt="本は、静かな森。うさぎブックス" style="width:100%;height:auto;display:block;">
 </section>
 
 <section id="sec-how" style="padding-top:56px;padding-bottom:56px;background:var(--cream);">
@@ -454,8 +459,14 @@
 
 <section id="sec-staff" style="padding-top:56px;padding-bottom:56px;background:#F1F0EC;">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">04</span>STAFF PICK</span>
-    <h2 class="sec-head">スタッフの推し。</h2>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:8px;">
+      <div>
+        <span class="sec-label"><span class="sec-num">04</span>STAFF PICK</span>
+        <h2 class="sec-head" style="margin-bottom:0;">スタッフの推し。</h2>
+      </div>
+      <img src="mood_teacup.png" alt="うさぎブックス" style="width:120px;height:auto;border-radius:14px;box-shadow:var(--shadow-md);">
+    </div>
+    <div style="height:28px;"></div>
     <div class="picks-row">
       <div class="pick-card" onclick="location.href='usagi_books_demo.html?project=p1'" style="cursor:pointer;">
         <div class="pick-staff">
@@ -558,7 +569,7 @@
 
 <section style="padding:0; background:var(--white);">
   <div style="max-width:420px;margin:0 auto;padding:64px 32px;">
-    <img src="poster.png" alt="うさぎブックス 本と、うさぎと、あなたの時間。" style="width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow-lg);">
+    <img src="mood_library.png" alt="今日の一冊が、明日のあなたをつくる。うさぎブックス" style="width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow-lg);">
   </div>
 </section>
 
