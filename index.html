@@ -47,6 +47,11 @@
   .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:20px;padding:8px 18px;font-size:13.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;text-decoration:none;white-space:nowrap;}
   .nav-btn.active{background:var(--pink);border-color:var(--pink);color:var(--white);}
   .nav-cta{background:var(--ink);color:var(--white);border:none;border-radius:100px;padding:11px 22px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:4px;width:36px;height:36px;border:1.5px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer;flex-shrink:0;}
+  .nav-burger span{display:block;width:16px;height:2px;background:var(--ink);margin:0 auto;transition:transform .2s, opacity .2s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;}
+  .nav-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
   /* ---------- HERO ---------- */
   .hero{padding:40px 0 44px; overflow:hidden;}
@@ -229,8 +234,17 @@
     .hero h1{font-size:38px;}
     .interview-banner{grid-template-columns:1fr; text-align:left;}
     .picks-row{grid-template-columns:1fr;}
-    .nav-inner{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;}
-    .nav-links{flex-wrap:nowrap;}
+    .nav-inner{flex-wrap:nowrap;}
+    .nav-burger{display:flex;}
+    .nav-links{
+      display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column;
+      flex-wrap:nowrap; gap:0; background:var(--white); border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-md); padding:8px 20px 16px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links .nav-btn{border:none; border-radius:0; padding:13px 4px; border-bottom:1px solid var(--line); background:transparent;}
+    .nav-links .nav-btn.active{background:transparent; color:var(--pink);}
+    nav{position:sticky; top:0;}
     .hero-visual{min-height:0; margin-top:32px;}
     .hero{padding-bottom:32px;}
     section{padding:36px 0;}
@@ -284,7 +298,7 @@
     <div class="nav-logo">
       <img src="logo.png" alt="うさぎブックス" style="height:44px;width:auto;">
     </div>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a class="nav-btn active" href="index.html">サイトTOP</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=browse">さがす</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=events">読書会</a>
@@ -292,6 +306,9 @@
       <a class="nav-btn" href="usagi_books_demo.html?view=mypage">マイページ</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=mypage">ログイン</a>
     </div>
+    <button class="nav-burger" id="nav-burger" onclick="document.getElementById('nav-links').classList.toggle('open');this.classList.toggle('open');" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
