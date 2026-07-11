@@ -10,21 +10,21 @@
 <style>
   :root{
     --white:#FFFFFF;
-    --paper:#F2FAF5;
-    --paper-deep:#E3F4EA;
-    --ink:#20261F;
-    --ink-soft:#5B6459;
-    --indigo:#1FA372;
-    --pink:#EC5C8D;
-    --rose:#EC5C8D;
-    --red:#E14B4A;
-    --amber:#EFB013;
-    --orange:#F2762E;
-    --blue:#3E8EDE;
-    --teal:#1E9E86;
-    --maroon:#B4437A;
-    --line:#E4F2E9;
-    --card:#F1F9F4;
+    --paper:#F7F5F0;
+    --paper-deep:#EDE9E0;
+    --ink:#2E2318;
+    --ink-soft:#6B6255;
+    --indigo:#3D8A73;
+    --pink:#E08A3E;
+    --rose:#E08A3E;
+    --red:#C1554E;
+    --amber:#C99A2E;
+    --orange:#C97A3E;
+    --blue:#4C7FA8;
+    --teal:#3D8A73;
+    --maroon:#9C5B6E;
+    --line:#EAE6DD;
+    --card:#F2EFE8;
     --shadow-sm:0 1px 2px rgba(32,38,31,0.06), 0 2px 8px rgba(32,38,31,0.04);
     --shadow-md:0 8px 24px rgba(32,38,31,0.09);
     --shadow-lg:0 20px 48px rgba(32,38,31,0.13);
@@ -204,8 +204,8 @@
 <nav>
   <div class="nav-inner">
     <div class="logo" onclick="showView('browse')" style="display:flex;align-items:center;gap:8px;">
-      <img src="badge.png" alt="うさぎブックス" style="width:38px;height:38px;border-radius:50%;">
-      <span style="color:var(--orange);">うさぎブックス</span>
+      <img src="badge.png" alt="うさぎブックス" style="width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);box-shadow:var(--shadow-sm);">
+      <span style="color:var(--orange);font-weight:900;">うさぎブックス</span>
     </div>
     <div class="nav-links">
       <a class="nav-btn" href="index.html" style="text-decoration:none;">サイトTOP</a>
@@ -758,7 +758,7 @@ const genreColors = {
 };
 
 function rabbitMark(color){
-  return `<img src="badge.png" alt="" style="width:100%;height:100%;border-radius:50%;display:block;">`;
+  return `<img src="badge.png" alt="" style="border-radius:50%;display:block;">`;
 }
 
 function renderGrid(){
