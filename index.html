@@ -10,18 +10,19 @@
 <style>
   :root{
     --white:#FFFFFF;
-    --paper:#F7FBF8;
-    --cream:#F6F1E4;
-    --cream-line:#E7DFC9;
+    --paper:#F6F5F1;
+    --cream:#F6F5F1;
+    --cream-line:#E6E4DD;
     --ink:#171B18;
     --ink-soft:#5C645D;
-    --mint:#1FA372;
+    --mint:var(--ink);
     --pink:#EC5C8D;
-    --red:#E14B4A;
-    --amber:#EFB013;
-    --orange:#F2762E;
-    --blue:#3E8EDE;
-    --line:#F0F3F0;
+    --red:var(--ink);
+    --amber:var(--ink);
+    --orange:var(--ink);
+    --blue:var(--ink);
+    --indigo:var(--ink);
+    --line:#EAE8E2;
     --shadow-sm:0 1px 2px rgba(23,27,24,0.06), 0 2px 8px rgba(23,27,24,0.04);
     --shadow-md:0 8px 24px rgba(23,27,24,0.08);
     --shadow-lg:0 20px 48px rgba(23,27,24,0.12);
@@ -73,7 +74,7 @@
 
   .hero-visual{position:relative; display:flex; align-items:center; justify-content:center; min-height:360px;}
   .blob{position:absolute; border-radius:50%;}
-  .blob-1{width:280px;height:280px;background:#EAF7F1;top:-10px;right:20px;}
+  .blob-1{width:280px;height:280px;background:#F1F0EC;top:-10px;right:20px;}
   .blob-2{width:140px;height:140px;background:var(--cream);bottom:0;left:0;}
   .hero-card{
     position:relative; background:var(--white); border-radius:24px; box-shadow:var(--shadow-lg);
@@ -94,7 +95,7 @@
   section{padding:56px 0; border-top:1px solid var(--line);}
   .sec-label{
     display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:0.14em; color:var(--mint);
-    background:#EAF7F1; border-radius:100px; padding:6px 14px 6px 6px; margin:0 0 16px; font-weight:700;
+    background:#F1F0EC; border-radius:100px; padding:6px 14px 6px 6px; margin:0 0 16px; font-weight:700;
   }
   .sec-num{
     display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;
@@ -274,15 +275,7 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-logo">
-      <svg width="34" height="34" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="29" fill="var(--pink)"/>
-        <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-        <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-        <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-        <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-        <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-        <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-      </svg>
+      <img src="logo.png" alt="うさぎブックス" style="width:36px;height:36px;">
       <span>うさぎブックス</span>
     </div>
     <div class="nav-links">
@@ -297,6 +290,9 @@
 </nav>
 
 <div class="hero" id="sec-hero">
+  <div class="wrap" style="text-align:center;padding-bottom:8px;">
+    <img src="logo.png" alt="うさぎブックス" style="width:200px;height:200px;">
+  </div>
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span>CROWD FUNDING BOOK STORE</span>
@@ -312,15 +308,7 @@
       <div class="blob blob-2"></div>
       <div class="hero-card">
         <div class="hero-tag">支援中</div>
-        <svg class="mark-badge" viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="29" fill="var(--pink)"/>
-          <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-          <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-          <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-          <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-        </svg>
+        <img class="mark-badge" src="badge.png" alt="うさぎブックス" style="border-radius:50%;">
         <div class="catch">誰も真似できなかった、祖母の手の記憶を追う。</div>
         <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:14px;">著者：架空花子</div>
         <div class="bar-outer"><div class="bar-inner"></div></div>
@@ -389,11 +377,11 @@
       <div class="cover-item">
         <div class="book-cover">
           <svg class="cover-art" viewBox="0 0 148 208" aria-hidden="true">
-            <path d="M40 112 L40 42 L46 30 L52 42 L52 112 Z" fill="none" stroke="var(--blue)" stroke-width="1.4" opacity="0.7"/>
-            <circle cx="46" cy="24" r="4" fill="var(--blue)" opacity="0.6"/>
-            <path d="M46 24 L74 12 M46 24 L80 24 M46 24 L74 36" stroke="var(--blue)" stroke-width="1.2" opacity="0.4"/>
+            <path d="M40 112 L40 42 L46 30 L52 42 L52 112 Z" fill="none" stroke="#3E8EDE" stroke-width="1.4" opacity="0.7"/>
+            <circle cx="46" cy="24" r="4" fill="#3E8EDE" opacity="0.6"/>
+            <path d="M46 24 L74 12 M46 24 L80 24 M46 24 L74 36" stroke="#3E8EDE" stroke-width="1.2" opacity="0.4"/>
           </svg>
-          <div class="genre-tag" style="color:var(--blue);">小説</div>
+          <div class="genre-tag" style="color:#3E8EDE;">小説</div>
           <div class="cover-title-block">
             <div class="title serif">まだ見ぬ町の、<br>灯り</div>
             <a class="cover-author" href="usagi_books_demo.html?view=profile" style="text-decoration:underline;">宵町灯</a>
@@ -404,7 +392,7 @@
       <div class="cover-item">
         <div class="book-cover book-cover--type">
           <div class="num-pattern" style="color:rgba(225,75,74,0.12);">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5</div>
-          <div class="genre-tag" style="color:var(--red);">ビジネス書</div>
+          <div class="genre-tag" style="color:#E14B4A;">ビジネス書</div>
           <div class="cover-title-block">
             <div class="title-big">数字が<br>語らない<br>現場</div>
             <div class="cover-author">架空三郎</div>
@@ -415,11 +403,11 @@
       <div class="cover-item">
         <div class="book-cover">
           <svg class="cover-art" viewBox="0 0 148 208" aria-hidden="true">
-            <ellipse cx="74" cy="80" rx="28" ry="10" fill="none" stroke="var(--blue)" stroke-width="1.4" opacity="0.7"/>
-            <path d="M46 80 Q46 100 74 100 Q102 100 102 80" fill="none" stroke="var(--blue)" stroke-width="1.4" opacity="0.7"/>
-            <path d="M60 66 Q64 54 60 46 M74 64 Q76 50 72 42 M88 66 Q92 54 88 46" fill="none" stroke="var(--blue)" stroke-width="1.2" opacity="0.4"/>
+            <ellipse cx="74" cy="58" rx="26" ry="9" fill="none" stroke="#3E8EDE" stroke-width="1.4" opacity="0.7"/>
+            <path d="M48 58 Q48 76 74 76 Q100 76 100 58" fill="none" stroke="#3E8EDE" stroke-width="1.4" opacity="0.7"/>
+            <path d="M60 44 Q64 32 60 24 M74 42 Q76 28 72 20 M88 44 Q92 32 88 24" fill="none" stroke="#3E8EDE" stroke-width="1.2" opacity="0.4"/>
           </svg>
-          <div class="genre-tag" style="color:var(--blue);">小説</div>
+          <div class="genre-tag" style="color:#3E8EDE;">小説</div>
           <div class="cover-title-block">
             <div class="title serif">台所に残る、<br>声</div>
             <div class="cover-author">架空花子</div>
@@ -430,11 +418,11 @@
       <div class="cover-item">
         <div class="book-cover">
           <svg class="cover-art" viewBox="0 0 148 208" aria-hidden="true">
-            <circle cx="74" cy="76" r="30" fill="none" stroke="var(--orange)" stroke-width="1.2" opacity="0.4"/>
-            <circle cx="74" cy="76" r="19" fill="none" stroke="var(--orange)" stroke-width="1.2" opacity="0.55"/>
-            <circle cx="74" cy="76" r="8" fill="var(--orange)" opacity="0.65"/>
+            <circle cx="74" cy="52" r="26" fill="none" stroke="#F2762E" stroke-width="1.2" opacity="0.4"/>
+            <circle cx="74" cy="52" r="16" fill="none" stroke="#F2762E" stroke-width="1.2" opacity="0.55"/>
+            <circle cx="74" cy="52" r="7" fill="#F2762E" opacity="0.65"/>
           </svg>
-          <div class="genre-tag" style="color:var(--orange);">自己啓発</div>
+          <div class="genre-tag" style="color:#F2762E;">自己啓発</div>
           <div class="cover-title-block">
             <div class="title-big" style="font-size:19px;">がんばらない<br>目標の立て方</div>
             <div class="cover-author">架空明</div>
@@ -445,7 +433,7 @@
       <div class="cover-item">
         <div class="book-cover">
           <svg class="cover-art" viewBox="0 0 148 208" aria-hidden="true">
-            <path d="M56 100 L56 60 M92 100 L92 60 M56 60 Q74 48 92 60 M50 100 L98 100 M56 100 L50 118 M92 100 L98 118" fill="none" stroke="var(--pink)" stroke-width="1.4" opacity="0.65"/>
+            <path d="M56 68 L56 34 M92 68 L92 34 M56 34 Q74 24 92 34 M50 68 L98 68 M56 68 L51 82 M92 68 L97 82" fill="none" stroke="var(--pink)" stroke-width="1.4" opacity="0.65"/>
           </svg>
           <div class="genre-tag" style="color:var(--pink);">趣味</div>
           <div class="cover-title-block">
@@ -459,7 +447,7 @@
   </div>
 </section>
 
-<section id="sec-staff" style="padding-top:56px;padding-bottom:56px;background:#EAF7F1;">
+<section id="sec-staff" style="padding-top:56px;padding-bottom:56px;background:#F1F0EC;">
   <div class="wrap">
     <span class="sec-label"><span class="sec-num">04</span>STAFF PICK</span>
     <h2 class="sec-head">スタッフの推し。</h2>
@@ -467,34 +455,34 @@
       <div class="pick-card" onclick="location.href='usagi_books_demo.html?project=p1'" style="cursor:pointer;">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project">
           <div><span class="t">まだ見ぬ町の、灯り</span><a class="a" href="usagi_books_demo.html?view=profile" onclick="event.stopPropagation();" style="text-decoration:underline;">宵町灯</a></div>
-          <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
+          <span class="g" style="background:#F1F0EC;color:var(--blue);">小説</span>
         </div>
       </div>
       <a class="pick-card" href="usagi_books_demo.html?project=p4">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">法人連携担当</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project">
           <div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div>
-          <span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span>
+          <span class="g" style="background:#F1F0EC;color:var(--red);">ビジネス書</span>
         </div>
       </a>
       <a class="pick-card" href="usagi_books_demo.html?project=p6">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project">
           <div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div>
-          <span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span>
+          <span class="g" style="background:#F1F0EC;color:var(--blue);">小説</span>
         </div>
       </a>
     </div>
@@ -505,15 +493,7 @@
   <div class="wrap">
     <div class="interview-banner">
       <div class="interview-avatar">
-        <svg width="100%" height="100%" viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="29" fill="var(--blue)"/>
-          <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-          <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-          <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-          <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-        </svg>
+        <img src="badge.png" alt="宵町灯" style="width:100%;height:100%;">
       </div>
       <div>
         <div class="interview-tag">AUTHOR INTERVIEW</div>

@@ -60,7 +60,7 @@
     width:46px; height:46px; border-radius:50%; overflow:hidden;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .interview-avatar svg{width:100%;height:100%;}
+  .interview-avatar svg, .interview-avatar img{width:100%;height:100%;}
   .interview-tag{font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:var(--pink); margin-bottom:4px;}
   .interview-name{font-size:19px; font-weight:900; letter-spacing:-0.01em; margin-bottom:4px;}
   .interview-quote{font-size:14px; font-weight:700; line-height:1.5;}
@@ -93,6 +93,7 @@
   .p-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
   .p-card .thumb{background:var(--card);padding:24px 20px;border-bottom:0.5px solid var(--line);}
   .p-card .mark{margin-bottom:10px;}
+  .p-card .mark img{width:34px;height:34px;}
   .p-card .catch{font-size:15px;font-weight:700;line-height:1.6;}
   .p-card .info{padding:16px 20px;}
   .p-card .genre{font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--g-color,var(--amber));margin-bottom:6px;}
@@ -107,7 +108,7 @@
   .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
   .d-visual{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:36px 28px;box-shadow:var(--shadow-sm);}
   .d-visual .mark{margin-bottom:16px;}
-  .d-visual .mark svg{width:52px;height:52px;}
+  .d-visual .mark svg, .d-visual .mark img{width:52px;height:52px;}
   .d-visual .catch{font-size:19px;font-weight:600;line-height:1.7;}
   .d-visual .author{font-size:13px;color:var(--ink-soft);margin-top:22px;}
   .d-body h2{font-size:23px;margin:0 0 12px;font-weight:700;}
@@ -203,15 +204,7 @@
 <nav>
   <div class="nav-inner">
     <div class="logo" onclick="showView('browse')" style="display:flex;align-items:center;gap:8px;">
-      <svg width="42" height="42" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="29" fill="var(--rose)"/>
-        <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-        <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-        <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-        <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-        <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-        <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-      </svg>
+      <img src="badge.png" alt="うさぎブックス" style="width:38px;height:38px;border-radius:50%;">
       <span style="color:var(--orange);">うさぎブックス</span>
     </div>
     <div class="nav-links">
@@ -252,7 +245,7 @@
       <div class="pick-card" onclick="openDetail('p1')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--pink)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a" style="text-decoration:underline;cursor:pointer;" onclick="event.stopPropagation();showView('profile');">宵町灯</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -260,7 +253,7 @@
       <div class="pick-card" onclick="openDetail('p4')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--blue)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">法人連携担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">法人連携担当</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
@@ -268,7 +261,7 @@
       <div class="pick-card" onclick="openDetail('p6')">
         <div class="pick-staff">
           <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<svg width="16" height="16" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="var(--amber)"/><path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/><path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/><circle cx="30" cy="35" r="12" fill="var(--white)"/><circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/><circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/><path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/></svg></div><div class="who">書籍担当</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project"><div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -379,15 +372,7 @@
     <button class="back" onclick="showView('browse')">← 一覧に戻る</button>
     <div class="article-head">
       <div class="article-avatar">
-        <svg viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="29" fill="var(--blue)"/>
-          <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-          <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-          <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-          <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-        </svg>
+        <img src="badge.png" alt="宵町灯">
       </div>
       <div>
         <div class="article-name" style="text-decoration:underline;cursor:pointer;" onclick="showView('profile')">宵町灯</div>
@@ -426,15 +411,7 @@
     <button class="back" onclick="showView('browse')">← 一覧に戻る</button>
     <div class="profile-head">
       <div class="profile-avatar">
-        <svg viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="29" fill="var(--blue)"/>
-          <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-          <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-          <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-          <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-          <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-        </svg>
+        <img src="badge.png" alt="宵町灯">
       </div>
       <div class="profile-name">宵町灯</div>
       <div class="profile-role">よいまち・ともる ／ 小説</div>
@@ -781,16 +758,7 @@ const genreColors = {
 };
 
 function rabbitMark(color){
-  const c = color || 'var(--rose)';
-  return `<svg width="34" height="34" viewBox="0 0 60 60" aria-hidden="true">
-    <circle cx="30" cy="30" r="29" fill="${c}"/>
-    <path d="M20 25 C17 12, 25 5, 28 15 C29.5 21, 26.5 27, 24.5 29 Z" fill="var(--white)"/>
-    <path d="M40 25 C43 12, 35 5, 32 15 C30.5 21, 33.5 27, 35.5 29 Z" fill="var(--white)"/>
-    <circle cx="30" cy="35" r="12" fill="var(--white)"/>
-    <circle cx="25.5" cy="34" r="1.8" fill="var(--ink)"/>
-    <circle cx="34.5" cy="34" r="1.8" fill="var(--ink)"/>
-    <path d="M28 38.5 L32 38.5 L30 41 Z" fill="var(--orange)"/>
-  </svg>`;
+  return `<img src="badge.png" alt="" style="width:100%;height:100%;border-radius:50%;display:block;">`;
 }
 
 function renderGrid(){
