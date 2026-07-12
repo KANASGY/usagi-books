@@ -104,7 +104,7 @@
   }
   .sec-num{
     display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;
-    background:var(--mint); color:var(--white); border-radius:50%; font-size:11px; font-weight:900;
+    background:transparent; color:var(--ink); border:1.5px solid var(--ink); border-radius:50%; font-size:10.5px; font-weight:900;
   }
   .sec-head{font-size:30px; font-weight:900; margin:0 0 28px; max-width:640px; letter-spacing:-0.01em; line-height:1.4;}
 
@@ -130,9 +130,9 @@
     width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
     font-size:14px; font-weight:900; color:var(--white); margin-bottom:16px;
   }
-  .step-card:nth-child(1) .step-num{background:var(--blue);}
+  .step-card:nth-child(1) .step-num{background:#4C7FA8;}
   .step-card:nth-child(2) .step-num{background:var(--pink);}
-  .step-card:nth-child(3) .step-num{background:var(--orange);}
+  .step-card:nth-child(3) .step-num{background:#3D8A73;}
   .step-card h4{font-size:16.5px; margin:0 0 10px; font-weight:700;}
   .step-card p{font-size:13.5px; color:var(--ink-soft); margin:0;}
 
@@ -570,8 +570,9 @@
     <h2 class="sec-head">本と、うさぎと、あなたの時間。</h2>
     <p style="font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 0 32px;">蔵書印やしおりから、トートバッグ、店内サインまで。うさぎブックスのある暮らしを、ものからも。</p>
     <div style="background:var(--white); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:var(--shadow-sm);">
-      <img src="goods.png" alt="うさぎブックス グッズ一覧" style="width:100%;height:auto;border-radius:12px;display:block;">
+      <a href="goods.html"><img src="goods.png" alt="うさぎブックス グッズ一覧" style="width:100%;height:auto;border-radius:12px;display:block;"></a>
     </div>
+    <a href="goods.html" style="display:inline-block;margin-top:20px;background:var(--ink);color:var(--white);border-radius:100px;padding:12px 26px;font-size:13.5px;font-weight:700;text-decoration:none;">グッズを一つずつ見る</a>
   </div>
 </section>
 
