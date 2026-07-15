@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うさぎブックス ― 本が届くまで</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --paper:#F6F5F1; --ink:#2E2318; --ink-soft:#524A3F;
+    --pink:#E08A3E; --line:#EAE8E2;
+    --shadow-sm:0 1px 2px rgba(23,27,24,0.06), 0 2px 8px rgba(23,27,24,0.04);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 32px;}
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .nav-logo{display:flex;align-items:center;gap:10px;}
+  .back-link{font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:700;}
+
+  .hero{padding:56px 0 40px;}
+  .hero .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.14em;color:var(--pink);background:#F7EBDF;border-radius:100px;padding:6px 16px;margin-bottom:20px;}
+  .hero h1{font-size:30px;font-weight:900;letter-spacing:-0.01em;margin:0 0 16px;line-height:1.5;}
+  .hero p{font-size:14.5px;color:var(--ink-soft);max-width:560px;}
+
+  .flow{padding:20px 0 60px;}
+  .flow-step{display:flex;gap:20px;padding:24px 0;border-top:1px solid var(--line);}
+  .flow-step:first-child{border-top:none;}
+  .flow-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;}
+  .flow-body h3{font-size:16.5px;margin:4px 0 8px;font-weight:700;}
+  .flow-body p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  .principle{background:var(--paper);border-radius:20px;padding:28px;margin:0 0 60px;}
+  .principle h2{font-size:18px;margin:0 0 14px;font-weight:900;}
+  .principle .row{display:flex;justify-content:space-between;font-size:14px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .principle .row:last-child{border-bottom:none;}
+  .principle .row b{color:var(--pink);}
+
+  footer{color:var(--ink-soft);font-size:12.5px;text-align:center;padding:28px 0;border-top:1px solid var(--line);}
+
+  @media (max-width:600px){ .hero h1{font-size:22px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="うさぎブックス" style="height:38px;width:auto;">
+    </a>
+    <a class="back-link" href="index.html">← サイトTOPへ戻る</a>
+  </div>
+</nav>
+
+<div class="wrap hero">
+  <span class="tag">HOW IT WORKS</span>
+  <h1>本が届くまで。</h1>
+  <p>支援してから、本が手元に届くまでの流れです。在庫を持たず、返本も発生しない仕組みになっています。</p>
+</div>
+
+<div class="wrap flow">
+  <div class="flow-step">
+    <div class="flow-num">01</div>
+    <div class="flow-body">
+      <h3>企画が公開される</h3>
+      <p>著者が着想と執筆理由を公開し、支援の募集が始まる。原稿は、まだなくてよい。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">02</div>
+    <div class="flow-body">
+      <h3>支援が集まる</h3>
+      <p>読者が支援することで、部数と支援者が同時に確定していく。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">03</div>
+    <div class="flow-body">
+      <h3>募集期間が終了する</h3>
+      <p>目標金額に届けば支援成立。届かなければ、支援は全額返金される（印刷は行われない）。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">04</div>
+    <div class="flow-body">
+      <h3>確定した部数だけを印刷する</h3>
+      <p>支援が成立した数だけを、都度印刷する。見込みで多く刷ることはしない。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">05</div>
+    <div class="flow-body">
+      <h3>支援者へ直送する</h3>
+      <p>書店を経由せず、支援者の手元へ直接届く。</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="principle">
+    <h2>この仕組みが守っていること</h2>
+    <div class="row"><span>在庫</span><b>持たない</b></div>
+    <div class="row"><span>返本</span><b>発生しない</b></div>
+    <div class="row"><span>印刷部数</span><b>支援が確定した分だけ</b></div>
+    <div class="row"><span>発送から到着まで</span><b>目安として2〜4週間</b></div>
+  </div>
+</div>
+
+<footer>うさぎブックス（本が届くまで・モックアップ）</footer>
+
+</body>
+</html>

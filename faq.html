@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うさぎブックス ― よくある質問</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --paper:#F6F5F1; --ink:#2E2318; --ink-soft:#524A3F;
+    --pink:#E08A3E; --line:#EAE8E2;
+    --shadow-sm:0 1px 2px rgba(23,27,24,0.06), 0 2px 8px rgba(23,27,24,0.04);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 32px;}
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .nav-logo{display:flex;align-items:center;gap:10px;}
+  .back-link{font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:700;}
+
+  .hero{padding:56px 0 32px;}
+  .hero .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.14em;color:var(--pink);background:#F7EBDF;border-radius:100px;padding:6px 16px;margin-bottom:20px;}
+  .hero h1{font-size:30px;font-weight:900;letter-spacing:-0.01em;margin:0 0 12px;}
+  .hero p{font-size:14px;color:var(--ink-soft);}
+
+  .cat{padding:20px 0 8px;font-size:12px;font-weight:900;color:var(--pink);letter-spacing:0.1em;}
+  details{border-bottom:1px solid var(--line);padding:16px 0;}
+  summary{font-size:15px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';font-size:20px;color:var(--ink-soft);font-weight:400;}
+  details[open] summary::after{content:'−';}
+  details p{font-size:14px;color:var(--ink-soft);margin:12px 0 0;}
+  details p a{color:var(--pink);}
+
+  .end{padding:56px 0 72px;text-align:center;border-top:1px solid var(--line);margin-top:24px;}
+  .end p{font-size:13.5px;color:var(--ink-soft);margin:0 0 20px;}
+  .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .links a{border:1.5px solid var(--line);border-radius:100px;padding:9px 18px;font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;}
+
+  footer{color:var(--ink-soft);font-size:12.5px;text-align:center;padding:28px 0;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="うさぎブックス" style="height:38px;width:auto;">
+    </a>
+    <a class="back-link" href="index.html">← サイトTOPへ戻る</a>
+  </div>
+</nav>
+
+<div class="wrap hero">
+  <span class="tag">FAQ</span>
+  <h1>よくある質問</h1>
+  <p>支援者の方からよく聞かれることをまとめました。著者向けの質問は<a href="authors.html">著者向けページ</a>にあります。</p>
+</div>
+
+<div class="wrap">
+
+  <div class="cat">支援について</div>
+
+  <details>
+    <summary>支援をキャンセルできますか。</summary>
+    <p>募集期間中であれば、マイページからキャンセルできます。募集終了後（支援成立後）のキャンセルはできません。</p>
+  </details>
+
+  <details>
+    <summary>決済のタイミングはいつですか。</summary>
+    <p>支援成立時に決済されます。目標金額に届かず不成立になった場合は、決済は発生しません。</p>
+  </details>
+
+  <details>
+    <summary>目標金額に届かなかったらどうなりますか。</summary>
+    <p>All-or-Nothing方式のため、支援は不成立となり、支援した金額は全額戻ります。印刷・発送は行われません。</p>
+  </details>
+
+  <div class="cat">発送について</div>
+
+  <details>
+    <summary>本はいつ届きますか。</summary>
+    <p>募集終了後、支援が確定した部数を印刷してから発送します。目安として、募集終了から2〜4週間ほどです。</p>
+  </details>
+
+  <details>
+    <summary>送料はかかりますか。</summary>
+    <p>プロジェクトごとに、支援金額に含まれる場合と別途かかる場合があります。各プロジェクトページでご確認ください。</p>
+  </details>
+
+  <details>
+    <summary>海外への発送は可能ですか。</summary>
+    <p>プロジェクトによって対応が異なります。海外発送の可否は、各プロジェクトページに記載されます。</p>
+  </details>
+
+  <div class="cat">支援した本について</div>
+
+  <details>
+    <summary>支援した本が完成しなかったら、どうなりますか。</summary>
+    <p>著者には進捗の共有を継続していただきます。それでも完成が見込めないと判断された場合は、支援者へ返金されます。</p>
+  </details>
+
+  <details>
+    <summary>支援者番号や奥付記名とは何ですか。</summary>
+    <p>支援ティアの一部として、本の奥付に支援者としてお名前を残せたり、初版に支援者番号が入ったりする仕組みです。詳細はプロジェクトごとの支援ティアをご確認ください。</p>
+  </details>
+
+  <div class="cat">著者・提携について</div>
+
+  <details>
+    <summary>著者として本を出したいのですが。</summary>
+    <p>原稿がなくても、書きたい理由があれば公開できます。詳しくは<a href="authors.html">著者向けページ</a>をご覧ください。</p>
+  </details>
+
+  <details>
+    <summary>出版社・編集者ですが、企画に興味があります。</summary>
+    <p><a href="publishers.html">出版社・編集者向けページ</a>で、うさぎブックスのデータをどう活用できるかをまとめています。</p>
+  </details>
+
+</div>
+
+<div class="end">
+  <p>他に知りたいことがあれば、こちらもあわせてご覧ください。</p>
+  <div class="links">
+    <a href="authors.html">著者向け</a>
+    <a href="publishers.html">出版社・編集者向け</a>
+    <a href="delivery.html">本が届くまで</a>
+  </div>
+</div>
+
+<footer>うさぎブックス（FAQ・モックアップ）</footer>
+
+<script>
+  // アコーディオンの見た目調整（1つ開いたら他を閉じる、任意）
+</script>
+
+</body>
+</html>
