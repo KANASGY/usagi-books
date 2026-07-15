@@ -23,6 +23,8 @@
     --blue:#4C7FA8;
     --teal:#3D8A73;
     --maroon:#9C5B6E;
+    --purple:#6E5A99;
+    --cyan:#3E8FA0;
     --line:#EAE6DD;
     --card:#F2EFE8;
     --shadow-sm:0 1px 2px rgba(32,38,31,0.06), 0 2px 8px rgba(32,38,31,0.04);
@@ -353,6 +355,8 @@
         <option>自己啓発</option>
         <option>趣味</option>
         <option>研究書</option>
+        <option>美術</option>
+        <option>コミック</option>
       </select>
     </div>
     <div class="form-group">
@@ -621,10 +625,50 @@ const seedProjects = [
    lead:'全国の商店街を対象にしたフィールドワークから、非経済合理的な存続要因を分析する。',
    content:'採算が取れていないように見える個人商店が、なぜ何十年も営業を続けられるのかを、全国十数か所の商店街への聞き取りから分析する。家賃・後継者・近隣店舗との関係性といった数字に表れない要因を丁寧に拾う。',
    target:1600000, raised:340000, backers:31,
-   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:7000,popular:true}]}
+   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:7000,popular:true}]},
+
+  // 美術
+  {id:'p16', title:'誰も買わなかった絵の話', author:'架空画家・野村', genre:'美術',
+   catch:'売れない絵にも、描かれた理由がある。',
+   lead:'画廊に並ばなかった30枚の絵と、それぞれを描いた事情をたどるエッセイ。',
+   content:'個展のたびに売れ残ってきた作品ばかりを集め、なぜその絵を描かずにいられなかったのかを一枚ずつ振り返る。制作年順ではなく、売れなかった理由ごとに章立てする構成を予定している。',
+   target:900000, raised:180000, backers:33,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4000,popular:true},{name:'原画レプリカ付き',amount:35000,popular:false}]},
+  {id:'p17', title:'美術館の閉まる音', author:'架空千鶴', genre:'美術',
+   catch:'閉館のアナウンスが、一番好きだった。',
+   lead:'全国の美術館で聞いた閉館前の時間だけを集めた、鑑賞記でも研究書でもないエッセイ。',
+   content:'作品そのものより、閉館間際の静かな時間や、警備員の足音、最後の一人になる瞬間について書き続けてきたノートをまとめる。美術鑑賞の記録というより、その余白についての記録。',
+   target:700000, raised:95000, backers:21,
+   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true}]},
+  {id:'p18', title:'贋作者の手記', author:'架空研究員・小林', genre:'美術',
+   catch:'本物より、うまく描けてしまうことがある。',
+   lead:'贋作事件の資料を読み解きながら、模倣と創作の境界を考えるノンフィクション。',
+   content:'過去の贋作事件の裁判記録や証言を読み解きながら、なぜ模倣者たちが「本物以上」の絵を描けてしまったのかを追う。美術史ではなく、手を動かした人間の側から見た模倣論を目指す。',
+   target:1100000, raised:410000, backers:47,
+   tiers:[{name:'応援コメント',amount:1500,popular:false},{name:'先行読者になる',amount:6000,popular:true},{name:'資料室ツアーに招待',amount:30000,popular:false}]},
+
+  // コミック
+  {id:'p19', title:'定時で帰るスライム', author:'架空漫画家・つじ', genre:'コミック',
+   catch:'魔王を倒す気は、最初からない。',
+   lead:'冒険せず、残業もせず、ただ定時で帰りたいスライムの日常4コマ。',
+   content:'勇者パーティーに拾われたスライムが、戦闘よりシフト管理と有給消化に命をかける日常4コマ。魔王討伐は遠い背景として進みつつ、スライムは今日も定時で帰る。全40話を予定。',
+   target:600000, raised:210000, backers:88,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'キャラ原画データ',amount:9000,popular:false}]},
+  {id:'p20', title:'祖父の写真館', author:'架空マキ', genre:'コミック',
+   catch:'現像液の匂いだけ、今も覚えている。',
+   lead:'昭和の写真館を営んでいた祖父の記憶をもとに描く、静かな一話完結漫画。',
+   content:'閉業した町の写真館を舞台に、訪れる人々の一瞬を祖父の視点で描く一話完結オムニバス。派手な展開はなく、シャッターを切る前後の会話だけで一話が構成される。',
+   target:850000, raised:120000, backers:39,
+   tiers:[{name:'応援コメント',amount:800,popular:false},{name:'先行話数を読む',amount:3000,popular:true}]},
+  {id:'p21', title:'よその家の夕飯', author:'架空漫画家・南', genre:'コミック',
+   catch:'隣の匂いの方が、いつも美味しそうだった。',
+   lead:'団地の各部屋から漂う夕飯の匂いだけで綴る、会話の少ない群像コミック。',
+   content:'一つの団地に暮らす住人たちの夕方を、台詞ではなく匂いと湯気の描写だけでつなぐ実験的な群像漫画。各話の主役は変わるが、同じ時間の同じ団地を少しずつ描いていく。',
+   target:700000, raised:65000, backers:24,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'原画1枚プレゼント',amount:18000,popular:false}]}
 ];
 
-const DATA_VERSION = 'v5';
+const DATA_VERSION = 'v7';
 
 async function loadData(){
   let storedVersion = null;
@@ -773,7 +817,7 @@ function setGenre(g){ activeGenre = g; renderFilters(); renderGrid(); }
 
 const genreColors = {
   '小説':'var(--blue)', 'ビジネス書':'var(--red)', '実用書':'var(--amber)',
-  '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)'
+  '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)', '美術':'var(--purple)', 'コミック':'var(--cyan)'
 };
 
 function rabbitMark(color){
