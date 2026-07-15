@@ -25,6 +25,7 @@
     --maroon:#9C5B6E;
     --purple:#6E5A99;
     --cyan:#3E8FA0;
+    --sage:#6B8A5A;
     --line:#EAE6DD;
     --card:#F2EFE8;
     --shadow-sm:0 1px 2px rgba(32,38,31,0.06), 0 2px 8px rgba(32,38,31,0.04);
@@ -163,22 +164,6 @@
   .tier-input-row input{margin:0;}
   .remove-tier{border:1.5px solid var(--line);border-radius:12px;background:var(--white);cursor:pointer;padding:10px 12px;font-size:13px;color:var(--ink-soft);}
   .add-tier{border:1.5px dashed var(--pink);border-radius:12px;background:var(--white);cursor:pointer;padding:10px;font-size:13px;color:var(--pink);width:100%;margin-top:4px;font-weight:700;}
-
-  /* events */
-  .event-card{
-    display:flex; gap:16px; align-items:center; background:var(--white); border:1px solid var(--line);
-    border-radius:18px; padding:16px 18px; box-shadow:var(--shadow-sm); transition:box-shadow .15s;
-  }
-  .event-card:hover{box-shadow:var(--shadow-md);}
-  .event-date{
-    flex:0 0 64px; text-align:center; background:var(--paper); border-radius:12px; padding:8px 4px;
-  }
-  .event-date .m{font-size:10.5px; color:var(--ink-soft); font-weight:700;}
-  .event-date .d{font-size:20px; font-weight:900; color:var(--ink);}
-  .event-body{flex:1;}
-  .event-body .tag{font-size:11px; font-weight:700; margin-bottom:4px;}
-  .event-body h4{font-size:15px; margin:0 0 4px; font-weight:700;}
-  .event-body .meta{font-size:12.5px; color:var(--ink-soft);}
   .event-join{flex:0 0 auto; border:1.5px solid var(--pink); border-radius:100px; background:var(--white); color:var(--pink); font-weight:700; font-size:13px; padding:9px 18px; cursor:pointer;}
   .event-join.joined{background:var(--pink); color:var(--white);}
 
@@ -228,7 +213,6 @@
     <div class="nav-links" id="nav-links">
       <a class="nav-btn" href="index.html" style="text-decoration:none;">サイトTOP</a>
       <button class="nav-btn" data-view="browse" onclick="showView('browse')">さがす</button>
-      <button class="nav-btn" data-view="events" onclick="showView('events')">読書会</button>
       <button class="nav-btn" data-view="create" onclick="showView('create')">はじめる</button>
       <button class="nav-btn" data-view="mypage" onclick="showView('mypage')">マイページ</button>
       <button class="nav-btn" id="account-btn" onclick="onAccountBtnClick()" style="margin-left:6px;">ログイン</button>
@@ -265,24 +249,24 @@
     <div class="picks-row">
       <div class="pick-card" onclick="openDetail('p1')">
         <div class="pick-staff">
-          <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
+          <div class="pick-avatar">選</div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a" style="text-decoration:underline;cursor:pointer;" onclick="event.stopPropagation();showView('profile');">宵町灯</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
       </div>
       <div class="pick-card" onclick="openDetail('p4')">
         <div class="pick-staff">
-          <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">法人連携担当</div></div>
+          <div class="pick-avatar">選</div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
       </div>
       <div class="pick-card" onclick="openDetail('p6')">
         <div class="pick-staff">
-          <div class="pick-avatar">編</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">編集部・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">書籍担当</div></div>
+          <div class="pick-avatar">選</div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project"><div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -357,6 +341,7 @@
         <option>研究書</option>
         <option>美術</option>
         <option>コミック</option>
+        <option>文芸</option>
       </select>
     </div>
     <div class="form-group">
@@ -377,16 +362,6 @@
       <button type="button" class="add-tier" onclick="addTierInput()">+ ティアを追加</button>
     </div>
     <button class="btn" onclick="publishProject()">公開する</button>
-  </div>
-</section>
-
-<section id="view-events" class="view">
-  <div class="wrap">
-    <div class="browse-head">
-      <h2>読書会</h2>
-      <p>支援しているプロジェクトの著者や読者と、オンライン・オフラインで語り合う場です。</p>
-    </div>
-    <div id="events-list" style="display:flex;flex-direction:column;gap:14px;margin-top:24px;"></div>
   </div>
 </section>
 
@@ -472,10 +447,6 @@
       <h3>あなたが支援したプロジェクト</h3>
       <div id="my-pledges"></div>
     </div>
-    <div class="my-section">
-      <h3>参加予定の読書会</h3>
-      <div id="my-events"></div>
-    </div>
   </div>
 </section>
 
@@ -504,25 +475,9 @@
 <script>
 let projects = [];
 let pledges = [];
-let joinedEvents = [];
 let currentUser = null;
 let currentDetailId = null;
 let selectedTierIndex = null;
-
-const seedEvents = [
-  {id:'e1', projectId:'p1', title:'『まだ見ぬ町の、灯り』読書会', genre:'小説', host:'宵町灯',
-   month:'7月', day:'20', format:'オンライン', place:'Zoom開催', capacity:20},
-  {id:'e2', projectId:'p4', title:'『数字が語らない現場』を読む会', genre:'ビジネス書', host:'架空三郎',
-   month:'7月', day:'27', format:'オフライン', place:'東京・神楽坂 うさぎブックス店', capacity:12},
-  {id:'e3', projectId:'p6', title:'台所の記憶を語る会', genre:'小説', host:'架空花子',
-   month:'8月', day:'3', format:'オフライン', place:'大阪・中崎町 カフェ空', capacity:15},
-  {id:'e4', projectId:'p9', title:'目標の立て方、みんなで話す夜', genre:'自己啓発', host:'架空明',
-   month:'8月', day:'9', format:'オンライン', place:'Zoom開催', capacity:30},
-  {id:'e5', projectId:'p12', title:'古道具を持ち寄る読書会', genre:'趣味', host:'架空千夏',
-   month:'8月', day:'17', format:'オフライン', place:'京都・木屋町 古道具喫茶', capacity:10},
-  {id:'e6', projectId:'p14', title:'消えゆく方言をめぐる勉強会', genre:'研究書', host:'架空教授・田村',
-   month:'8月', day:'24', format:'オンライン', place:'Zoom開催', capacity:25}
-];
 
 const seedProjects = [
   // 小説
@@ -665,10 +620,36 @@ const seedProjects = [
    lead:'団地の各部屋から漂う夕飯の匂いだけで綴る、会話の少ない群像コミック。',
    content:'一つの団地に暮らす住人たちの夕方を、台詞ではなく匂いと湯気の描写だけでつなぐ実験的な群像漫画。各話の主役は変わるが、同じ時間の同じ団地を少しずつ描いていく。',
    target:700000, raised:65000, backers:24,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'原画1枚プレゼント',amount:18000,popular:false}]}
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'原画1枚プレゼント',amount:18000,popular:false}]},
+
+  // 文芸（俳句・短歌・詩・エッセイ）
+  {id:'p22', title:'季語のない句集', author:'架空俳人・柏', genre:'文芸',
+   catch:'季節を跨いだ句だけを、あえて残す。',
+   lead:'歳時記に載らない、季節をまたぐ違和感だけを集めた句集。',
+   content:'一句の中に季節が二つ入ってしまう、季語として認められない言葉を使ってしまう。そうした「季重なり」「無季」の句だけを、あえて選んで一冊にする試み。全80句を予定。',
+   target:150000, raised:62000, backers:19,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行句を読む',amount:2000,popular:true},{name:'句集に一筆',amount:8000,popular:false}]},
+  {id:'p23', title:'あなたの名前は詠まない', author:'架空真砂', genre:'文芸',
+   catch:'一番書きたい人のことは、書かないと決めた。',
+   lead:'特定の相手を思って詠んだ歌から、その人を特定できる言葉だけを抜いた歌集。',
+   content:'長年ある一人に向けて詠んできた短歌から、名前や固有の情景を示す言葉だけを意図的に抜き、輪郭だけを残す形で一冊にまとめる。誰のことかは、読者にも著者にも分からなくなる。',
+   target:200000, raised:54000, backers:14,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行歌を読む',amount:2500,popular:true}]},
+  {id:'p24', title:'言い直した詩', author:'架空煉', genre:'文芸',
+   catch:'一度書いた行を、何度も言い直す。',
+   lead:'一篇の詩を書くたびに残してきた、書き直し途中のバージョンだけを集めた詩集。',
+   content:'完成形ではなく、「まだ言い切れていない」状態の草稿を並べる構成の詩集。同じ主題を何度も言い直す過程そのものを読ませる、通常の詩集とは逆向きの編集方針をとる。',
+   target:180000, raised:41000, backers:11,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行草稿を読む',amount:2200,popular:true},{name:'手書き草稿の写し',amount:12000,popular:false}]},
+  {id:'p25', title:'なんでもない日の記録', author:'架空日向子', genre:'文芸',
+   catch:'何も起きなかった日ほど、書き残したくなる。',
+   lead:'事件も転機もない、ただの一日だけを選んで書き続けてきたエッセイ集。',
+   content:'旅行記でも人生の転機でもなく、「特に何もなかった」と自分で言ってしまうような日だけを選び、その日に見た些細なことを書き留めてきた日記から、40編を選んでまとめる。',
+   target:250000, raised:98000, backers:27,
+   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行原稿を読む',amount:2500,popular:true},{name:'手紙のお返事付き',amount:15000,popular:false}]}
 ];
 
-const DATA_VERSION = 'v7';
+const DATA_VERSION = 'v9';
 
 async function loadData(){
   let storedVersion = null;
@@ -699,11 +680,6 @@ async function loadData(){
   }
 
   try{
-    const r3 = await window.storage.get('zen-joined-events');
-    joinedEvents = r3 ? JSON.parse(r3.value) : [];
-  }catch(e){ joinedEvents = []; }
-
-  try{
     const r4 = await window.storage.get('zen-user');
     currentUser = r4 ? JSON.parse(r4.value) : null;
   }catch(e){ currentUser = null; }
@@ -711,7 +687,6 @@ async function loadData(){
 
   renderFilters();
   renderGrid();
-  renderEvents();
   const iv = document.getElementById('interview-avatar');
   if(iv) iv.innerHTML = rabbitMark('var(--blue)');
 }
@@ -765,38 +740,6 @@ async function saveProjects(){
 async function savePledges(){
   try{ await window.storage.set('zen-pledges', JSON.stringify(pledges)); }catch(e){}
 }
-async function saveJoinedEvents(){
-  try{ await window.storage.set('zen-joined-events', JSON.stringify(joinedEvents)); }catch(e){}
-}
-
-function renderEvents(){
-  const box = document.getElementById('events-list');
-  if(!box) return;
-  box.innerHTML = seedEvents.map(ev=>{
-    const gc = genreColors[ev.genre] || 'var(--indigo)';
-    const isJoined = joinedEvents.includes(ev.id);
-    return `<div class="event-card">
-      <div class="event-date"><div class="m">${ev.month}</div><div class="d">${ev.day}</div></div>
-      <div class="event-body">
-        <div class="tag" style="color:${gc}">${ev.genre} ／ ${ev.format}</div>
-        <h4>${ev.title}</h4>
-        <div class="meta">主催：${ev.host} ／ ${ev.place} ／ 定員${ev.capacity}名</div>
-      </div>
-      <button class="event-join ${isJoined?'joined':''}" onclick="toggleEventJoin('${ev.id}')">${isJoined?'参加予定':'参加する'}</button>
-    </div>`;
-  }).join('');
-}
-
-async function toggleEventJoin(id){
-  const idx = joinedEvents.indexOf(id);
-  if(idx>=0){ joinedEvents.splice(idx,1); }
-  else{ joinedEvents.push(id); }
-  await saveJoinedEvents();
-  renderEvents();
-  if(document.getElementById('view-mypage').classList.contains('active')) renderMyPage();
-  const ev = seedEvents.find(e=>e.id===id);
-  showToast(idx>=0 ? `${ev.title} への参加を取り消しました` : `${ev.title} に参加登録しました`);
-}
 
 function showView(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -817,7 +760,8 @@ function setGenre(g){ activeGenre = g; renderFilters(); renderGrid(); }
 
 const genreColors = {
   '小説':'var(--blue)', 'ビジネス書':'var(--red)', '実用書':'var(--amber)',
-  '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)', '美術':'var(--purple)', 'コミック':'var(--cyan)'
+  '自己啓発':'var(--orange)', '趣味':'var(--pink)', '研究書':'var(--maroon)', '美術':'var(--purple)', 'コミック':'var(--cyan)',
+  '文芸':'var(--sage)'
 };
 
 function rabbitMark(color){
@@ -984,7 +928,7 @@ async function publishProject(){
 }
 
 async function resetDemoData(){
-  if(!confirm('このブラウザに保存された支援・投稿・読書会参加のデータを全て消去し、初期状態に戻します。よろしいですか？')) return;
+  if(!confirm('このブラウザに保存された支援・投稿のデータを全て消去し、初期状態に戻します。よろしいですか？')) return;
   try{ await window.storage.delete('zen-projects'); }catch(e){}
   try{ await window.storage.delete('zen-pledges'); }catch(e){}
   try{ await window.storage.delete('zen-joined-events'); }catch(e){}
@@ -1017,14 +961,6 @@ function renderMyPage(){
       <div class="row"><b>${pl.projectTitle}</b><span>¥${pl.amount.toLocaleString()}</span></div>
       <div class="row"><span>${pl.tierName}</span><span>${new Date(pl.date).toLocaleDateString('ja-JP')}</span></div>
     </div>`).join('') : '<div class="empty">まだ支援したプロジェクトはありません。</div>';
-
-  const eBox = document.getElementById('my-events');
-  const myEvents = seedEvents.filter(ev=>joinedEvents.includes(ev.id));
-  eBox.innerHTML = myEvents.length ? myEvents.map(ev=>`
-    <div class="my-project">
-      <div class="row"><b>${ev.title}</b><span>${ev.month}${ev.day}日</span></div>
-      <div class="row"><span>${ev.format} ／ ${ev.place}</span><span>主催：${ev.host}</span></div>
-    </div>`).join('') : '<div class="empty">参加予定の読書会はありません。</div>';
 }
 
 let toastTimer=null;
