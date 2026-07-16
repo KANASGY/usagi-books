@@ -44,7 +44,7 @@
   .nav-inner{max-width:1120px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
   .nav-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px;flex-shrink:0;}
   .nav-links{display:flex;gap:8px;flex-wrap:wrap;}
-  .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:20px;padding:8px 18px;font-size:13.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;text-decoration:none;white-space:nowrap;}
+  .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:20px;padding:8px 18px;font-size:14.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;text-decoration:none;white-space:nowrap;}
   .nav-btn.active{background:var(--pink);border-color:var(--pink);color:var(--white);}
   .nav-cta{background:var(--ink);color:var(--white);border:none;border-radius:100px;padding:11px 22px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
   .nav-burger{display:none;flex-direction:column;justify-content:center;gap:4px;width:36px;height:36px;border:1.5px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer;flex-shrink:0;}
@@ -309,6 +309,7 @@
     <div class="nav-links" id="nav-links">
       <a class="nav-btn active" href="index.html">サイトTOP</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=browse">さがす</a>
+      <a class="nav-btn" href="index.html#sec-staff">選者の推し</a>
       <a class="nav-btn" href="authors.html">著者向け</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=create">はじめる</a>
       <a class="nav-btn" href="usagi_books_demo.html?view=mypage">マイページ</a>
@@ -326,6 +327,7 @@
   </div>
   <div class="wrap hero-grid">
     <div>
+      <span class="eyebrow"><span class="dot"></span>CROWD FUNDING BOOKSTORE</span>
       <h1>本を書かずに<br>いられない理由から、<br><span class="accent">始まる。</span></h1>
       <p class="hero-sub">完成した本を売るのではなく、書き始める前の著者を読者が支援し、執筆そのものを共につくる。書籍特化型クラウドファンディング。</p>
       <div class="hero-cta">
@@ -362,7 +364,7 @@
       </div>
       <div class="kikou">
         <h3>うさぎブックス</h3>
-        <p>原稿がなくても、書きたい理由を先に共有する。読者が支援することで、部数と「並べる」が先に確定する。</p>
+        <p>原稿が未完成でも、書きたい理由を先に共有する。読者が支援することで、部数と「並べる」が先に確定する。</p>
         <div class="flow">
           <div class="step-row"><span class="n">1</span>着想を共有（原稿ゼロでもよい）</div>
           <div class="step-row"><span class="n">2</span>読者の支援が、部数と読者を確定させる</div>
@@ -370,6 +372,9 @@
         </div>
       </div>
     </div>
+    <p style="font-size:14px;color:var(--ink-soft);max-width:640px;margin:24px 0 0;">
+      そしてもう一つ。うさぎブックスは、<strong style="color:var(--ink);">本だけを扱うクラウドファンディング</strong>です。ガジェットも旅行も飲食店も並ばない、書籍専門のプラットフォームだからこそ、ジャンルごとの探し方も、著者としての見え方も、支援の記録の残し方も、本のために設計できます。
+    </p>
   </div>
 </section>
 
@@ -629,11 +634,11 @@
 </section>
 
 <footer>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:12.5px;">
-    <a href="authors.html" style="color:var(--ink-soft);text-decoration:none;">著者向け</a>
-    <a href="publishers.html" style="color:var(--ink-soft);text-decoration:none;">出版社・編集者向け</a>
-    <a href="delivery.html" style="color:var(--ink-soft);text-decoration:none;">本が届くまで</a>
-    <a href="faq.html" style="color:var(--ink-soft);text-decoration:none;">よくある質問</a>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:14px;font-weight:700;">
+    <a href="authors.html" style="color:var(--ink);text-decoration:none;">著者向け</a>
+    <a href="publishers.html" style="color:var(--ink);text-decoration:none;">出版社・編集者向け</a>
+    <a href="delivery.html" style="color:var(--ink);text-decoration:none;">本が届くまで</a>
+    <a href="faq.html" style="color:var(--ink);text-decoration:none;">よくある質問</a>
   </div>
   うさぎブックス（モックアップ）
 </footer>
