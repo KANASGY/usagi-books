@@ -232,6 +232,9 @@
   .cta-final p{font-size:15px; color:var(--ink); font-weight:600; max-width:460px; margin:0 auto 34px;}
   footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:12.5px; text-align:center; padding:28px 0;}
 
+  .forest-img-section{background:var(--paper); padding:32px 0 !important; display:flex; justify-content:center;}
+  .forest-img{width:100%; max-width:520px; height:auto; display:block; border-radius:12px; box-shadow:var(--shadow-sm);}
+
   @media (max-width:820px){
     .hero-grid{grid-template-columns:1fr;}
     .compare{grid-template-columns:1fr;}
@@ -291,7 +294,6 @@
 <div class="rail" id="rail">
   <a class="rail-item" href="#sec-hero" data-target="sec-hero"><span class="label">TOP</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-differentiator" data-target="sec-differentiator"><span class="label">違い</span><span class="dot"></span></a>
-  <a class="rail-item" href="#sec-dodont" data-target="sec-dodont"><span class="label">する/しない</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-how" data-target="sec-how"><span class="label">仕組み</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-track" data-target="sec-track"><span class="label">実績</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-staff" data-target="sec-staff"><span class="label">選者の推し</span><span class="dot"></span></a>
@@ -378,41 +380,13 @@
   </div>
 </section>
 
-<section id="sec-dodont" style="background:var(--cream);">
-  <div class="wrap">
-    <span class="sec-label"><span class="sec-num">02</span>WHAT WE DO / DON'T</span>
-    <h2 class="sec-head">うさぎブックスがすること、<br>しないこと。</h2>
-    <div class="compare">
-      <div class="kikou" style="opacity:1;">
-        <h3 style="color:var(--pink);">すること</h3>
-        <div class="flow" style="border-top:none; margin-top:0; padding-top:0;">
-          <div class="step-row"><span class="n">・</span>企画の掲載</div>
-          <div class="step-row"><span class="n">・</span>支援の受付</div>
-          <div class="step-row"><span class="n">・</span>支援データの記録と可視化</div>
-        </div>
-      </div>
-      <div>
-        <h3>しないこと</h3>
-        <div class="flow" style="border-top:none; margin-top:0; padding-top:0;">
-          <div class="step-row"><span class="n">・</span>書店への流通</div>
-          <div class="step-row"><span class="n">・</span>権利の保有</div>
-          <div class="step-row"><span class="n">・</span>編集・選書</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:13.5px;color:var(--ink-soft);margin-top:24px;max-width:640px;">
-      支援が確定した部数だけを、都度印刷して支援者へ直送します。在庫を持たないので、返本も発生しません。収益は、支援が成立した金額に対する手数料です。
-    </p>
-  </div>
-</section>
-
-<section style="padding:0;">
-  <img src="mood_forest.png" alt="本は、静かな森。うさぎブックス" style="width:100%;height:auto;display:block;">
+<section style="padding:0;" class="forest-img-section">
+  <img src="mood_forest.png" alt="本は、静かな森。うさぎブックス" class="forest-img">
 </section>
 
 <section id="sec-how" style="padding-top:40px;padding-bottom:40px;background:var(--cream);">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">03</span>HOW IT WORKS</span>
+    <span class="sec-label"><span class="sec-num">02</span>HOW IT WORKS</span>
     <h2 class="sec-head">3つのステップ</h2>
     <div class="steps3">
       <div class="step-card">
@@ -436,7 +410,7 @@
 
 <section id="sec-track">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">04</span>TRACK RECORD</span>
+    <span class="sec-label"><span class="sec-num">03</span>TRACK RECORD</span>
     <h2 class="sec-head">支援の記録。</h2>
     <p style="font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:-16px 0 28px;">成立した企画も、まだ募集中の企画も、同じように並びます。</p>
     <div class="covers-row">
@@ -515,7 +489,7 @@
 
 <section id="sec-staff" style="padding-top:40px;padding-bottom:40px;background:#F1F0EC;">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">05</span>SELECTOR'S PICK</span>
+    <span class="sec-label"><span class="sec-num">04</span>SELECTOR'S PICK</span>
     <h2 class="sec-head">選者の推し。</h2>
     <p style="font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:-16px 0 28px;">うさぎブックスは選書をしません。ここで紹介する3冊は、社外の目利きが個人の視点で選んだものです。</p>
     <div class="picks-row">
@@ -576,7 +550,7 @@
 <section id="sec-sample" style="padding:0 0 56px;">
   <div class="sample-band">
     <div class="wrap">
-      <span class="sec-label"><span class="sec-num">06</span>SAMPLE PROJECT</span>
+      <span class="sec-label"><span class="sec-num">05</span>SAMPLE PROJECT</span>
       <h2 class="sec-head">プロジェクトページ（イメージ）</h2>
       <div class="project">
         <div class="project-visual">
@@ -609,7 +583,7 @@
 
 <section id="sec-goods" style="background:var(--paper);">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">07</span>GOODS</span>
+    <span class="sec-label"><span class="sec-num">06</span>GOODS</span>
     <h2 class="sec-head">本と、うさぎと、あなたの時間。</h2>
     <p style="font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 0 32px;">蔵書印やしおりから、トートバッグ、店内サインまで。うさぎブックスのある暮らしを、ものからも。</p>
     <div style="background:var(--white); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:var(--shadow-sm);">
