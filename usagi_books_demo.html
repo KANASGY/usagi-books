@@ -56,7 +56,13 @@
   section.view.active{display:block;}
 
   /* browse */
-  .browse-head{margin-bottom:28px;}
+  .browse-head{margin-bottom:20px;}
+  .browse-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:32px;}
+  .bstat{background:var(--paper);border-radius:14px;padding:14px 12px;text-align:center;}
+  .bstat b{display:block;font-size:22px;font-weight:900;color:var(--ink);font-family:inherit;}
+  .bstat span{font-size:11px;color:var(--ink-soft);}
+  .picks-band{background:#F1F0EC;padding:28px 0 32px;margin-bottom:8px;}
+  .mini-label{font-size:11.5px;font-weight:700;letter-spacing:0.08em;color:var(--pink);margin-bottom:14px;}
   .browse-head h2{font-size:28px;margin:0 0 6px;font-weight:900;letter-spacing:-0.01em;}
   .browse-head p{font-size:13.5px;color:var(--ink-soft);margin:0;}
   .interview-banner{
@@ -246,42 +252,55 @@
       <h2>プロジェクトをさがす</h2>
       <p>著者が書き始める前から、支援するプラットフォームです。</p>
     </div>
-    <div class="picks-row">
-      <div class="pick-card" onclick="openDetail('p1')">
-        <div class="pick-staff">
-          <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+    <div class="browse-stats">
+      <div class="bstat"><b id="stat-count">-</b><span>公開中のプロジェクト</span></div>
+      <div class="bstat"><b id="stat-genres">-</b><span>ジャンル</span></div>
+      <div class="bstat"><b id="stat-backers">-</b><span>支援者の合計</span></div>
+    </div>
+  </div>
+  <div class="picks-band">
+    <div class="wrap">
+      <div class="mini-label">SELECTOR'S PICK ／ 選者の推し</div>
+      <div class="picks-row">
+        <div class="pick-card" onclick="openDetail('p1')">
+          <div class="pick-staff">
+            <div class="pick-avatar">選</div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          </div>
+          <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
+          <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a" style="text-decoration:underline;cursor:pointer;" onclick="event.stopPropagation();showView('profile');">宵町灯</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
         </div>
-        <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
-        <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a" style="text-decoration:underline;cursor:pointer;" onclick="event.stopPropagation();showView('profile');">宵町灯</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
+        <div class="pick-card" onclick="openDetail('p4')">
+          <div class="pick-staff">
+            <div class="pick-avatar">選</div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          </div>
+          <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
+          <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
+        </div>
+        <div class="pick-card" onclick="openDetail('p6')">
+          <div class="pick-staff">
+            <div class="pick-avatar">選</div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          </div>
+          <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
+          <div class="pick-project"><div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
+        </div>
       </div>
-      <div class="pick-card" onclick="openDetail('p4')">
-        <div class="pick-staff">
-          <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+      <div class="interview-banner">
+        <div class="interview-avatar" id="interview-avatar"></div>
+        <div>
+          <div class="interview-tag">AUTHOR INTERVIEW</div>
+          <div class="interview-name" style="text-decoration:underline;cursor:pointer;" onclick="showView('profile')">宵町灯</div>
+          <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
+          <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
         </div>
-        <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
-        <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
-      </div>
-      <div class="pick-card" onclick="openDetail('p6')">
-        <div class="pick-staff">
-          <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
-        </div>
-        <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
-        <div class="pick-project"><div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
+        <button class="interview-link" onclick="showView('interview')">読む</button>
       </div>
     </div>
-    <div class="interview-banner">
-      <div class="interview-avatar" id="interview-avatar"></div>
-      <div>
-        <div class="interview-tag">AUTHOR INTERVIEW</div>
-        <div class="interview-name" style="text-decoration:underline;cursor:pointer;" onclick="showView('profile')">宵町灯</div>
-        <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
-        <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
-      </div>
-      <button class="interview-link" onclick="showView('interview')">読む</button>
-    </div>
+  </div>
+  <div class="wrap">
+    <div class="mini-label" style="margin-top:32px;">ALL PROJECTS ／ すべてのプロジェクト</div>
     <div class="filters" id="filters"></div>
     <div class="grid" id="project-grid"></div>
   </div>
@@ -320,7 +339,7 @@
   <div class="wrap" style="max-width:640px;">
     <div class="browse-head">
       <h2>著者としてはじめる</h2>
-      <p>原稿がなくても構いません。書きたい理由や着想を共有してください。</p>
+      <p>原稿が未完成でも構いません。書きたい理由や着想を共有してください。</p>
     </div>
     <div class="form-group">
       <label>タイトル</label>
@@ -449,6 +468,17 @@
     </div>
   </div>
 </section>
+
+<footer style="border-top:1px solid var(--line); color:var(--ink-soft); font-size:12.5px; text-align:center; padding:28px 0; margin-top:40px;">
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:14px;font-weight:700;">
+    <a href="index.html" style="color:var(--ink);text-decoration:none;">サイトTOP</a>
+    <a href="authors.html" style="color:var(--ink);text-decoration:none;">著者向け</a>
+    <a href="publishers.html" style="color:var(--ink);text-decoration:none;">出版社・編集者向け</a>
+    <a href="delivery.html" style="color:var(--ink);text-decoration:none;">本が届くまで</a>
+    <a href="faq.html" style="color:var(--ink);text-decoration:none;">よくある質問</a>
+  </div>
+  うさぎブックス（体験デモ）
+</footer>
 
 <div class="modal-overlay" id="pledge-modal">
   <div class="modal">
@@ -784,6 +814,17 @@ function renderGrid(){
       </div>
     </div>`;
   }).join('') || '<div class="empty">該当するプロジェクトはありません。</div>';
+  renderBrowseStats();
+}
+
+function renderBrowseStats(){
+  const countEl = document.getElementById('stat-count');
+  const genresEl = document.getElementById('stat-genres');
+  const backersEl = document.getElementById('stat-backers');
+  if(!countEl) return;
+  countEl.textContent = projects.length;
+  genresEl.textContent = new Set(projects.map(p=>p.genre)).size;
+  backersEl.textContent = projects.reduce((sum,p)=>sum+p.backers,0).toLocaleString();
 }
 
 function openDetail(id){
