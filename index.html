@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>うさぎブックス ― 本を書かずにいられない理由から、始まる。</title>
+<title>うさぎブックス ― 伝えたいことがある。書かずにいられない訳がある。</title>
 <meta name="description" content="うさぎブックス｜書籍専門のクラウドファンディング">
 <meta property="og:title" content="うさぎブックス｜書籍専門のクラウドファンディング">
 <meta property="og:description" content="うさぎブックス｜書籍専門のクラウドファンディング">
@@ -63,7 +63,7 @@
   .nav-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
   /* ---------- HERO ---------- */
-  .hero{padding:40px 0 44px; overflow:hidden;}
+  .hero{padding:32px 0 32px; overflow:hidden;}
   .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:36px;align-items:center;}
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
@@ -74,7 +74,7 @@
   }
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--pink);}
   .hero h1{
-    font-size:40px; font-weight:900; margin:0 0 22px; letter-spacing:-0.02em; line-height:1.32;
+    font-size:54px; font-weight:900; margin:0 0 22px; letter-spacing:-0.035em; line-height:1.22; color:var(--ink);
   }
   .hero h1 .accent{color:#1FA372;}
   .hero-sub{font-size:16.5px; color:var(--ink-soft); max-width:460px; margin:0 0 24px;}
@@ -106,7 +106,7 @@
   }
 
   /* ---------- SECTIONS ---------- */
-  section{padding:40px 0; border-top:1px solid var(--line);}
+  section{padding:32px 0; border-top:1px solid var(--line);}
   .sec-label{
     display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:0.14em; color:var(--mint);
     background:#F1F0EC; border-radius:100px; padding:6px 14px 6px 6px; margin:0 0 16px; font-weight:700;
@@ -118,15 +118,15 @@
   .sec-num::after{
     content:""; position:absolute; inset:-4px; border:1px solid var(--ink); border-radius:50%; opacity:0.35;
   }
-  .sec-head{font-size:26px; font-weight:900; margin:0 0 28px; max-width:640px; letter-spacing:-0.01em; line-height:1.4;}
+  .sec-head{font-size:36px; font-weight:900; margin:0 0 20px; max-width:640px; letter-spacing:-0.03em; line-height:1.3;}
 
   /* differentiator */
-  .compare{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; padding-top:6px;}
-  .compare > div{background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px 22px;}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch; padding-top:4px;}
+  .compare > div{background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:20px 20px;}
   .compare .kikou{background:var(--white); box-shadow:var(--shadow-lg); border:2px solid var(--pink); position:relative; opacity:1; transform:scale(1.03);}
   .compare .kikou::before{content:"私たちの場合";position:absolute;top:-13px;left:20px;background:var(--pink);color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;}
-  .compare h3{font-size:17px; margin:0 0 14px; font-weight:700; color:var(--ink);}
-  .compare .kikou h3{color:var(--pink); font-size:19px; font-weight:900;}
+  .compare h3{font-size:12px; margin:0 0 16px; font-weight:900; color:var(--ink-soft); letter-spacing:0.14em; text-transform:uppercase;}
+  .compare .kikou h3{color:var(--pink); font-size:12px; font-weight:900;}
   .compare p{font-size:14px; color:var(--ink-soft); margin:0 0 8px;}
   .compare .kikou p{color:var(--ink);}
   .compare .flow{font-size:13.5px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line);}
@@ -201,7 +201,7 @@
     width:64px; height:64px; border-radius:50%; overflow:hidden;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .interview-tag{font-size:11.5px; font-weight:700; letter-spacing:0.1em; color:var(--pink); margin-bottom:6px;}
+  .interview-tag{font-size:18px; font-weight:900; letter-spacing:0.04em; color:var(--pink); margin-bottom:8px;}
   .interview-name{font-size:24px; font-weight:900; letter-spacing:-0.01em; margin-bottom:8px; display:block; color:var(--ink);}
   .interview-quote{font-size:17px; font-weight:700; line-height:1.6; margin-bottom:6px;}
   .interview-byline{font-size:12.5px; color:var(--ink-soft);}
@@ -235,7 +235,7 @@
   .project-cta{display:inline-block; background:var(--pink); color:var(--white); border:none; border-radius:100px; padding:13px 26px; font-size:14px; font-weight:700; text-decoration:none; cursor:pointer;}
 
   /* CTA + footer */
-  .cta-final{text-align:center; padding:48px 0 56px; background:var(--pink); color:var(--white);}
+  .cta-final{text-align:center; padding:40px 0 44px; background:var(--pink); color:var(--white);}
   .cta-final .btn-primary{background:var(--ink); color:var(--white);}
   .cta-final h2{font-size:34px; font-weight:900; margin:0 0 18px; letter-spacing:-0.01em;}
   .cta-final p{font-size:15px; color:var(--ink); font-weight:600; max-width:460px; margin:0 auto 34px;}
@@ -250,7 +250,7 @@
     .steps3{grid-template-columns:1fr;}
     .project{grid-template-columns:1fr;}
     .sample-band{margin:0 16px;padding:40px 24px;}
-    .hero h1{font-size:38px;}
+    .hero h1{font-size:36px;}
     .interview-banner{grid-template-columns:1fr; text-align:left;}
     .picks-row{grid-template-columns:1fr;}
     .nav-inner{flex-wrap:nowrap;}
@@ -273,9 +273,9 @@
   }
   @media (max-width:480px){
     .wrap{padding:0 20px;}
-    .hero h1{font-size:30px;}
+    .hero h1{font-size:28px;}
     .hero-sub{font-size:15px;}
-    .sec-head{font-size:24px;}
+    .sec-head{font-size:26px;}
     .interview-quote{font-size:15px;}
     .cta-final h2{font-size:26px;}
   }
@@ -302,8 +302,9 @@
 
 <div class="rail" id="rail">
   <a class="rail-item" href="#sec-hero" data-target="sec-hero"><span class="label">TOP</span><span class="dot"></span></a>
-  <a class="rail-item" href="#sec-differentiator" data-target="sec-differentiator"><span class="label">違い</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-differentiator" data-target="sec-differentiator"><span class="label">理由</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-how" data-target="sec-how"><span class="label">仕組み</span><span class="dot"></span></a>
+  <a class="rail-item" href="#sec-supporter" data-target="sec-supporter"><span class="label">支援者</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-track" data-target="sec-track"><span class="label">実績</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-staff" data-target="sec-staff"><span class="label">選者の推し</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-interview" data-target="sec-interview"><span class="label">インタビュー</span><span class="dot"></span></a>
@@ -339,12 +340,8 @@
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span>CROWD FUNDING BOOKSTORE</span>
-      <h1>本を書かずに<br>いられない理由から、<br><span class="accent">始まる。</span></h1>
-      <p class="hero-sub">書籍特化型クラウドファンディング。原稿が未完成でも応募可能です。</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="authors.html" style="text-decoration:none;display:inline-block;">著者として始める</a>
-        <a class="btn btn-ghost" href="usagi_books_demo.html?view=browse" style="text-decoration:none;display:inline-block;">支援者として探す</a>
-      </div>
+      <h1>うさぎブックスは、<br>本だけを扱う、<span class="accent">クラウドファンディング。</span></h1>
+      <p class="hero-sub">本好きの人が集まる場所。<br>原稿が完成していなくても、応募できます。</p>
     </div>
     <div class="hero-visual">
       <div class="hero-card">
@@ -361,31 +358,22 @@
 
 <section id="sec-differentiator">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">01</span>DIFFERENTIATOR</span>
-    <h2 class="sec-head">誰が、並べるかを決めるのか。<br>既存の流通と、うさぎブックスの<br>いちばんの違いはそこにある。</h2>
-    <div class="compare">
-      <div>
-        <h3>既存の書店流通</h3>
-        <p>刷った部数を配本し、回転率が並べ続けるかどうかを決める。売れなければ、期限が来て返本される。</p>
-        <div class="flow">
-          <div class="step-row"><span class="n">1</span>見込み部数を刷って配本</div>
-          <div class="step-row"><span class="n">2</span>回転率が「並べ続けるか」を決める</div>
-          <div class="step-row"><span class="n">3</span>売れなければ返本される</div>
-        </div>
+    <span class="sec-label"><span class="sec-num">01</span>WHY</span>
+    <h2 class="sec-head">本好きの人が<br>集まる場所。</h2>
+    <div class="compare" style="margin-top:8px;">
+      <div class="kikou" style="opacity:1;">
+        <h3 style="color:var(--pink);">著者にとって</h3>
+        <p style="font-size:24px;color:var(--ink);font-weight:900;line-height:1.5;letter-spacing:-0.01em;margin:0 0 14px;">伝えたいことがある。<br>書かずにいられない理由がある。</p>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 20px;">目次はあっていい。あるべきなのは、完成原稿ではなく書きたい理由。それを最初に共有することから、うさぎブックスは始まる。</p>
+        <a class="btn btn-primary" href="authors.html" style="text-decoration:none;display:inline-block;">著者として始める</a>
       </div>
-      <div class="kikou">
-        <h3>うさぎブックス</h3>
-        <p>原稿が未完成でも、書きたい理由を先に共有する。読者が支援することで、部数と「並べる」が先に確定する。</p>
-        <div class="flow">
-          <div class="step-row"><span class="n">1</span>着想を共有（原稿ゼロでもよい）</div>
-          <div class="step-row"><span class="n">2</span>読者の支援が、部数と読者を確定させる</div>
-          <div class="step-row"><span class="n">3</span>確定した分だけ刷る。返本は発生しない</div>
-        </div>
+      <div>
+        <h3>読者にとって</h3>
+        <p style="font-size:24px;color:var(--ink);font-weight:900;line-height:1.5;letter-spacing:-0.01em;margin:0 0 14px;">まだ読めない本がある。<br>読みたいものを応援する。</p>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 20px;">&nbsp;</p>
+        <a class="btn btn-ghost" href="usagi_books_demo.html?view=browse" style="text-decoration:none;display:inline-block;">支援者として探す</a>
       </div>
     </div>
-    <p style="font-size:14px;color:var(--ink-soft);max-width:640px;margin:24px 0 0;">
-      そしてもう一つ。うさぎブックスは、<strong style="color:var(--ink);">本だけを扱うクラウドファンディング</strong>です。ガジェットも旅行も飲食店も並ばない、書籍専門のプラットフォームだからこそ、ジャンルごとの探し方も、著者としての見え方も、支援の記録の残し方も、本のために設計できます。
-    </p>
   </div>
 </section>
 
@@ -393,10 +381,10 @@
   <img src="mood_forest.png" alt="本は、静かな森。うさぎブックス" class="forest-img">
 </section>
 
-<section id="sec-how" style="padding-top:40px;padding-bottom:40px;background:var(--cream);">
+<section id="sec-how" style="padding-top:32px;padding-bottom:32px;background:var(--cream);">
   <div class="wrap">
     <span class="sec-label"><span class="sec-num">02</span>HOW IT WORKS</span>
-    <h2 class="sec-head">3つのステップ</h2>
+    <h2 class="sec-head">本ができるまで。</h2>
     <div class="steps3">
       <div class="step-card">
         <div class="step-num">01</div>
@@ -417,9 +405,46 @@
   </div>
 </section>
 
+<section id="sec-supporter">
+  <div class="wrap">
+    <span class="sec-label"><span class="sec-num">03</span>WHAT SUPPORTERS DO</span>
+    <h2 class="sec-head">「買う」ではなく、<br>「並べる」。</h2>
+    <p style="font-size:14.5px;color:var(--ink-soft);max-width:600px;margin:0 0 32px;">
+      支援者は、本を買っているのではない。<strong style="color:var(--ink);">棚に並べている。</strong>
+    </p>
+    <div class="compare">
+      <div>
+        <h3>一般的な「買う」</h3>
+        <p>完成した商品と、対価を交換する。取引が終われば、関係も終わる。</p>
+      </div>
+      <div class="kikou">
+        <h3>うさぎブックスの「並べる」</h3>
+        <p>支援は、その本を世に出すという意思決定そのもの。だからリターンも、モノではなく<strong style="color:var(--ink);">「並べた事実の記録」</strong>として残る。</p>
+      </div>
+    </div>
+    <div class="steps3" style="margin-top:20px;">
+      <div class="step-card">
+        <div class="step-num" style="background:#4C7FA8;--ring-color:#4C7FA8;">1</div>
+        <h4>支援者として記録される</h4>
+        <p>支援した事実が、プロジェクトの記録として残る。もっとも軽い関わり方。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>初版に支援者番号が入る</h4>
+        <p>初版だけに割り振られる番号。その本を並べた一人であることの記録になる。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" style="background:#3D8A73;--ring-color:#3D8A73;">3</div>
+        <h4>奥付に名前が残る</h4>
+        <p>本そのものに、支援した人として名前が刻まれる。もっとも重い関わり方。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="sec-track">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">03</span>TRACK RECORD</span>
+    <span class="sec-label"><span class="sec-num">04</span>TRACK RECORD</span>
     <h2 class="sec-head">支援の記録。</h2>
     <p style="font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:-16px 0 28px;">成立した企画も、まだ募集中の企画も、同じように並びます。</p>
     <div class="covers-row">
@@ -496,16 +521,15 @@
   </div>
 </section>
 
-<section id="sec-staff" style="padding-top:40px;padding-bottom:40px;background:#F1F0EC;">
+<section id="sec-staff" style="padding-top:32px;padding-bottom:32px;background:#F1F0EC;">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">04</span>SELECTOR'S PICK</span>
+    <span class="sec-label"><span class="sec-num">05</span>SELECTOR'S PICK</span>
     <h2 class="sec-head">選者の推し。</h2>
-    <p style="font-size:13.5px;color:var(--ink-soft);max-width:520px;margin:-16px 0 28px;">うさぎブックスは選書をしません。ここで紹介する3冊は、社外の目利きが個人の視点で選んだものです。</p>
     <div class="picks-row">
       <div class="pick-card" onclick="location.href='usagi_books_demo.html?project=p1'" style="cursor:pointer;">
         <div class="pick-staff">
           <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
         </div>
         <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
         <div class="pick-project">
@@ -516,7 +540,7 @@
       <a class="pick-card" href="usagi_books_demo.html?project=p4">
         <div class="pick-staff">
           <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
         </div>
         <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
         <div class="pick-project">
@@ -527,7 +551,7 @@
       <a class="pick-card" href="usagi_books_demo.html?project=p6">
         <div class="pick-staff">
           <div class="pick-avatar">選</div>
-          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+          <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
         </div>
         <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
         <div class="pick-project">
@@ -556,10 +580,10 @@
   </div>
 </section>
 
-<section id="sec-sample" style="padding:0 0 56px;">
+<section id="sec-sample" style="padding:0 0 40px;">
   <div class="sample-band">
     <div class="wrap">
-      <span class="sec-label"><span class="sec-num">05</span>SAMPLE PROJECT</span>
+      <span class="sec-label"><span class="sec-num">06</span>SAMPLE PROJECT</span>
       <h2 class="sec-head">プロジェクトページ（イメージ）</h2>
       <div class="project">
         <div class="project-visual">
@@ -592,7 +616,7 @@
 
 <section id="sec-goods" style="background:var(--paper);">
   <div class="wrap">
-    <span class="sec-label"><span class="sec-num">06</span>GOODS</span>
+    <span class="sec-label"><span class="sec-num">07</span>GOODS</span>
     <h2 class="sec-head">本と、うさぎと、あなたの時間。</h2>
     <p style="font-size:14px;color:var(--ink-soft);max-width:520px;margin:0 0 32px;">蔵書印やしおりから、トートバッグ、店内サインまで。うさぎブックスのある暮らしを、ものからも。</p>
     <div style="background:var(--white); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:var(--shadow-sm);">
