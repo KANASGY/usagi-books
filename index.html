@@ -122,10 +122,11 @@
 
   /* differentiator */
   .compare{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch; padding-top:4px;}
-  .compare > div{background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:20px 20px;}
-  .compare .kikou{background:var(--white); box-shadow:var(--shadow-lg); border:2px solid var(--pink); position:relative; opacity:1; transform:scale(1.03);}
-  .compare .kikou::before{content:"私たちの場合";position:absolute;top:-13px;left:20px;background:var(--pink);color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;}
-  .compare h3{font-size:12px; margin:0 0 16px; font-weight:900; color:var(--ink-soft); letter-spacing:0.14em; text-transform:uppercase;}
+  .compare > div{background:var(--white); box-shadow:var(--shadow-md); border:2px solid var(--line); border-radius:20px; padding:20px 20px; position:relative; display:flex; flex-direction:column; height:100%;}
+  .compare > div .btn{margin-top:auto;}
+  .compare .kikou{border-color:var(--pink);}
+  .compare > div:not(.kikou){border-color:#4C7FA8;}
+  .compare h3{font-size:12px; margin:0 0 16px; font-weight:900; color:#4C7FA8; letter-spacing:0.14em; text-transform:uppercase;}
   .compare .kikou h3{color:var(--pink); font-size:12px; font-weight:900;}
   .compare p{font-size:14px; color:var(--ink-soft); margin:0 0 8px;}
   .compare .kikou p{color:var(--ink);}
@@ -306,7 +307,6 @@
   <a class="rail-item" href="#sec-how" data-target="sec-how"><span class="label">仕組み</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-track" data-target="sec-track"><span class="label">実績</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-staff" data-target="sec-staff"><span class="label">選者の推し</span><span class="dot"></span></a>
-  <a class="rail-item" href="#sec-interview" data-target="sec-interview"><span class="label">インタビュー</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-sample" data-target="sec-sample"><span class="label">プロジェクト例</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-goods" data-target="sec-goods"><span class="label">グッズ</span><span class="dot"></span></a>
   <a class="rail-item" href="#sec-cta" data-target="sec-cta"><span class="label">はじめる</span><span class="dot"></span></a>
@@ -519,23 +519,6 @@
           <span class="g" style="background:#F1F0EC;color:var(--blue);">小説</span>
         </div>
       </a>
-    </div>
-  </div>
-</section>
-
-<section id="sec-interview">
-  <div class="wrap">
-    <div class="interview-banner">
-      <div class="interview-avatar">
-        <img src="badge.png" alt="宵町灯" style="width:100%;height:100%;">
-      </div>
-      <div>
-        <div class="interview-tag">AUTHOR INTERVIEW</div>
-        <a class="interview-name" href="usagi_books_demo.html?view=profile" style="text-decoration:underline;">宵町灯</a>
-        <div class="interview-quote">「書けない日があってもいい、と言ってもらえたのが一番の支援でした。」</div>
-        <div class="interview-byline">『まだ見ぬ町の、灯り』著者に聞く、書く理由のつくりかた</div>
-      </div>
-      <a class="interview-link" href="usagi_books_demo.html?view=interview" style="text-decoration:none;">インタビューを読む</a>
     </div>
   </div>
 </section>
