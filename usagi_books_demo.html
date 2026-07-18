@@ -851,11 +851,14 @@ function openDetail(id){
   document.getElementById('d-rate').textContent = rate+'%';
   document.getElementById('d-backers').textContent = p.backers;
   const tiersBox = document.getElementById('d-tiers');
-  tiersBox.innerHTML = p.tiers.map((t,i)=>`
+  tiersBox.innerHTML = p.tiers.map((t,i)=>{
+    const includesBook = t.name !== '支援者として記録される';
+    return `
     <div class="tier" onclick="selectTier(${i})" id="tier-${i}">
-      <span>${t.name} ¥${t.amount.toLocaleString()}</span>
+      <span>${t.name} ¥${t.amount.toLocaleString()}<br><small style="color:var(--ink-soft);font-weight:400;">${includesBook?'本の発送を含む':'本の発送は含まれません'}</small></span>
       ${t.popular?'<span class="badge">人気</span>':'<b>―</b>'}
-    </div>`).join('');
+    </div>`;
+  }).join('');
   document.getElementById('d-support-btn').disabled = true;
   document.getElementById('d-support-btn').textContent = '支援するティアを選んでください';
   showView('detail');
