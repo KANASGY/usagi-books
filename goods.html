@@ -6,16 +6,16 @@
 <title>うさぎブックス ― グッズ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --white:#FFFFFF; --paper:#F6F5F1; --ink:#2E2318; --ink-soft:#524A3F;
-    --pink:#E08A3E; --line:#EAE8E2;
+    --white:#FFFFFF; --paper:#F0F8F5; --ink:#2E4038; --ink-soft:#5C7268;
+    --pink:#4CA36B; --water:#4AA3C4; --line:#D6E8E0;
     --shadow-sm:0 1px 2px rgba(23,27,24,0.06), 0 2px 8px rgba(23,27,24,0.04);
     --shadow-md:0 8px 24px rgba(23,27,24,0.08);
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.75;}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:'Zen Maru Gothic',sans-serif;line-height:1.75;}
   .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
   nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,0.9);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);}
   .nav-inner{max-width:1120px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
@@ -27,19 +27,19 @@
   .hero h1{font-size:34px;font-weight:900;letter-spacing:-0.01em;margin:0 0 14px;}
   .hero p{font-size:14.5px;color:var(--ink-soft);max-width:480px;margin:0 auto;}
 
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 0 80px;}
-  .item{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);transition:box-shadow .15s, transform .15s;}
-  .item:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
-  .item img{width:100%;height:auto;display:block;border-bottom:1px solid var(--line);}
-  .item-body{padding:18px 20px;}
-  .item-no{font-size:11px;color:var(--pink);font-weight:700;letter-spacing:0.08em;margin-bottom:6px;}
-  .item h3{font-size:15.5px;margin:0 0 8px;font-weight:700;}
-  .item p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .poster-wrap{padding:0 0 90px;}
+  .poster-frame{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:20px;box-shadow:var(--shadow-sm);}
+  .poster-frame img{width:100%;height:auto;display:block;border-radius:16px;cursor:zoom-in;}
+  .hint{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* lightbox */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(46,35,24,0.9);z-index:50;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;}
 
   footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:12.5px;text-align:center;padding:28px 0;}
 
-  @media (max-width:820px){ .grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:520px){ .grid{grid-template-columns:1fr;} .hero h1{font-size:26px;} }
+  @media (max-width:520px){ .hero h1{font-size:26px;} }
 </style>
 </head>
 <body>
@@ -59,143 +59,15 @@
   <p>蔵書印やしおりから、トートバッグ、店内サインまで。うさぎブックスのある暮らしを、ものからも。</p>
 </div>
 
-<div class="wrap grid">
-
-  <div class="item">
-    <img src="goods_01.png" alt="蔵書印（スタンプ）">
-    <div class="item-body">
-      <div class="item-no">01 ／ STAMP</div>
-      <h3>蔵書印（スタンプ）</h3>
-      <p>「うさぎブックス蔵書」のスタンプ。本の見返しに押して、あなたの一冊に。</p>
-    </div>
+<div class="wrap poster-wrap">
+  <div class="poster-frame">
+    <img src="goods.png" alt="うさぎブックス グッズ一覧" onclick="document.getElementById('lb').classList.add('open')">
   </div>
+  <p class="hint">画像をタップすると拡大表示します</p>
+</div>
 
-  <div class="item">
-    <img src="goods_02.png" alt="しおり">
-    <div class="item-body">
-      <div class="item-no">02 ／ BOOKMARK</div>
-      <h3>しおり</h3>
-      <p>本を閉じると、耳だけがのぞくしおり。本の時間がもっと楽しくなる。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_03.png" alt="ブックカバー">
-    <div class="item-body">
-      <div class="item-no">03 ／ BOOK COVER</div>
-      <h3>ブックカバー</h3>
-      <p>シンプルで、飽きのこないブックカバー。小さなうさぎが、そっと本を守ります。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_04.png" alt="読書パスポート">
-    <div class="item-body">
-      <div class="item-no">04 ／ PASSPORT</div>
-      <h3>読書パスポート</h3>
-      <p>読んだ本を記録していく小さな旅。スタンプを集めて、達成の喜びを。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_05.png" alt="読書証明書">
-    <div class="item-body">
-      <div class="item-no">05 ／ CERTIFICATE</div>
-      <h3>読書証明書</h3>
-      <p>「◯◯を読み終えました。」自分へのごほうびに、一枚の証明書を。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_06.png" alt="トートバッグ">
-    <div class="item-body">
-      <div class="item-no">06 ／ TOTE BAG</div>
-      <h3>トートバッグ</h3>
-      <p>シンプルで丈夫。日常に、そっと本を連れていく。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_07.png" alt="ブックエンド">
-    <div class="item-body">
-      <div class="item-no">07 ／ BOOKEND</div>
-      <h3>ブックエンド</h3>
-      <p>うさぎの耳が、本をやさしく支えます。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_08.png" alt="ブックスタンド">
-    <div class="item-body">
-      <div class="item-no">08 ／ BOOK STAND</div>
-      <h3>ブックスタンド</h3>
-      <p>開いた本を、うさぎが受けとめる。読書の時間を、より快適に。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_09.png" alt="マグカップ">
-    <div class="item-body">
-      <div class="item-no">09 ／ MUG</div>
-      <h3>マグカップ</h3>
-      <p>読書のそばに、うさぎと一杯のやさしい時間。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_10.png" alt="「本の森」ポスター">
-    <div class="item-body">
-      <div class="item-no">10 ／ POSTER</div>
-      <h3>「本の森」ポスター</h3>
-      <p>遠くから見ると森。よく見ると、木が本でできている。その中に、うさぎが一匹。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_11.png" alt="紙袋">
-    <div class="item-body">
-      <div class="item-no">11 ／ PAPER BAG</div>
-      <h3>紙袋</h3>
-      <p>本を持ち帰る時間まで、うさぎブックスの世界。小さなうさぎが、あなたの本を見守ります。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_12.png" alt="メッセージカード">
-    <div class="item-body">
-      <div class="item-no">12 ／ MESSAGE CARD</div>
-      <h3>メッセージカード</h3>
-      <p>ちょっとした一言を、うさぎといっしょに。裏面は無地で、自由に書けます。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_13.png" alt="ギフトラッピング">
-    <div class="item-body">
-      <div class="item-no">13 ／ GIFT WRAPPING</div>
-      <h3>ギフトラッピング</h3>
-      <p>本を包む時間も、特別なひとときに。うさぎのシールで、そっと気持ちを届けます。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_14.png" alt="サインプレート（店内用）">
-    <div class="item-body">
-      <div class="item-no">14 ／ SIGN PLATE</div>
-      <h3>サインプレート（店内用）</h3>
-      <p>お店の入口に、うさぎがご案内します。</p>
-    </div>
-  </div>
-
-  <div class="item">
-    <img src="goods_15.png" alt="足あとサイン（館内サイン例）">
-    <div class="item-body">
-      <div class="item-no">15 ／ FLOOR SIGN</div>
-      <h3>足あとサイン（館内サイン例）</h3>
-      <p>うさぎの足あとが、本の世界へご案内。</p>
-    </div>
-  </div>
-
+<div class="lightbox" id="lb" onclick="this.classList.remove('open')">
+  <img src="goods.png" alt="うさぎブックス グッズ一覧（拡大）">
 </div>
 
 <footer>うさぎブックス（グッズ・モックアップ）</footer>

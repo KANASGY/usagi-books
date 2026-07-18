@@ -6,35 +6,37 @@
 <title>うさぎブックス（体験デモ）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --white:#FFFFFF;
-    --paper:#F7F5F0;
-    --paper-deep:#EDE9E0;
-    --ink:#2E2318;
-    --ink-soft:#6B6255;
+    --paper:#F0F8F5;
+    --paper-deep:#E0F1EA;
+    --ink:#2E4038;
+    --ink-soft:#5C7268;
     --indigo:#3D8A73;
-    --pink:#E08A3E;
-    --rose:#E08A3E;
+    --pink:#4CA36B;
+    --rose:#4CA36B;
+    --water:#4AA3C4;
+    --sun:#E0A83E;
     --red:#C1554E;
     --amber:#C99A2E;
     --orange:#C97A3E;
-    --blue:#4C7FA8;
+    --blue:#5C8AA0;
     --teal:#3D8A73;
     --maroon:#9C5B6E;
     --purple:#6E5A99;
     --cyan:#3E8FA0;
     --sage:#6B8A5A;
-    --line:#EAE6DD;
-    --card:#F2EFE8;
-    --shadow-sm:0 1px 2px rgba(32,38,31,0.06), 0 2px 8px rgba(32,38,31,0.04);
-    --shadow-md:0 8px 24px rgba(32,38,31,0.09);
-    --shadow-lg:0 20px 48px rgba(32,38,31,0.13);
+    --line:#D6E8E0;
+    --card:#EDF3EA;
+    --shadow-sm:0 2px 6px rgba(46,64,56,0.05);
+    --shadow-md:0 10px 32px rgba(46,64,56,0.07);
+    --shadow-lg:0 24px 56px rgba(46,64,56,0.10);
   }
   *{box-sizing:border-box;}
   html{background:var(--white);}
-  body{margin:0;min-height:100vh;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.7;}
+  body{margin:0;min-height:100vh;background:var(--white);color:var(--ink);font-family:'Zen Maru Gothic',sans-serif;line-height:1.7;}
   .serif{font-family:'Shippori Mincho',serif;}
   .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
   button,input,select,textarea{font-family:inherit;}
@@ -42,9 +44,9 @@
   /* nav */
   nav{border-bottom:1px solid var(--line);background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);position:sticky;top:0;z-index:5;}
   .nav-inner{max-width:960px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-  .logo{font-family:'Zen Kaku Gothic New';font-weight:900;font-size:18px;cursor:pointer;letter-spacing:-0.01em;flex-shrink:0;white-space:nowrap;}
+  .logo{font-family:'Zen Maru Gothic';font-weight:900;font-size:18px;cursor:pointer;letter-spacing:-0.01em;flex-shrink:0;white-space:nowrap;}
   .nav-links{display:flex;gap:8px;}
-  .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:20px;padding:8px 18px;font-size:13.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;}
+  .nav-btn{border:1.5px solid var(--line);background:var(--white);border-radius:26px;padding:8px 18px;font-size:13.5px;cursor:pointer;color:var(--ink-soft);font-weight:700;}
   .nav-burger{display:none;flex-direction:column;justify-content:center;gap:4px;width:36px;height:36px;border:1.5px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer;flex-shrink:0;}
   .nav-burger span{display:block;width:16px;height:2px;background:var(--ink);margin:0 auto;transition:transform .2s, opacity .2s;}
   .nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
@@ -58,16 +60,16 @@
   /* browse */
   .browse-head{margin-bottom:20px;}
   .browse-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:32px;}
-  .bstat{background:var(--paper);border-radius:14px;padding:14px 12px;text-align:center;}
+  .bstat{background:var(--paper);border-radius:18px;padding:14px 12px;text-align:center;}
   .bstat b{display:block;font-size:22px;font-weight:900;color:var(--ink);font-family:inherit;}
   .bstat span{font-size:11px;color:var(--ink-soft);}
   .picks-band{background:#F1F0EC;padding:28px 0 32px;margin-bottom:8px;}
-  .mini-label{font-size:11.5px;font-weight:700;letter-spacing:0.08em;color:var(--pink);margin-bottom:14px;}
+  .mini-label{font-size:20px;font-weight:900;letter-spacing:0.04em;color:var(--pink);margin-bottom:16px;}
   .browse-head h2{font-size:28px;margin:0 0 6px;font-weight:900;letter-spacing:-0.01em;}
   .browse-head p{font-size:13.5px;color:var(--ink-soft);margin:0;}
   .interview-banner{
     display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center;
-    background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:18px 22px; margin-bottom:24px;
+    background:var(--paper); border:1px solid var(--line); border-radius:26px; padding:18px 22px; margin-bottom:24px;
     box-shadow:var(--shadow-sm);
   }
   .interview-avatar{
@@ -75,7 +77,7 @@
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .interview-avatar svg, .interview-avatar img{width:100%;height:100%;}
-  .interview-tag{font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:var(--pink); margin-bottom:4px;}
+  .interview-tag{font-size:18px; font-weight:900; letter-spacing:0.04em; color:var(--pink); margin-bottom:6px;}
   .interview-name{font-size:19px; font-weight:900; letter-spacing:-0.01em; margin-bottom:4px;}
   .interview-quote{font-size:14px; font-weight:700; line-height:1.5;}
   .interview-byline{font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
@@ -96,7 +98,7 @@
     .nav-links .nav-btn{border:none; border-radius:0; padding:13px 4px; border-bottom:1px solid var(--line); background:transparent; text-align:left; width:100%;}
   }
   .picks-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px;}
-  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:18px; padding:22px 20px; cursor:pointer; box-shadow:var(--shadow-sm); transition:box-shadow .15s, transform .15s;}
+  .pick-card{background:var(--white); border:1px solid var(--line); border-radius:22px; padding:22px 20px; cursor:pointer; box-shadow:var(--shadow-sm); transition:box-shadow .15s, transform .15s;}
   .pick-card:hover{box-shadow:var(--shadow-md); transform:translateY(-2px); border-color:var(--pink);}
   .pick-staff{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
   .pick-avatar{
@@ -110,11 +112,12 @@
   .pick-project .a{font-size:11.5px; color:var(--ink-soft); margin-top:3px;}
   .pick-project .g{font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:100px;}
   @media (max-width:700px){ .picks-row{grid-template-columns:1fr;} }
+  @media (max-width:480px){ .browse-stats{gap:8px;} .bstat{padding:10px 6px;} .bstat b{font-size:17px;} .bstat span{font-size:9.5px;} }
   .filters{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
-  .chip{border:1.5px solid var(--line);border-radius:20px;padding:6px 16px;font-size:13px;background:var(--white);cursor:pointer;color:var(--ink-soft);font-weight:700;}
+  .chip{border:1.5px solid var(--line);border-radius:26px;padding:6px 16px;font-size:13px;background:var(--white);cursor:pointer;color:var(--ink-soft);font-weight:700;}
   .chip.active{background:var(--indigo);border-color:var(--indigo);color:var(--white);font-weight:700;}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-  .p-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--white);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .15s, box-shadow .15s;}
+  .p-card{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:var(--white);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .15s, box-shadow .15s;}
   .p-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
   .p-card .thumb{background:var(--card);padding:24px 20px;border-bottom:0.5px solid var(--line);}
   .p-card .mark{margin-bottom:10px;}
@@ -131,7 +134,7 @@
   /* detail */
   .back{background:none;border:none;color:var(--ink-soft);font-size:13px;cursor:pointer;padding:0;margin-bottom:22px;}
   .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
-  .d-visual{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:36px 28px;box-shadow:var(--shadow-sm);}
+  .d-visual{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:36px 28px;box-shadow:var(--shadow-sm);}
   .d-visual .mark{margin-bottom:16px;}
   .d-visual .mark svg, .d-visual .mark img{width:52px;height:52px;}
   .d-visual .catch{font-size:19px;font-weight:600;line-height:1.7;}
@@ -140,19 +143,19 @@
   .d-body .lead{font-size:14px;color:var(--ink-soft);margin:0 0 22px;}
   .stat-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);margin:14px 0 24px;}
   .stat-row b{display:block;font-size:22px;color:var(--ink);font-family:'Shippori Mincho',serif;font-weight:700;}
-  .tier{border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .tier{border:1.5px solid var(--line);border-radius:18px;padding:14px 18px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
   .tier:hover{border-color:var(--g-color,var(--indigo));}
   .tier.selected{border-color:var(--g-color,var(--indigo));border-width:2px;background:var(--card);}
   .tier b{font-family:'Shippori Mincho',serif;font-size:16px;}
   .tier .badge{font-size:11px;color:var(--white);background:var(--pink);font-weight:700;border-radius:12px;padding:3px 10px;}
-  .btn{border:1.5px solid var(--pink);border-radius:24px;background:var(--pink);color:var(--white);padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;width:100%;margin-top:8px;}
+  .btn{border:1.5px solid var(--pink);border-radius:30px;background:var(--pink);color:var(--white);padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;width:100%;margin-top:8px;}
   .btn:disabled{opacity:0.4;cursor:not-allowed;}
   .btn-ghost{background:var(--white);color:var(--ink);border-color:var(--line);}
 
   /* modal */
   .modal-overlay{display:none;position:fixed;inset:0;background:rgba(23,38,31,0.4);align-items:center;justify-content:center;z-index:20;}
   .modal-overlay.active{display:flex;}
-  .modal{background:var(--white);border:none;border-radius:24px;padding:32px 30px;width:360px;max-width:90vw;box-shadow:var(--shadow-lg);}
+  .modal{background:var(--white);border:none;border-radius:30px;padding:32px 30px;width:360px;max-width:90vw;box-shadow:var(--shadow-lg);}
   .modal h3{font-size:17px;margin:0 0 6px;}
   .modal p{font-size:13px;color:var(--ink-soft);margin:0 0 20px;}
   .modal .tier-name{font-size:15px;font-weight:700;margin-bottom:4px;}
@@ -192,7 +195,7 @@
   .profile-role{font-size:13px; color:var(--ink-soft);}
   .profile-bio{font-size:14.5px; line-height:1.9; color:var(--ink-soft); max-width:520px; margin:20px auto 0; text-align:left;}
   .profile-works h3{font-size:15px; font-weight:800; margin:32px 0 14px;}
-  .profile-work-card{display:flex; justify-content:space-between; align-items:center; border:1px solid var(--line); border-radius:16px; padding:16px 18px; cursor:pointer; box-shadow:var(--shadow-sm); margin-bottom:10px;}
+  .profile-work-card{display:flex; justify-content:space-between; align-items:center; border:1px solid var(--line); border-radius:20px; padding:16px 18px; cursor:pointer; box-shadow:var(--shadow-sm); margin-bottom:10px;}
   .profile-work-card:hover{box-shadow:var(--shadow-md);}
   .profile-work-card .wt{font-size:14px; font-weight:700;}
   .profile-work-card .wg{font-size:11px; color:var(--ink-soft); margin-top:2px;}
@@ -201,11 +204,11 @@
   /* mypage */
   .my-section{margin-bottom:40px;}
   .my-section h3{font-size:16px;margin:0 0 16px;}
-  .my-project{border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow-sm);}
+  .my-project{border:1px solid var(--line);border-radius:22px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow-sm);}
   .my-project .row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px;}
-  .empty{font-size:13.5px;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:16px;padding:24px;text-align:center;}
+  .empty{font-size:13.5px;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:20px;padding:24px;text-align:center;}
 
-  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--pink);color:var(--white);border-radius:24px;padding:12px 22px;font-size:13.5px;display:none;z-index:30;}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--pink);color:var(--white);border-radius:30px;padding:12px 22px;font-size:13.5px;display:none;z-index:30;}
 </style>
 </head>
 <body>
@@ -265,7 +268,7 @@
         <div class="pick-card" onclick="openDetail('p1')">
           <div class="pick-staff">
             <div class="pick-avatar">選</div>
-            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">書評家・佐藤<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
           </div>
           <div class="pick-comment">着想の段階から追えるのが新鮮でした。連作短編になっていく過程を一緒に見届けたいです。</div>
           <div class="pick-project"><div><span class="t">まだ見ぬ町の、灯り</span><div class="a" style="text-decoration:underline;cursor:pointer;" onclick="event.stopPropagation();showView('profile');">宵町灯</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -273,7 +276,7 @@
         <div class="pick-card" onclick="openDetail('p4')">
           <div class="pick-staff">
             <div class="pick-avatar">選</div>
-            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">独立書店主・中村<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
           </div>
           <div class="pick-comment">現場インタビューの生々しさが誌面からも伝わってきます。経営者に配りたい一冊。</div>
           <div class="pick-project"><div><span class="t">数字が語らない現場</span><div class="a">架空三郎</div></div><span class="g" style="background:#FBE9E9;color:var(--red);">ビジネス書</span></div>
@@ -281,7 +284,7 @@
         <div class="pick-card" onclick="openDetail('p6')">
           <div class="pick-staff">
             <div class="pick-avatar">選</div>
-            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div><div class="who">社外選者</div></div>
+            <div><div style="font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">選書家・吉田<img src="badge.png" alt="" style="width:16px;height:16px;border-radius:50%;vertical-align:-2px;"></div></div>
           </div>
           <div class="pick-comment">読み終えたあと、自分の祖母の台所を思い出しました。静かに刺さる文章です。</div>
           <div class="pick-project"><div><span class="t">台所に残る、声</span><div class="a">架空花子</div></div><span class="g" style="background:#EAF2FC;color:var(--blue);">小説</span></div>
@@ -516,19 +519,19 @@ const seedProjects = [
    lead:'土地勘のない町を歩き、そこで出会った人々をもとにした連作短編。',
    content:'著者が実際に降り立ったことのない町を選び、地図と勘だけを頼りに歩く。そこで交わした立ち話やすれ違った人の後ろ姿から、一編の物語を立ち上げる連作短編集。全五話を予定しており、支援者から寄せられた「知らない町」の情報も取材候補になる。',
    target:900000, raised:210000, backers:38,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4000,popular:true},{name:'完成本に名前を掲載',amount:15000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4000,popular:true},{name:'奥付に名前が残る',amount:15000,popular:false}]},
   {id:'p2', title:'潮の引く音を、まだ覚えている', author:'架空ミカ', genre:'小説',
    catch:'港町を出た者にしか、聞こえない音がある。',
    lead:'故郷を離れた三姉妹の視点で描く、記憶と海の物語。',
    content:'進学・結婚・仕事を機にそれぞれ違う理由で港町を離れた三姉妹が、父の入院をきっかけに十数年ぶりに集まる。三人それぞれの語りが交互に進み、同じ夏の記憶が少しずつ違う形で立ち上がってくる構成の長編小説。',
    target:1100000, raised:640000, backers:97,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'装丁ラフに意見する',amount:18000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:5000,popular:true},{name:'奥付に名前が残る',amount:18000,popular:false}]},
   {id:'p3', title:'誰も座らなかった椅子', author:'架空健太', genre:'小説',
    catch:'空席のまま進んだ会議室から、物語は始まる。',
    lead:'ある企業の会議室を舞台に、不在の人物をめぐる群像劇。',
    content:'定例会議で、いつも座っていたはずの椅子が空いたままになる。誰も彼の不在について触れないまま会議は進み、参加者それぞれの視点から、その人物と組織の関係が少しずつ明らかになっていく短編連作。',
    target:800000, raised:95000, backers:19,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4500,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4500,popular:true}]},
 
   // ビジネス書
   {id:'p4', title:'数字が語らない現場', author:'架空三郎', genre:'ビジネス書',
@@ -536,13 +539,13 @@ const seedProjects = [
    lead:'定量化できない判断の積み重ねを、現場インタビューをもとに言語化する。',
    content:'製造・接客・医療など、数値化しづらい判断が積み重なる現場で働く十数名への聞き取りをもとに、KPIでは説明できない「勘」がどのように生まれ、どう受け継がれているのかを整理する一冊。マネジメント層が現場の暗黙知をどう扱うべきかにも触れる。',
    target:2000000, raised:1860000, backers:301,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:6000,popular:true},{name:'講演会に招待',amount:50000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:6000,popular:true},{name:'奥付に名前が残る',amount:50000,popular:false}]},
   {id:'p5', title:'会議で消えていく言葉', author:'架空久美子', genre:'ビジネス書',
    catch:'発言は残らないのに、なぜ議事録は残るのか。',
    lead:'言った言葉が扱われずに消えていく組織のコミュニケーションを分析する。',
    content:'会議で発言されたにもかかわらず議事録に残らない言葉に着目し、複数企業の会議を観察・分析。発言が「なかったこと」になる構造を明らかにしながら、拾われる発言と消える発言を分けるものは何かを検証する。',
    target:1500000, raised:420000, backers:64,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'社内勉強会に招待',amount:80000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:5000,popular:true},{name:'奥付に名前が残る',amount:80000,popular:false}]},
 
   // 小説（実用書として登録していたものを移動）
   {id:'p6', title:'台所に残る、声', author:'架空花子', genre:'小説',
@@ -550,19 +553,19 @@ const seedProjects = [
    lead:'レシピではなく手つきに宿るものを追って、消えていく台所の記憶を一冊にする。',
    content:'祖母が亡くなったあと、レシピを書き残していなかったことに気づいた著者が、味の記憶だけを頼りに台所に立つ。分量よりも手つきや間合いに宿っていたものを言葉にしようとする、エッセイと小説のあいだのような一冊。',
    target:1200000, raised:780000, backers:142,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'取材同行に参加',amount:20000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:5000,popular:true},{name:'奥付に名前が残る',amount:20000,popular:false}]},
   {id:'p7', title:'続けられる家計簿のつくりかた', author:'架空隆', genre:'実用書',
    catch:'続かないのは、あなたのせいではない。',
    lead:'挫折前提で設計する、三日坊主のための家計管理術。',
    content:'「三日坊主」を前提に設計された家計管理の実践書。完璧な記録を目指すのではなく、抜けても再開しやすい仕組みづくりに焦点を当て、著者自身が7年間続けている簡易フォーマットとその失敗の記録を公開する。',
    target:700000, raised:340000, backers:88,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'テンプレート先行配布',amount:3000,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:3000,popular:true}]},
   {id:'p8', title:'引っ越しを、もう怖がらない', author:'架空さゆり', genre:'実用書',
    catch:'荷造りより先に、手続きの地図がいる。',
    lead:'手続き・費用・タイミングを一冊に整理した実践的引っ越しガイド。',
    content:'荷造りのノウハウよりも先に必要な、役所・電気ガス水道・ネット回線・郵便物などの手続き順序を時系列で整理したガイド。著者自身の5回の引っ越し経験から、忘れやすい手続きとその代替策を具体的にまとめる。',
    target:600000, raised:150000, backers:41,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'チェックリスト先行配布',amount:2500,popular:true},{name:'個別相談30分',amount:12000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:2500,popular:true},{name:'奥付に名前が残る',amount:12000,popular:false}]},
 
   // 自己啓発
   {id:'p9', title:'がんばらない目標の立て方', author:'架空明', genre:'自己啓発',
@@ -570,13 +573,13 @@ const seedProjects = [
    lead:'意志力に頼らない目標設定の仕組みを、行動科学の視点から解説する。',
    content:'「やる気」を前提にした目標設定がなぜ続かないのかを行動科学の知見から解き明かし、意志力に依存しない仕組みづくりを提案する。環境設計・小さな行動単位への分解など、すぐに試せる方法を中心に構成する。',
    target:1000000, raised:530000, backers:112,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true},{name:'ワークシート個別添削',amount:22000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4500,popular:true},{name:'奥付に名前が残る',amount:22000,popular:false}]},
   {id:'p10', title:'断る力を、はじめて使う日', author:'架空真由美', genre:'自己啓発',
    catch:'断れない人は、優しいのではなく怖いだけ。',
    lead:'断ることへの罪悪感の正体を、心理学と実体験から解きほぐす。',
    content:'「優しさ」だと思い込んでいた断れなさの正体が、実は対人不安であることに気づいた著者の実体験を軸に、断ることへの罪悪感を心理学的な視点から解きほぐす。断る練習のための具体的なフレーズ集も収録予定。',
    target:850000, raised:200000, backers:47,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4000,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4000,popular:true}]},
 
   // 趣味
   {id:'p11', title:'週末だけの家庭菜園記', author:'架空亮', genre:'趣味',
@@ -584,19 +587,19 @@ const seedProjects = [
    lead:'ベランダから始めた家庭菜園4年間の失敗と収穫の記録。',
    content:'ベランダのプランター栽培から始まり、庭付き住宅への引っ越しを経て畑を借りるまでの4年間を、成功より失敗の記録として綴るエッセイ。枯らした野菜のリストと、その原因の考察が全体の半分を占める。',
    target:500000, raised:180000, backers:52,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'種のおすそ分け付き',amount:3500,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:3500,popular:true}]},
   {id:'p12', title:'古道具と暮らす、という選択', author:'架空千夏', genre:'趣味',
    catch:'新品より、直せるものを選ぶ暮らし方。',
    lead:'骨董市で出会った古道具たちと、その直し方・使い方を綴るエッセイ。',
    content:'骨董市やリサイクルショップで見つけた家具・道具を、自分で直しながら暮らしに取り入れてきた10年間の記録。壊れたら買い替えるのではなく直すという選択が、暮らし方そのものにどう影響したかを綴る。',
    target:650000, raised:410000, backers:76,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:5000,popular:true},{name:'古道具ミニ鑑定会招待',amount:25000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:5000,popular:true},{name:'奥付に名前が残る',amount:25000,popular:false}]},
   {id:'p13', title:'独学ではじめる万年筆修理', author:'架空大輔', genre:'趣味',
    catch:'書けなくなったペンを、捨てる前に開けてみる。',
    lead:'工具の選び方から分解・調整までを写真付きで解説する実践ガイド。',
    content:'専門店に頼らず自分で万年筆を分解・調整する方法を、必要な工具の選び方から手順まで写真付きで解説する実践ガイド。壊しやすい失敗例を先に示すことで、初心者が同じ失敗を避けられる構成にする。',
    target:550000, raised:60000, backers:14,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4500,popular:true}]},
 
   // 研究書
   {id:'p14', title:'方言が消えるとき、何が残るのか', author:'架空教授・田村', genre:'研究書',
@@ -604,13 +607,13 @@ const seedProjects = [
    lead:'消滅危機言語の調査から見えてきた、言語と身体性の関係を論じる。',
    content:'消滅危機にある方言の話者への聞き取り調査をもとに、語彙が失われたあとも身振りやイントネーションの癖として残る言語の痕跡を分析する研究書。フィールドワークの記録と理論的考察を往復する構成で進める。',
    target:1800000, raised:920000, backers:58,
-   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:8000,popular:true},{name:'調査報告会に招待',amount:40000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:2000,popular:false},{name:'初版に支援者番号が入る',amount:8000,popular:true},{name:'奥付に名前が残る',amount:40000,popular:false}]},
   {id:'p15', title:'小さな商店街の経済学', author:'架空研究員・佐藤', genre:'ビジネス書',
    catch:'儲からない店が、なぜ潰れずに残るのか。',
    lead:'全国の商店街を対象にしたフィールドワークから、非経済合理的な存続要因を分析する。',
    content:'採算が取れていないように見える個人商店が、なぜ何十年も営業を続けられるのかを、全国十数か所の商店街への聞き取りから分析する。家賃・後継者・近隣店舗との関係性といった数字に表れない要因を丁寧に拾う。',
    target:1600000, raised:340000, backers:31,
-   tiers:[{name:'応援コメント',amount:2000,popular:false},{name:'先行読者になる',amount:7000,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:2000,popular:false},{name:'初版に支援者番号が入る',amount:7000,popular:true}]},
 
   // 美術
   {id:'p16', title:'誰も買わなかった絵の話', author:'架空画家・野村', genre:'美術',
@@ -618,19 +621,19 @@ const seedProjects = [
    lead:'画廊に並ばなかった30枚の絵と、それぞれを描いた事情をたどるエッセイ。',
    content:'個展のたびに売れ残ってきた作品ばかりを集め、なぜその絵を描かずにいられなかったのかを一枚ずつ振り返る。制作年順ではなく、売れなかった理由ごとに章立てする構成を予定している。',
    target:900000, raised:180000, backers:33,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行原稿を読む',amount:4000,popular:true},{name:'原画レプリカ付き',amount:35000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4000,popular:true},{name:'奥付に名前が残る',amount:35000,popular:false}]},
   {id:'p17', title:'美術館の閉まる音', author:'架空千鶴', genre:'美術',
    catch:'閉館のアナウンスが、一番好きだった。',
    lead:'全国の美術館で聞いた閉館前の時間だけを集めた、鑑賞記でも研究書でもないエッセイ。',
    content:'作品そのものより、閉館間際の静かな時間や、警備員の足音、最後の一人になる瞬間について書き続けてきたノートをまとめる。美術鑑賞の記録というより、その余白についての記録。',
    target:700000, raised:95000, backers:21,
-   tiers:[{name:'応援コメント',amount:1000,popular:false},{name:'先行読者になる',amount:4500,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:1000,popular:false},{name:'初版に支援者番号が入る',amount:4500,popular:true}]},
   {id:'p18', title:'贋作者の手記', author:'架空研究員・小林', genre:'美術',
    catch:'本物より、うまく描けてしまうことがある。',
    lead:'贋作事件の資料を読み解きながら、模倣と創作の境界を考えるノンフィクション。',
    content:'過去の贋作事件の裁判記録や証言を読み解きながら、なぜ模倣者たちが「本物以上」の絵を描けてしまったのかを追う。美術史ではなく、手を動かした人間の側から見た模倣論を目指す。',
    target:1100000, raised:410000, backers:47,
-   tiers:[{name:'応援コメント',amount:1500,popular:false},{name:'先行読者になる',amount:6000,popular:true},{name:'資料室ツアーに招待',amount:30000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:1500,popular:false},{name:'初版に支援者番号が入る',amount:6000,popular:true},{name:'奥付に名前が残る',amount:30000,popular:false}]},
 
   // コミック
   {id:'p19', title:'定時で帰るスライム', author:'架空漫画家・つじ', genre:'コミック',
@@ -638,19 +641,19 @@ const seedProjects = [
    lead:'冒険せず、残業もせず、ただ定時で帰りたいスライムの日常4コマ。',
    content:'勇者パーティーに拾われたスライムが、戦闘よりシフト管理と有給消化に命をかける日常4コマ。魔王討伐は遠い背景として進みつつ、スライムは今日も定時で帰る。全40話を予定。',
    target:600000, raised:210000, backers:88,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'キャラ原画データ',amount:9000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2500,popular:true},{name:'奥付に名前が残る',amount:9000,popular:false}]},
   {id:'p20', title:'祖父の写真館', author:'架空マキ', genre:'コミック',
    catch:'現像液の匂いだけ、今も覚えている。',
    lead:'昭和の写真館を営んでいた祖父の記憶をもとに描く、静かな一話完結漫画。',
    content:'閉業した町の写真館を舞台に、訪れる人々の一瞬を祖父の視点で描く一話完結オムニバス。派手な展開はなく、シャッターを切る前後の会話だけで一話が構成される。',
    target:850000, raised:120000, backers:39,
-   tiers:[{name:'応援コメント',amount:800,popular:false},{name:'先行話数を読む',amount:3000,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:800,popular:false},{name:'初版に支援者番号が入る',amount:3000,popular:true}]},
   {id:'p21', title:'よその家の夕飯', author:'架空漫画家・南', genre:'コミック',
    catch:'隣の匂いの方が、いつも美味しそうだった。',
    lead:'団地の各部屋から漂う夕飯の匂いだけで綴る、会話の少ない群像コミック。',
    content:'一つの団地に暮らす住人たちの夕方を、台詞ではなく匂いと湯気の描写だけでつなぐ実験的な群像漫画。各話の主役は変わるが、同じ時間の同じ団地を少しずつ描いていく。',
    target:700000, raised:65000, backers:24,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行話数を読む',amount:2500,popular:true},{name:'原画1枚プレゼント',amount:18000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2500,popular:true},{name:'奥付に名前が残る',amount:18000,popular:false}]},
 
   // 文芸（俳句・短歌・詩・エッセイ）
   {id:'p22', title:'季語のない句集', author:'架空俳人・柏', genre:'文芸',
@@ -658,28 +661,28 @@ const seedProjects = [
    lead:'歳時記に載らない、季節をまたぐ違和感だけを集めた句集。',
    content:'一句の中に季節が二つ入ってしまう、季語として認められない言葉を使ってしまう。そうした「季重なり」「無季」の句だけを、あえて選んで一冊にする試み。全80句を予定。',
    target:150000, raised:62000, backers:19,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行句を読む',amount:2000,popular:true},{name:'句集に一筆',amount:8000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2000,popular:true},{name:'奥付に名前が残る',amount:8000,popular:false}]},
   {id:'p23', title:'あなたの名前は詠まない', author:'架空真砂', genre:'文芸',
    catch:'一番書きたい人のことは、書かないと決めた。',
    lead:'特定の相手を思って詠んだ歌から、その人を特定できる言葉だけを抜いた歌集。',
    content:'長年ある一人に向けて詠んできた短歌から、名前や固有の情景を示す言葉だけを意図的に抜き、輪郭だけを残す形で一冊にまとめる。誰のことかは、読者にも著者にも分からなくなる。',
    target:200000, raised:54000, backers:14,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行歌を読む',amount:2500,popular:true}]},
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2500,popular:true}]},
   {id:'p24', title:'言い直した詩', author:'架空煉', genre:'文芸',
    catch:'一度書いた行を、何度も言い直す。',
    lead:'一篇の詩を書くたびに残してきた、書き直し途中のバージョンだけを集めた詩集。',
    content:'完成形ではなく、「まだ言い切れていない」状態の草稿を並べる構成の詩集。同じ主題を何度も言い直す過程そのものを読ませる、通常の詩集とは逆向きの編集方針をとる。',
    target:180000, raised:41000, backers:11,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行草稿を読む',amount:2200,popular:true},{name:'手書き草稿の写し',amount:12000,popular:false}]},
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2200,popular:true},{name:'奥付に名前が残る',amount:12000,popular:false}]},
   {id:'p25', title:'なんでもない日の記録', author:'架空日向子', genre:'文芸',
    catch:'何も起きなかった日ほど、書き残したくなる。',
    lead:'事件も転機もない、ただの一日だけを選んで書き続けてきたエッセイ集。',
    content:'旅行記でも人生の転機でもなく、「特に何もなかった」と自分で言ってしまうような日だけを選び、その日に見た些細なことを書き留めてきた日記から、40編を選んでまとめる。',
    target:250000, raised:98000, backers:27,
-   tiers:[{name:'応援コメント',amount:500,popular:false},{name:'先行原稿を読む',amount:2500,popular:true},{name:'手紙のお返事付き',amount:15000,popular:false}]}
+   tiers:[{name:'支援者として記録される',amount:500,popular:false},{name:'初版に支援者番号が入る',amount:2500,popular:true},{name:'奥付に名前が残る',amount:15000,popular:false}]}
 ];
 
-const DATA_VERSION = 'v9';
+const DATA_VERSION = 'v10';
 
 async function loadData(){
   let storedVersion = null;
@@ -923,8 +926,8 @@ function resetForm(){
   document.getElementById('f-lead').value='';
   document.getElementById('f-target').value='';
   document.getElementById('tier-inputs').innerHTML='';
-  addTierInput('応援コメント',1000);
-  addTierInput('先行読者になる',5000);
+  addTierInput('支援者として記録される',1000);
+  addTierInput('初版に支援者番号が入る',5000);
 }
 function addTierInput(name='',amount=''){
   const row = document.createElement('div');
@@ -958,7 +961,7 @@ async function publishProject(){
   }).filter(t=>t.name);
   const newProject = {
     id: 'p'+Date.now(), title, author, genre, catch: catchv, lead,
-    target, raised:0, backers:0, tiers: tiers.length?tiers:[{name:'応援コメント',amount:1000,popular:false}]
+    target, raised:0, backers:0, tiers: tiers.length?tiers:[{name:'支援者として記録される',amount:1000,popular:false}]
   };
   projects.unshift(newProject);
   await saveProjects();
